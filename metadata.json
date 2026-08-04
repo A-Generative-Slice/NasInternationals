@@ -1,0 +1,6 @@
+{
+  "name": "NAS Internationals Tours & Travels",
+  "description": "Tripate.com by NAS Internationals - Online visa application portal, small group tour packages, Hajj & Umrah, and AI travel itinerary generator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
