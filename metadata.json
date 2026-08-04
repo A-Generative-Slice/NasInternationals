@@ -1,0 +1,6 @@
+{
+  "name": "NAS Internationals - Visa & Travel Portal",
+  "description": "Interactive Visa Finder, multi-step application wizard, payment verification tracker, user dashboard, and admin operations portal for NAS Internationals.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
