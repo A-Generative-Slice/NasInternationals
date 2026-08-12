@@ -120,9 +120,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       return 'access-denied';
     }
     if (path.includes('/dashboard') || hash.includes('dashboard')) return 'user-dashboard';
-    if (path.includes('/visas') || hash.includes('visas')) return 'visa-finder';
+    if (path.includes('/tours') || hash.includes('tours')) return 'tours';
+    if (path.includes('/visas') || hash.includes('visas') || hash.includes('visa')) return 'visa-finder';
+    if (path.includes('/contact') || hash.includes('contact')) return 'contact';
+    if (path.includes('/blogs') || hash.includes('blogs')) return 'blogs';
+    if (path.includes('/faqs') || hash.includes('faqs') || hash.includes('faq')) return 'faqs';
     if (path.includes('/apply') || hash.includes('apply')) return 'wizard';
-    return 'visa-finder';
+    if (path.includes('/payment') || hash.includes('payment')) return 'payment-tracker';
+    return 'home';
   };
 
   const [currentView, setCurrentViewRaw] = useState<ViewMode>(getInitialView);
@@ -172,8 +177,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       window.location.hash = '#/admin/login';
     } else if (view === 'user-dashboard') {
       window.location.hash = '#/dashboard';
+    } else if (view === 'tours') {
+      window.location.hash = '#/tours';
     } else if (view === 'visa-finder') {
       window.location.hash = '#/visas';
+    } else if (view === 'contact') {
+      window.location.hash = '#/contact';
+    } else if (view === 'blogs') {
+      window.location.hash = '#/blogs';
+    } else if (view === 'faqs') {
+      window.location.hash = '#/faqs';
     } else if (view === 'wizard') {
       window.location.hash = '#/apply';
     } else if (view === 'payment-tracker') {
@@ -196,10 +209,20 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       setCurrentView('admin-login');
     } else if (cleanPath.includes('/dashboard')) {
       setCurrentView('user-dashboard');
-    } else if (cleanPath.includes('/visas')) {
+    } else if (cleanPath.includes('/tours')) {
+      setCurrentView('tours');
+    } else if (cleanPath.includes('/visas') || cleanPath.includes('/visa')) {
       setCurrentView('visa-finder');
+    } else if (cleanPath.includes('/contact')) {
+      setCurrentView('contact');
+    } else if (cleanPath.includes('/blogs')) {
+      setCurrentView('blogs');
+    } else if (cleanPath.includes('/faqs') || cleanPath.includes('/faq')) {
+      setCurrentView('faqs');
     } else if (cleanPath.includes('/apply')) {
       setCurrentView('wizard');
+    } else if (cleanPath.includes('/payment')) {
+      setCurrentView('payment-tracker');
     } else {
       setCurrentView('home');
     }
@@ -217,8 +240,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         else setCurrentViewRaw('access-denied');
       } else if (p.includes('/dashboard') || h.includes('dashboard')) {
         setCurrentViewRaw('user-dashboard');
-      } else if (p.includes('/visas') || h.includes('visas')) {
+      } else if (p.includes('/tours') || h.includes('tours')) {
+        setCurrentViewRaw('tours');
+      } else if (p.includes('/visas') || h.includes('visas') || h.includes('visa')) {
         setCurrentViewRaw('visa-finder');
+      } else if (p.includes('/contact') || h.includes('contact')) {
+        setCurrentViewRaw('contact');
+      } else if (p.includes('/blogs') || h.includes('blogs')) {
+        setCurrentViewRaw('blogs');
+      } else if (p.includes('/faqs') || h.includes('faqs') || h.includes('faq')) {
+        setCurrentViewRaw('faqs');
       } else if (p.includes('/apply') || h.includes('apply')) {
         setCurrentViewRaw('wizard');
       } else if (p.includes('/payment') || h.includes('payment')) {

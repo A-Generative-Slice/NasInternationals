@@ -3,7 +3,11 @@ import { AppProvider, useApp } from './context/AppContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { LandingView } from './components/views/LandingView';
-import { VisaFinderView } from './components/views/VisaFinderView';
+import { ToursView } from './components/views/ToursView';
+import { VisaView } from './components/views/VisaView';
+import { ContactView } from './components/views/ContactView';
+import { BlogsView } from './components/views/BlogsView';
+import { FaqsView } from './components/views/FaqsView';
 import { WizardView } from './components/views/WizardView';
 import { UserDashboardView } from './components/views/UserDashboardView';
 import { AdminDashboardView } from './components/views/AdminDashboardView';
@@ -21,8 +25,16 @@ const MainContent: React.FC = () => {
     switch (currentView) {
       case 'home':
         return <LandingView />;
+      case 'tours':
+        return <ToursView />;
       case 'visa-finder':
-        return <VisaFinderView />;
+        return <VisaView />;
+      case 'contact':
+        return <ContactView />;
+      case 'blogs':
+        return <BlogsView />;
+      case 'faqs':
+        return <FaqsView />;
       case 'wizard':
         return <WizardView />;
       case 'user-dashboard':

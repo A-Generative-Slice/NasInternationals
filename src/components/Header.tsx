@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Globe, Plane, User, LayoutDashboard, FileText, CreditCard, LogOut, Menu, X, ShieldCheck, LogIn, UserPlus } from 'lucide-react';
+import { Plane, User, LogOut, Menu, X, ShieldCheck, LogIn, UserPlus, Compass } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export const Header: React.FC = () => {
@@ -12,149 +12,134 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-[#0B1E3D] text-white border-b border-slate-800/80 shadow-lg">
-      
-      {/* Top Banner Announcement */}
-      <div className="bg-[#071329] border-b border-slate-800/60 py-1.5 px-4 text-xs">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-2 text-slate-300 font-medium">
-            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-[#C8A24A]/20 text-[#EAC166] border border-[#C8A24A]/30">
-              OFFICIAL PORTAL
-            </span>
-            <span className="hidden sm:inline">🎉 Express 48-Hour UAE & Schengen Visa Processing Available!</span>
-          </div>
-
-          <div className="flex items-center space-x-4 text-[11px] text-slate-300">
-            <span>24/7 Hotline: <strong className="text-[#EAC166]">+901-974-0030</strong></span>
-            {currentUser && (
-              <span className="hidden md:inline px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[10px] font-mono">
-                Role: <strong className="text-emerald-400">{currentUser.role}</strong>
-              </span>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-[#062544] text-white border-b border-slate-800/80 shadow-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* Brand Logo */}
-        <div className="flex items-center space-x-3 cursor-pointer" onClick={() => handleNavClick('/')}>
-          <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#C8A24A] via-[#EAC166] to-[#9A772B] p-0.5 flex items-center justify-center shadow-md shadow-[#C8A24A]/20">
-            <div className="w-full h-full bg-[#0B1E3D] rounded-full flex items-center justify-center">
-              <Globe className="w-5 h-5 text-[#EAC166]" />
-            </div>
+        {/* Brand Logo - Tripate / NAS Internationals */}
+        <div className="flex items-center space-x-2.5 cursor-pointer" onClick={() => handleNavClick('/')}>
+          <div className="w-10 h-10 rounded-full bg-[#F5B800] flex items-center justify-center text-[#062544] shadow-md">
+            <Plane className="w-6 h-6 transform -rotate-45" />
           </div>
-          <div>
-            <div className="font-display text-xl font-extrabold tracking-tight text-white flex items-center">
-              NAS <span className="text-[#EAC166] ml-1 font-semibold text-sm tracking-widest">INTERNATIONALS</span>
-            </div>
-            <p className="text-[10px] text-slate-400 font-medium tracking-wide">Tours & Visa Services</p>
+          <div className="flex flex-col">
+            <span className="font-extrabold text-2xl tracking-tight text-white flex items-center">
+              tripate
+              <span className="text-[#F5B800] ml-1.5 text-xs font-semibold uppercase tracking-widest bg-[#F5B800]/20 px-1.5 py-0.5 rounded border border-[#F5B800]/30">
+                NAS
+              </span>
+            </span>
           </div>
         </div>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center space-x-7">
+        <nav className="hidden lg:flex items-center space-x-8">
           <button
             onClick={() => handleNavClick('/')}
-            className={`text-sm font-medium transition-colors ${
-              currentView === 'home' || currentView === 'visa-finder' ? 'text-[#EAC166] font-semibold' : 'text-slate-200 hover:text-[#EAC166]'
+            className={`text-sm font-semibold transition-colors ${
+              currentView === 'home' ? 'text-[#F5B800]' : 'text-slate-200 hover:text-[#F5B800]'
             }`}
           >
-            Home / Visas
+            Home
           </button>
-          
+
+          {/* Tours Nav item with yellow "NEW" pill badge above */}
+          <div className="relative">
+            <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#F5B800] text-[#062544] text-[9px] font-black px-1.5 py-0.2 rounded-full uppercase tracking-wider shadow-sm">
+              NEW
+            </span>
+            <button
+              onClick={() => handleNavClick('/tours')}
+              className={`text-sm font-semibold transition-colors ${
+                currentView === 'tours' ? 'text-[#F5B800]' : 'text-slate-200 hover:text-[#F5B800]'
+              }`}
+            >
+              Tours
+            </button>
+          </div>
+
           <button
-            onClick={() => handleNavClick('/apply')}
-            className={`text-sm font-medium transition-colors ${
-              currentView === 'wizard' ? 'text-[#EAC166] font-semibold' : 'text-slate-200 hover:text-[#EAC166]'
+            onClick={() => handleNavClick('/visas')}
+            className={`text-sm font-semibold transition-colors ${
+              currentView === 'visa-finder' ? 'text-[#F5B800]' : 'text-slate-200 hover:text-[#F5B800]'
             }`}
           >
-            Apply Now
+            Visa
           </button>
 
           <button
-            onClick={() => handleNavClick('/dashboard')}
-            className={`text-sm font-medium transition-colors ${
-              currentView === 'user-dashboard' ? 'text-[#EAC166] font-semibold' : 'text-slate-200 hover:text-[#EAC166]'
+            onClick={() => handleNavClick('/contact')}
+            className={`text-sm font-semibold transition-colors ${
+              currentView === 'contact' ? 'text-[#F5B800]' : 'text-slate-200 hover:text-[#F5B800]'
             }`}
           >
-            My Dashboard
+            Contact Us
           </button>
 
           <button
-            onClick={() => handleNavClick('/payment-tracker')}
-            className={`text-sm font-medium transition-colors ${
-              currentView === 'payment-tracker' ? 'text-[#EAC166] font-semibold' : 'text-slate-200 hover:text-[#EAC166]'
+            onClick={() => handleNavClick('/blogs')}
+            className={`text-sm font-semibold transition-colors ${
+              currentView === 'blogs' ? 'text-[#F5B800]' : 'text-slate-200 hover:text-[#F5B800]'
             }`}
           >
-            Track Payment
+            Blogs
           </button>
 
-          {/* If user logged in as ADMIN, show explicit Admin Console link */}
+          <button
+            onClick={() => handleNavClick('/faqs')}
+            className={`text-sm font-semibold transition-colors ${
+              currentView === 'faqs' ? 'text-[#F5B800]' : 'text-slate-200 hover:text-[#F5B800]'
+            }`}
+          >
+            FAQ's
+          </button>
+
+          {/* Admin console button if ADMIN */}
           {userRole === 'ADMIN' && (
             <button
               onClick={() => handleNavClick('/admin/dashboard')}
-              className="text-xs font-bold px-3 py-1.5 rounded-xl bg-amber-500/20 text-[#EAC166] border border-[#EAC166]/40 hover:bg-amber-500/30 transition-all flex items-center space-x-1.5"
+              className="text-xs font-bold px-3 py-1.5 rounded-full bg-amber-500/20 text-[#F5B800] border border-[#F5B800]/40 hover:bg-amber-500/30 transition-all flex items-center space-x-1.5"
             >
-              <ShieldCheck className="w-3.5 h-3.5 text-[#EAC166]" />
-              <span>Admin Console</span>
+              <ShieldCheck className="w-3.5 h-3.5 text-[#F5B800]" />
+              <span>Admin</span>
             </button>
           )}
         </nav>
 
-        {/* Right Auth Action Buttons */}
+        {/* Right Action Button (Yellow Rounded Pill Login/Signup) */}
         <div className="hidden sm:flex items-center space-x-3">
           {currentUser ? (
             <div className="flex items-center space-x-3">
               <button
                 onClick={() => handleNavClick('/dashboard')}
-                className="flex items-center space-x-2.5 bg-slate-800/90 hover:bg-slate-700 px-3.5 py-1.5 rounded-xl border border-slate-700 text-xs transition"
+                className="flex items-center space-x-2 bg-[#F5B800] hover:bg-[#e0a800] text-[#062544] font-bold px-4 py-2.5 rounded-full text-xs shadow-md transition-all cursor-pointer"
               >
-                <div className="w-6 h-6 rounded-full bg-[#036CFB] text-white flex items-center justify-center font-extrabold text-xs">
-                  {currentUser.name ? currentUser.name.charAt(0) : 'U'}
-                </div>
-                <div className="text-left">
-                  <span className="font-bold block text-slate-100">{currentUser.name || 'User Account'}</span>
-                  <span className="text-[10px] text-[#EAC166] block -mt-0.5">{currentUser.role || 'USER'}</span>
-                </div>
+                <User className="w-4 h-4" />
+                <span>{currentUser.name ? currentUser.name.split(' ')[0] : 'Account'}</span>
               </button>
 
               <button
                 onClick={logout}
                 title="Sign Out"
-                className="p-2 rounded-xl bg-slate-800/80 text-slate-400 hover:text-rose-400 hover:bg-slate-700 transition-colors"
+                className="p-2.5 rounded-full bg-slate-800 text-slate-300 hover:text-rose-400 hover:bg-slate-700 transition"
               >
                 <LogOut className="w-4 h-4" />
               </button>
             </div>
           ) : (
-            /* Strict User Requirements: Display ONLY Login and Register buttons on the public website */
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={() => openAuthModal('login')}
-                className="px-4 py-2 text-xs font-bold text-slate-200 hover:text-white bg-slate-800/90 hover:bg-slate-700 border border-slate-700 rounded-xl transition-all flex items-center space-x-1.5 cursor-pointer"
-              >
-                <LogIn className="w-3.5 h-3.5 text-[#EAC166]" />
-                <span>Login</span>
-              </button>
-
-              <button
-                onClick={() => openAuthModal('register')}
-                className="px-4 py-2 text-xs font-bold text-[#0B1E3D] bg-[#EAC166] hover:bg-[#cba248] rounded-xl shadow-md transition-all flex items-center space-x-1.5 cursor-pointer"
-              >
-                <UserPlus className="w-3.5 h-3.5" />
-                <span>Register</span>
-              </button>
-            </div>
+            <button
+              onClick={() => openAuthModal('login')}
+              className="px-6 py-2.5 bg-[#F5B800] hover:bg-[#e0a800] text-[#062544] font-bold text-xs rounded-full shadow-md transition-all flex items-center space-x-2 cursor-pointer"
+            >
+              <User className="w-4 h-4 fill-current" />
+              <span>Login/Signup</span>
+            </button>
           )}
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile menu trigger */}
         <div className="lg:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-slate-300 hover:bg-slate-800 focus:outline-none"
+            className="p-2 rounded-lg text-slate-300 hover:bg-slate-800"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -163,66 +148,70 @@ export const Header: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#071329] border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
-          <div className="space-y-2 pb-3 border-b border-slate-800">
+        <div className="lg:hidden bg-[#041a30] border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
+          <div className="space-y-2 pb-3 border-b border-slate-800/80">
             <button
               onClick={() => handleNavClick('/')}
-              className="w-full text-left py-2 text-xs font-bold text-slate-200 hover:text-[#EAC166]"
+              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#F5B800]"
             >
-              Home / Visas
+              Home
             </button>
             <button
-              onClick={() => handleNavClick('/apply')}
-              className="w-full text-left py-2 text-xs font-bold text-slate-200 hover:text-[#EAC166]"
+              onClick={() => handleNavClick('/tours')}
+              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#F5B800] flex items-center justify-between"
             >
-              Apply Now
+              <span>Tours</span>
+              <span className="bg-[#F5B800] text-[#062544] text-[9px] font-black px-1.5 py-0.5 rounded-full uppercase">NEW</span>
             </button>
             <button
-              onClick={() => handleNavClick('/dashboard')}
-              className="w-full text-left py-2 text-xs font-bold text-slate-200 hover:text-[#EAC166]"
+              onClick={() => handleNavClick('/visas')}
+              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#F5B800]"
             >
-              My Dashboard
+              Visa
             </button>
             <button
-              onClick={() => handleNavClick('/payment-tracker')}
-              className="w-full text-left py-2 text-xs font-bold text-slate-200 hover:text-[#EAC166]"
+              onClick={() => handleNavClick('/contact')}
+              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#F5B800]"
             >
-              Track Payment
+              Contact Us
+            </button>
+            <button
+              onClick={() => handleNavClick('/blogs')}
+              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#F5B800]"
+            >
+              Blogs
+            </button>
+            <button
+              onClick={() => handleNavClick('/faqs')}
+              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#F5B800]"
+            >
+              FAQ's
             </button>
           </div>
 
-          {!currentUser ? (
-            <div className="grid grid-cols-2 gap-2 pt-2">
+          <div className="pt-2">
+            {!currentUser ? (
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   openAuthModal('login');
                 }}
-                className="py-2.5 text-center text-xs font-bold bg-slate-800 text-white rounded-xl border border-slate-700"
+                className="w-full py-3 bg-[#F5B800] text-[#062544] font-bold text-center rounded-full text-sm shadow-md"
               >
-                Login
+                Login / Signup
               </button>
+            ) : (
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  openAuthModal('register');
+                  logout();
                 }}
-                className="py-2.5 text-center text-xs font-bold bg-[#EAC166] text-[#0B1E3D] rounded-xl"
+                className="w-full py-3 bg-rose-900/40 text-rose-200 font-bold text-center rounded-full text-sm border border-rose-700/50"
               >
-                Register
+                Sign Out
               </button>
-            </div>
-          ) : (
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                logout();
-              }}
-              className="w-full py-2.5 text-center text-xs font-bold bg-rose-900/40 text-rose-200 rounded-xl border border-rose-700/50"
-            >
-              Sign Out ({currentUser.email})
-            </button>
-          )}
+            )}
+          </div>
         </div>
       )}
     </header>

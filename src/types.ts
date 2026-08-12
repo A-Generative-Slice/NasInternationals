@@ -1,6 +1,10 @@
 export type ViewMode = 
   | 'home' 
+  | 'tours'
   | 'visa-finder' 
+  | 'contact'
+  | 'blogs'
+  | 'faqs'
   | 'wizard' 
   | 'user-dashboard' 
   | 'admin-login'
