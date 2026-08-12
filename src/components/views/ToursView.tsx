@@ -116,7 +116,7 @@ export const ToursView: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 mb-10 pt-4">
           
           {/* Left Continent Pills */}
-          <div className="flex items-center space-x-2 overflow-x-auto bg-white p-1.5 rounded-full border border-slate-200 shadow-sm max-w-full">
+          <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar bg-white p-1.5 rounded-full border border-slate-200 shadow-sm max-w-full">
             {['All', 'Asia', 'Americas', 'Africa', 'Europe', 'Oceania'].map((continent) => (
               <button
                 key={continent}

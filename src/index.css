@@ -46,6 +46,32 @@
   .blue-gradient {
     background: linear-gradient(135deg, #0B1E3D 0%, #1A365D 50%, #036CFB 100%);
   }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Mobile Touch Optimization & Input Auto-zoom fix */
+html, body {
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 640px) {
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 }
 
 /* Custom scrollbar */

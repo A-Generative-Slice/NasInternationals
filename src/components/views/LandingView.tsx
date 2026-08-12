@@ -174,7 +174,7 @@ export const LandingView: React.FC = () => {
         {/* Category Pill Filters Bar + See More button */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10">
           
-          <div className="flex items-center space-x-2 overflow-x-auto bg-white p-1.5 rounded-full border border-slate-200 shadow-sm max-w-full">
+          <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar bg-white p-1.5 rounded-full border border-slate-200 shadow-sm max-w-full">
             {['All', 'Trending', 'E-Visa', 'Express', 'Cheapest'].map((category) => (
               <button
                 key={category}
