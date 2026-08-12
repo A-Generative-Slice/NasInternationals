@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plane, Search, ArrowUpRight, Star, ShieldCheck, CheckCircle2, Clock, Globe } from 'lucide-react';
+import { Plane, Search, ArrowUpRight, ShieldCheck, Clock, Globe, UserCheck, DollarSign, Headphones, Star } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 
 export const LandingView: React.FC = () => {
@@ -138,16 +138,16 @@ export const LandingView: React.FC = () => {
                   <img className="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="User" />
                   <img className="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="User" />
                 </div>
-                <div className="text-xs font-bold text-slate-700">Trusted by<br />Travelers</div>
+                <div className="text-xs font-bold text-slate-700">
+                  Trusted by Travelers <br />
+                  <span className="text-[10px] text-[#F5B800] font-extrabold">180+ successful visa journeys!</span>
+                </div>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column Image Space (Traveler Photo) */}
-          <div className="lg:col-span-5 hidden lg:block relative min-h-[500px]">
-            {/* Transparent placeholder space allowing background image traveler to shine */}
-          </div>
+          <div className="lg:col-span-5 hidden lg:block relative min-h-[500px]"></div>
 
         </div>
       </section>
@@ -164,7 +164,6 @@ export const LandingView: React.FC = () => {
             Explore Our Most Popular Destinations, <br className="hidden sm:inline" />
             Tailored For Every Traveler
 
-            {/* Flight trajectory arc line vector illustration */}
             <svg className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-64 h-8 text-[#F5B800]" viewBox="0 0 250 30" fill="none">
               <path d="M5 25 Q 125 0 245 25" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
               <polygon points="245,25 235,20 238,28" fill="currentColor" />
@@ -175,7 +174,6 @@ export const LandingView: React.FC = () => {
         {/* Category Pill Filters Bar + See More button */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10">
           
-          {/* Left Category Filter Pills */}
           <div className="flex items-center space-x-2 overflow-x-auto bg-white p-1.5 rounded-full border border-slate-200 shadow-sm max-w-full">
             {['All', 'Trending', 'E-Visa', 'Express', 'Cheapest'].map((category) => (
               <button
@@ -192,7 +190,6 @@ export const LandingView: React.FC = () => {
             ))}
           </div>
 
-          {/* Right See More button */}
           <button
             onClick={() => navigateTo('/visas')}
             className="px-6 py-2.5 bg-[#F5B800] hover:bg-[#e0a800] text-[#062544] font-bold text-xs rounded-full shadow-md transition-all flex items-center space-x-1.5 cursor-pointer shrink-0"
@@ -210,7 +207,6 @@ export const LandingView: React.FC = () => {
               onClick={() => navigateTo('/visas')}
               className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer flex flex-col"
             >
-              {/* Card Image Header */}
               <div className="relative h-64 overflow-hidden">
                 <img
                   src={destination.image}
@@ -218,14 +214,12 @@ export const LandingView: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 
-                {/* Badge Top Left */}
                 <div className="absolute top-4 left-4 bg-[#062544]/90 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1.5 rounded-full shadow-md flex items-center space-x-1.5">
                   <span className="w-2 h-2 rounded-full bg-[#F5B800] animate-pulse"></span>
                   <span>{destination.badge}</span>
                 </div>
               </div>
 
-              {/* Card Info Content */}
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
@@ -237,7 +231,6 @@ export const LandingView: React.FC = () => {
                     </p>
                   </div>
 
-                  {/* Price Tag */}
                   <div className="text-right">
                     <span className="text-2xl font-black text-[#F5B800]">
                       {destination.price}
@@ -251,42 +244,93 @@ export const LandingView: React.FC = () => {
 
       </section>
 
-      {/* WHY CHOOSE US SECTION */}
-      <section className="bg-white py-20 border-t border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      {/* WHY GO WITH NAS INTERNATIONALS SECTION (From Screenshots 3 & 4) */}
+      <section className="bg-[#041A30] text-white py-20 border-t border-slate-800 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+          
+          {/* Left Text & Features */}
+          <div className="lg:col-span-7 space-y-8">
             
-            <div className="p-8 rounded-3xl bg-[#F8FAFC] border border-slate-200/60 space-y-4">
-              <div className="w-14 h-14 rounded-full bg-[#F5B800]/20 text-[#062544] flex items-center justify-center mx-auto">
-                <Clock className="w-7 h-7 text-[#062544]" />
-              </div>
-              <h3 className="font-extrabold text-lg text-[#062544]">Fastest Turnaround</h3>
-              <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                Get your e-visas and express tourist visas processed in as fast as 24 to 48 hours.
+            <div className="space-y-3">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#F5B800]">
+                WHY GO WITH NAS INTERNATIONALS
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-tight">
+                Experience Hassle-free, Unforgettable <br />
+                Visa Journey With Expert Guidance
+              </h2>
+              <p className="text-sm font-medium text-slate-300 max-w-xl leading-relaxed">
+                We handle every detail of your visa process, ensuring a smooth and stress-free start to your journey.
               </p>
             </div>
 
-            <div className="p-8 rounded-3xl bg-[#F8FAFC] border border-slate-200/60 space-y-4">
-              <div className="w-14 h-14 rounded-full bg-[#F5B800]/20 text-[#062544] flex items-center justify-center mx-auto">
-                <ShieldCheck className="w-7 h-7 text-[#062544]" />
+            {/* 4 Feature Items */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+              
+              <div className="flex items-start space-x-3.5">
+                <div className="w-10 h-10 rounded-full bg-[#F5B800] text-[#062544] flex items-center justify-center shrink-0 shadow-md">
+                  <UserCheck className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-sm text-white">Expert Guidance</h4>
+                  <p className="text-xs text-slate-300 leading-relaxed mt-1">
+                    Our visa team knows exactly what documents you need and helps you avoid mistakes that cause delays.
+                  </p>
+                </div>
               </div>
-              <h3 className="font-extrabold text-lg text-[#062544]">99.4% Approval Success</h3>
-              <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                Thorough document checking by visa specialists ensures error-free submission.
-              </p>
-            </div>
 
-            <div className="p-8 rounded-3xl bg-[#F8FAFC] border border-slate-200/60 space-y-4">
-              <div className="w-14 h-14 rounded-full bg-[#F5B800]/20 text-[#062544] flex items-center justify-center mx-auto">
-                <Globe className="w-7 h-7 text-[#062544]" />
+              <div className="flex items-start space-x-3.5">
+                <div className="w-10 h-10 rounded-full bg-[#F5B800] text-[#062544] flex items-center justify-center shrink-0 shadow-md">
+                  <DollarSign className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-sm text-white">Best Price Guarantee</h4>
+                  <p className="text-xs text-slate-300 leading-relaxed mt-1">
+                    Competitive pricing, no hidden charges. Get full value for your money with every application.
+                  </p>
+                </div>
               </div>
-              <h3 className="font-extrabold text-lg text-[#062544]">100% Online Process</h3>
-              <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                No embassy visits required for major tourist destinations. Apply comfortably online.
-              </p>
+
+              <div className="flex items-start space-x-3.5">
+                <div className="w-10 h-10 rounded-full bg-[#F5B800] text-[#062544] flex items-center justify-center shrink-0 shadow-md">
+                  <Headphones className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-sm text-white">24/7 Support</h4>
+                  <p className="text-xs text-slate-300 leading-relaxed mt-1">
+                    Got questions at midnight? No problem. Our support team is always available to help you.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3.5">
+                <div className="w-10 h-10 rounded-full bg-[#F5B800] text-[#062544] flex items-center justify-center shrink-0 shadow-md">
+                  <Star className="w-5 h-5 fill-current text-[#062544]" />
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-sm text-white">Curated Experiences</h4>
+                  <p className="text-xs text-slate-300 leading-relaxed mt-1">
+                    We recommend the right visa options based on your purpose tourist, business, or transit so you never overpay.
+                  </p>
+                </div>
+              </div>
+
             </div>
 
           </div>
+
+          {/* Right Vector Illustration */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-sm h-80 bg-[#062544] rounded-3xl p-8 flex flex-col items-center justify-center border border-slate-700/80 shadow-2xl text-center">
+              <div className="w-24 h-24 rounded-full bg-[#F5B800] text-[#062544] flex items-center justify-center shadow-xl mb-4">
+                <Plane className="w-12 h-12 transform -rotate-45" />
+              </div>
+              <h3 className="text-xl font-extrabold text-white">NAS INTERNATIONALS</h3>
+              <p className="text-xs font-bold text-[#F5B800] uppercase tracking-widest mt-1">TOURS & TRAVELS</p>
+              <p className="text-xs text-slate-400 font-medium mt-3">HAJJ • UMRAH • VISAS • TOURS • AIR TICKETS</p>
+            </div>
+          </div>
+
         </div>
       </section>
 
