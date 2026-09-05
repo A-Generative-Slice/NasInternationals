@@ -143,8 +143,6 @@ export const ContactView: React.FC = () => {
 
             </div>
 
-            </div>
-
           </div>
 
           {/* Right Interactive Form */}
