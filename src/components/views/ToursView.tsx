@@ -90,13 +90,23 @@ export const ToursView: React.FC = () => {
   });
 
   return (
-    <div className="w-full bg-[#F8FAFC] py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="w-full bg-[#F8FAFC] py-12 relative overflow-hidden min-h-screen pb-24 lg:pb-16">
+      {/* Ambient background glow blobs for frosted glass reflections */}
+      <div className="ambient-glow-blue top-10 left-1/3 -translate-x-1/2"></div>
+      <div className="ambient-glow-sky top-96 right-10"></div>
+      <div className="ambient-glow-blue bottom-32 left-10"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center space-y-2 mb-10 relative">
+        <div className="text-center space-y-3 mb-10 relative">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-pill text-[#036CFB] text-xs font-bold shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-[#036CFB] animate-pulse"></span>
+            <span>Curated International Tour Packages</span>
+          </div>
+
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#062544] tracking-tight relative inline-block">
-            Tailored For Every Traveler
+            Tailored For <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#036CFB] via-[#0284C7] to-[#38BDF8]">Every Traveler</span>
             
             {/* Flight trajectory arc line vector illustration */}
             <svg className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-64 h-8 text-[#036CFB]" viewBox="0 0 250 30" fill="none">
@@ -104,21 +114,24 @@ export const ToursView: React.FC = () => {
               <polygon points="245,25 235,20 238,28" fill="currentColor" />
             </svg>
           </h1>
+          <p className="text-xs sm:text-sm text-slate-500 font-medium pt-3 max-w-lg mx-auto">
+            Explore world wonders with our premium group and solo holiday tours. 100% digital booking and visa support.
+          </p>
         </div>
 
         {/* Filter Controls Bar (Continent Pills Left + Dropdowns Right) */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 mb-10 pt-4">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6 mb-10 pt-4">
           
           {/* Left Continent Pills */}
-          <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar bg-white p-1.5 rounded-full border border-slate-200 shadow-sm max-w-full">
+          <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar glass-frost p-1.5 rounded-full border border-white/80 shadow-md max-w-full w-full lg:w-auto">
             {['All', 'Asia', 'Americas', 'Africa', 'Europe', 'Oceania'].map((continent) => (
               <button
                 key={continent}
                 onClick={() => setActiveContinent(continent)}
-                className={`px-5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                className={`px-4 sm:px-5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer whitespace-nowrap min-h-[40px] flex items-center justify-center ${
                   activeContinent === continent
-                    ? 'bg-[#036CFB] text-white shadow-md'
-                    : 'text-slate-600 hover:text-[#062544] hover:bg-slate-100'
+                    ? 'bg-[#036CFB] text-white shadow-md shadow-[#036CFB]/30'
+                    : 'text-slate-600 hover:text-[#062544] hover:bg-white/60'
                 }`}
               >
                 {continent}
@@ -127,14 +140,14 @@ export const ToursView: React.FC = () => {
           </div>
 
           {/* Right Dropdowns */}
-          <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-700">
+          <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-700 w-full lg:w-auto justify-start lg:justify-end">
             
-            <div className="flex items-center space-x-2">
-              <span>Tour Type :</span>
+            <div className="flex items-center space-x-2 glass-frost px-3 py-1.5 rounded-2xl border border-white/80 shadow-xs">
+              <span className="text-[11px] font-bold text-slate-500">Type:</span>
               <select
                 value={tourTypeFilter}
                 onChange={(e) => setTourTypeFilter(e.target.value)}
-                className="bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-800 font-bold focus:outline-none cursor-pointer"
+                className="bg-transparent text-slate-800 font-bold focus:outline-none cursor-pointer text-xs"
               >
                 <option value="ALL">ALL</option>
                 <option value="GROUP">GROUP</option>
@@ -142,12 +155,12 @@ export const ToursView: React.FC = () => {
               </select>
             </div>
 
-            <div className="flex items-center space-x-2">
-              <span>Year & Month :</span>
+            <div className="flex items-center space-x-2 glass-frost px-3 py-1.5 rounded-2xl border border-white/80 shadow-xs">
+              <span className="text-[11px] font-bold text-slate-500">Date:</span>
               <select
                 value={yearMonthFilter}
                 onChange={(e) => setYearMonthFilter(e.target.value)}
-                className="bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-800 font-bold focus:outline-none cursor-pointer"
+                className="bg-transparent text-slate-800 font-bold focus:outline-none cursor-pointer text-xs"
               >
                 <option value="ALL">ALL</option>
                 <option value="SEP2026">Sep 2026</option>
@@ -156,12 +169,12 @@ export const ToursView: React.FC = () => {
               </select>
             </div>
 
-            <div className="flex items-center space-x-2">
-              <span>Status :</span>
+            <div className="flex items-center space-x-2 glass-frost px-3 py-1.5 rounded-2xl border border-white/80 shadow-xs">
+              <span className="text-[11px] font-bold text-slate-500">Status:</span>
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-800 font-bold focus:outline-none cursor-pointer"
+                className="bg-transparent text-slate-800 font-bold focus:outline-none cursor-pointer text-xs"
               >
                 <option value="ALL">ALL</option>
                 <option value="OPEN">BOOKING OPEN</option>
@@ -172,55 +185,61 @@ export const ToursView: React.FC = () => {
         </div>
 
         {/* Tour Cards Grid - 3 Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredTours.map((tour) => (
             <div
               key={tour.id}
               onClick={() => navigateTo('/apply')}
-              className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer flex flex-col"
+              className="glass-frost glass-card-hover rounded-3xl overflow-hidden border border-white/80 shadow-md hover:shadow-2xl transition-all duration-300 group cursor-pointer flex flex-col relative"
             >
               {/* Card Image Header with Overlapping Badges */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-60 sm:h-64 overflow-hidden">
                 <img
                   src={tour.image}
                   alt={tour.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+
                 {/* Top Left Badge - BOOKING OPEN */}
-                <div className="absolute top-4 left-4 bg-emerald-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
+                <div className="absolute top-4 left-4 bg-emerald-500/90 backdrop-blur-md text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-md border border-white/20">
                   {tour.status}
                 </div>
 
                 {/* Top Right Badge - GROUP */}
-                <div className="absolute top-4 right-4 bg-white/95 text-[#062544] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
+                <div className="absolute top-4 right-4 glass-frost-navy text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-md border border-white/20">
                   {tour.groupType}
                 </div>
 
                 {/* Bottom Right Badge Over Image - 7 Days / 6 Nights */}
-                <div className="absolute bottom-4 right-4 bg-white/95 text-[#062544] text-xs font-bold px-3.5 py-1.5 rounded-full shadow-md flex items-center space-x-2">
+                <div className="absolute bottom-3 right-4 glass-frost text-[#062544] text-xs font-bold px-3 py-1.5 rounded-full shadow-md flex items-center space-x-1.5 border border-white/80">
                   <Plane className="w-3.5 h-3.5 text-[#036CFB] transform -rotate-45" />
-                  <span>+ 🧳 {tour.duration}</span>
+                  <span>{tour.duration}</span>
                 </div>
               </div>
 
               {/* Card Info Content */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
                 
                 <div className="space-y-3">
-                  <h3 className="font-extrabold text-xl text-[#062544] group-hover:text-[#036CFB] transition-colors leading-snug">
+                  <h3 className="font-extrabold text-lg sm:text-xl text-[#062544] group-hover:text-[#036CFB] transition-colors leading-snug">
                     {tour.title}
                   </h3>
 
                   {/* Location & Dates */}
-                  <div className="flex items-center space-x-6 text-xs text-slate-500 font-semibold">
+                  <div className="flex items-center space-x-4 text-xs text-slate-500 font-semibold flex-wrap gap-y-1">
                     <div className="flex items-center space-x-1.5">
-                      <MapPin className="w-4 h-4 text-[#036CFB]" />
+                      <div className="w-5 h-5 rounded-full bg-blue-50 flex items-center justify-center text-[#036CFB]">
+                        <MapPin className="w-3.5 h-3.5" />
+                      </div>
                       <span>{tour.destination}</span>
                     </div>
 
                     <div className="flex items-center space-x-1.5">
-                      <Calendar className="w-4 h-4 text-[#036CFB]" />
+                      <div className="w-5 h-5 rounded-full bg-blue-50 flex items-center justify-center text-[#036CFB]">
+                        <Calendar className="w-3.5 h-3.5" />
+                      </div>
                       <span>{tour.dates}</span>
                     </div>
                   </div>
@@ -232,9 +251,9 @@ export const ToursView: React.FC = () => {
                 </div>
 
                 {/* Online Action Tag */}
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <div className="pt-4 border-t border-slate-200/60 flex items-center justify-between">
                   <span className="text-xs font-bold text-slate-500">100% Online Booking</span>
-                  <span className="text-xs font-extrabold text-[#036CFB] flex items-center space-x-1 group-hover:underline">
+                  <span className="text-xs font-extrabold text-[#036CFB] flex items-center space-x-1 group-hover:translate-x-0.5 transition-transform">
                     <span>View Itinerary ↗</span>
                   </span>
                 </div>

@@ -6,34 +6,39 @@ export const Footer: React.FC = () => {
   const { navigateTo } = useApp();
 
   return (
-    <footer className="bg-[#041A30] text-white border-t border-slate-800">
-      
-      {/* Top Banner Accent - Official Services from Business Card */}
-      <div className="bg-gradient-to-r from-[#036CFB] via-[#0284C7] to-[#0ea5e9] py-2.5 text-white font-extrabold text-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
-          <div className="flex items-center space-x-2 overflow-x-auto">
-            <Plane className="w-4 h-4 transform -rotate-45 shrink-0" />
-            <span className="tracking-wide text-[11px] uppercase">
-              100% ONLINE SERVICES • HAJJ • UMRAH • VISA ASSISTANCE • TOUR PACKAGES • AIR TICKET • EDUCATION CONSULTANTS • DOCUMENTS ATTESTATION
+    <footer className="bg-[#031526] text-white border-t border-white/10 relative overflow-hidden pb-24 lg:pb-12">
+      {/* Ambient luminous glow blobs for dark frosted reflections */}
+      <div className="ambient-glow-blue top-0 left-1/4 -translate-x-1/2 opacity-30"></div>
+      <div className="ambient-glow-sky bottom-10 right-10 opacity-20"></div>
+
+      {/* Top Banner Accent - Official Services */}
+      <div className="bg-gradient-to-r from-[#036CFB]/90 via-[#0284C7]/90 to-[#0ea5e9]/90 backdrop-blur-xl py-3 text-white font-extrabold text-xs border-b border-white/15 relative z-10 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar max-w-full">
+            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+              <Plane className="w-3.5 h-3.5 transform -rotate-45" />
+            </div>
+            <span className="tracking-wide text-[11px] uppercase font-bold text-white whitespace-nowrap">
+              100% ONLINE SERVICES • HAJJ • UMRAH • VISA ASSISTANCE • TOUR PACKAGES • AIR TICKET • DOCUMENTS ATTESTATION
             </span>
           </div>
           <button
             onClick={() => navigateTo('/visas')}
-            className="bg-[#062544] text-white px-4 py-1 rounded-full text-xs font-bold hover:bg-[#041A30] transition cursor-pointer shrink-0 shadow-sm"
+            className="bg-[#062544]/90 hover:bg-[#062544] text-white px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer shrink-0 shadow-md border border-white/20 min-h-[34px] flex items-center"
           >
             Apply Online ↗
           </button>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           
           {/* Col 1: Brand & Official Card Info */}
-          <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center space-x-2.5 cursor-pointer" onClick={() => navigateTo('/')}>
-              <div className="w-10 h-10 rounded-full bg-[#036CFB] flex items-center justify-center text-white shadow-md">
-                <Plane className="w-5 h-5 transform -rotate-45" />
+          <div className="lg:col-span-2 space-y-5">
+            <div className="flex items-center space-x-3 cursor-pointer group" onClick={() => navigateTo('/')}>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#38BDF8] flex items-center justify-center text-white shadow-lg shadow-[#036CFB]/30 group-hover:scale-105 transition-transform">
+                <Plane className="w-6 h-6 transform -rotate-45" />
               </div>
               <div>
                 <span className="font-black text-xl tracking-tight text-white block leading-tight">
@@ -45,87 +50,103 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            <p className="text-xs text-slate-400 leading-relaxed font-medium max-w-sm">
+            <p className="text-xs text-slate-300 leading-relaxed font-medium max-w-sm">
               Strictly online travel & visa portal for Hajj, Umrah, international visas, document attestation, educational consultancy, and group tour packages. Processed 100% digitally from anywhere in the world.
             </p>
 
             {/* Official Contact Info - Exclusively Mobile, Email & Website URL */}
-            <div className="pt-2 text-xs text-slate-300 space-y-2.5 font-medium">
-              <div className="text-[#38BDF8] font-bold text-xs uppercase tracking-wider">
-                Managing Director: N. ABDUL HAKEEM
+            <div className="pt-2 text-xs text-slate-300 space-y-3 font-medium">
+              <div className="text-[#38BDF8] font-bold text-xs uppercase tracking-wider flex items-center space-x-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]"></span>
+                <span>Managing Director: N. ABDUL HAKEEM</span>
               </div>
 
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-[#38BDF8] shrink-0" />
+              <div className="flex items-center space-x-3 p-2.5 rounded-2xl glass-frost-dark border border-white/10">
+                <div className="w-8 h-8 rounded-xl bg-[#036CFB]/30 text-[#38BDF8] flex items-center justify-center shrink-0">
+                  <Phone className="w-4 h-4" />
+                </div>
                 <a href="tel:+919941900055" className="hover:text-white transition-colors">
-                  Mobile / WhatsApp: <strong className="text-white">+91 99419 00055</strong>
+                  Mobile / WhatsApp: <strong className="text-white block sm:inline">+91 99419 00055</strong>
                 </a>
               </div>
 
-              <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-[#38BDF8] shrink-0" />
-                <a href="mailto:info@nasinternationals.com" className="hover:text-white transition-colors">
-                  Email: <strong className="text-white">info@nasinternationals.com</strong>
+              <div className="flex items-center space-x-3 p-2.5 rounded-2xl glass-frost-dark border border-white/10">
+                <div className="w-8 h-8 rounded-xl bg-[#036CFB]/30 text-[#38BDF8] flex items-center justify-center shrink-0">
+                  <Mail className="w-4 h-4" />
+                </div>
+                <a href="mailto:info@nasinternationals.com" className="hover:text-white transition-colors break-all">
+                  Email: <strong className="text-white block sm:inline">info@nasinternationals.com</strong>
                 </a>
               </div>
 
-              <div className="flex items-center space-x-2">
-                <Plane className="w-4 h-4 text-[#38BDF8] shrink-0 transform -rotate-45" />
+              <div className="flex items-center space-x-3 p-2.5 rounded-2xl glass-frost-dark border border-white/10">
+                <div className="w-8 h-8 rounded-xl bg-[#036CFB]/30 text-[#38BDF8] flex items-center justify-center shrink-0">
+                  <Plane className="w-4 h-4 transform -rotate-45" />
+                </div>
                 <a href="https://www.nasinternationals.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
-                  Website: <strong className="text-white">www.nasinternationals.com</strong>
+                  Website: <strong className="text-white block sm:inline">www.nasinternationals.com</strong>
                 </a>
               </div>
 
               <div className="pt-1">
-                <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold bg-[#036CFB]/20 text-[#38BDF8] border border-[#036CFB]/40">
-                  🌐 Strictly Online Service • No In-Person Visits Needed
+                <span className="inline-block px-3.5 py-1.5 rounded-full text-[11px] font-bold glass-pill-dark text-[#38BDF8] border border-[#036CFB]/40 shadow-xs">
+                  🌐 Strictly Online Service • Zero In-Person Visits Needed
                 </span>
               </div>
             </div>
           </div>
 
           {/* Col 2: Navigation Links */}
-          <div className="space-y-3">
-            <h4 className="text-sm font-extrabold text-[#38BDF8] uppercase tracking-wider">Quick Links</h4>
-            <ul className="space-y-2 text-xs font-semibold text-slate-300">
-              <li><button onClick={() => navigateTo('/')} className="hover:text-[#38BDF8]">Home</button></li>
-              <li><button onClick={() => navigateTo('/tours')} className="hover:text-[#38BDF8]">Tour Packages</button></li>
-              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8]">Visa Applications</button></li>
-              <li><button onClick={() => navigateTo('/contact')} className="hover:text-[#38BDF8]">Contact Us</button></li>
-              <li><button onClick={() => navigateTo('/blogs')} className="hover:text-[#38BDF8]">Blogs & Guides</button></li>
-              <li><button onClick={() => navigateTo('/faqs')} className="hover:text-[#38BDF8]">FAQ's</button></li>
+          <div className="space-y-4">
+            <h4 className="text-xs font-black text-[#38BDF8] uppercase tracking-wider flex items-center space-x-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]"></span>
+              <span>Quick Links</span>
+            </h4>
+            <ul className="space-y-2.5 text-xs font-semibold text-slate-300">
+              <li><button onClick={() => navigateTo('/')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Home</button></li>
+              <li><button onClick={() => navigateTo('/tours')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Tour Packages</button></li>
+              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Visa Applications</button></li>
+              <li><button onClick={() => navigateTo('/contact')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Contact Us</button></li>
+              <li><button onClick={() => navigateTo('/blogs')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Blogs & Guides</button></li>
+              <li><button onClick={() => navigateTo('/faqs')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">FAQ's</button></li>
             </ul>
           </div>
 
           {/* Col 3: Services */}
-          <div className="space-y-3">
-            <h4 className="text-sm font-extrabold text-[#38BDF8] uppercase tracking-wider">Our Services</h4>
-            <ul className="space-y-2 text-xs font-semibold text-slate-300">
-              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8]">Hajj & Umrah Packages</button></li>
-              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8]">Tourist & Business Visas</button></li>
-              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8]">Document Attestation</button></li>
-              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8]">Educational Consultancy</button></li>
-              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8]">Air Ticket Reservations</button></li>
+          <div className="space-y-4">
+            <h4 className="text-xs font-black text-[#38BDF8] uppercase tracking-wider flex items-center space-x-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]"></span>
+              <span>Our Services</span>
+            </h4>
+            <ul className="space-y-2.5 text-xs font-semibold text-slate-300">
+              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Hajj & Umrah Packages</button></li>
+              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Tourist & Business Visas</button></li>
+              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Document Attestation</button></li>
+              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Educational Consultancy</button></li>
+              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Air Ticket Reservations</button></li>
             </ul>
           </div>
 
           {/* Col 4: User & Admin Portal */}
-          <div className="space-y-3">
-            <h4 className="text-sm font-extrabold text-[#38BDF8] uppercase tracking-wider">Client Portals</h4>
-            <ul className="space-y-2 text-xs font-semibold text-slate-300">
-              <li><button onClick={() => navigateTo('/dashboard')} className="hover:text-[#38BDF8]">My User Dashboard</button></li>
-              <li><button onClick={() => navigateTo('/payment-tracker')} className="hover:text-[#38BDF8]">Track Payment Status</button></li>
-              <li><button onClick={() => navigateTo('/apply')} className="hover:text-[#38BDF8]">Apply Visa Wizard</button></li>
-              <li><button onClick={() => navigateTo('/admin/login')} className="hover:text-[#38BDF8] text-sky-300 flex items-center space-x-1"><ShieldCheck className="w-3.5 h-3.5 text-[#38BDF8]" /> <span>Admin Console Login</span></button></li>
+          <div className="space-y-4">
+            <h4 className="text-xs font-black text-[#38BDF8] uppercase tracking-wider flex items-center space-x-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]"></span>
+              <span>Client Portals</span>
+            </h4>
+            <ul className="space-y-2.5 text-xs font-semibold text-slate-300">
+              <li><button onClick={() => navigateTo('/dashboard')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">My User Dashboard</button></li>
+              <li><button onClick={() => navigateTo('/payment-tracker')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Track Payment Status</button></li>
+              <li><button onClick={() => navigateTo('/apply')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Apply Visa Wizard</button></li>
+              <li><button onClick={() => navigateTo('/admin/login')} className="hover:text-[#38BDF8] text-sky-300 flex items-center space-x-1.5 py-1 min-h-[32px]"><ShieldCheck className="w-3.5 h-3.5 text-[#38BDF8]" /> <span>Admin Console Login</span></button></li>
             </ul>
           </div>
 
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-12 mt-12 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 font-medium gap-4">
+        <div className="pt-10 mt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 font-medium gap-4">
           <p>© 2026 NAS INTERNATIONALS TOURS & TRAVELS. All rights reserved.</p>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 text-[#38BDF8]">
             <span>Social: @officialnasinternationals</span>
           </div>
         </div>
