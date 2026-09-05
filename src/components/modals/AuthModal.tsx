@@ -114,13 +114,13 @@ export const AuthModal: React.FC = () => {
             
             {/* Brand Logo */}
             <div className="flex items-center space-x-2.5">
-              <div className="w-9 h-9 rounded-full bg-[#F5B800] text-[#062544] flex items-center justify-center shadow-md">
+              <div className="w-9 h-9 rounded-full bg-[#036CFB] text-white flex items-center justify-center shadow-md">
                 <Plane className="w-5 h-5 transform -rotate-45" />
               </div>
               <span className="font-extrabold text-2xl tracking-tight text-[#062544]">
-                tripate
-                <span className="text-[#F5B800] ml-1.5 text-xs font-semibold uppercase bg-[#062544] px-1.5 py-0.5 rounded text-white">
-                  NAS
+                NAS
+                <span className="text-[#38BDF8] ml-1.5 text-xs font-semibold uppercase bg-[#062544] px-2 py-0.5 rounded text-white">
+                  INTERNATIONALS
                 </span>
               </span>
             </div>
@@ -188,7 +188,7 @@ export const AuthModal: React.FC = () => {
                   type="submit"
                   disabled={isLoading}
                   className={`w-full py-3.5 font-bold text-xs rounded-2xl shadow-md transition-all flex items-center justify-center space-x-2 cursor-pointer ${
-                    mobileNumber ? 'bg-[#062544] hover:bg-[#041a30] text-white' : 'bg-slate-300 text-slate-600'
+                    mobileNumber ? 'bg-[#036CFB] hover:bg-blue-600 text-white' : 'bg-slate-300 text-slate-600'
                   }`}
                 >
                   {isLoading ? (
@@ -207,7 +207,7 @@ export const AuthModal: React.FC = () => {
                 </button>
 
                 <p className="text-[11px] text-slate-400 text-center font-medium">
-                  By continuing, you agree to our <span className="text-orange-600 underline font-semibold cursor-pointer">terms & conditions</span>
+                  By continuing, you agree to our <span className="text-[#036CFB] underline font-semibold cursor-pointer">terms & conditions</span>
                 </p>
               </form>
             )}
@@ -223,7 +223,7 @@ export const AuthModal: React.FC = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="client@nas.com"
-                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#062544]"
+                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB]"
                   />
                 </div>
 
@@ -235,14 +235,14 @@ export const AuthModal: React.FC = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
-                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#062544]"
+                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB]"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full py-3.5 bg-[#062544] hover:bg-[#041a30] text-white font-bold text-xs rounded-2xl shadow-md transition-all flex items-center justify-center space-x-2 cursor-pointer"
+                  className="w-full py-3.5 bg-[#036CFB] hover:bg-blue-600 text-white font-bold text-xs rounded-2xl shadow-md transition-all flex items-center justify-center space-x-2 cursor-pointer"
                 >
                   {isLoading ? (
                     <>
@@ -336,12 +336,12 @@ export const AuthModal: React.FC = () => {
             {/* Floating Flight Graphic & Traveler Card Illustration */}
             <div className="w-64 h-64 mx-auto rounded-3xl bg-[#062544]/5 p-6 flex flex-col items-center justify-center border border-[#062544]/10 relative">
               
-              <div className="w-20 h-20 rounded-full bg-[#F5B800] text-[#062544] flex items-center justify-center shadow-lg mb-4 animate-bounce">
+              <div className="w-20 h-20 rounded-full bg-[#036CFB] text-white flex items-center justify-center shadow-lg shadow-[#036CFB]/25 mb-4 animate-bounce">
                 <Plane className="w-10 h-10 transform -rotate-45" />
               </div>
 
               <h4 className="font-extrabold text-[#062544] text-xl">NAS INTERNATIONALS</h4>
-              <p className="text-xs font-bold text-[#F5B800] uppercase tracking-widest mt-1">TOURS & TRAVELS</p>
+              <p className="text-xs font-bold text-[#036CFB] uppercase tracking-widest mt-1">TOURS & TRAVELS • 100% ONLINE</p>
               
               <p className="text-xs text-slate-500 font-medium mt-3 leading-relaxed">
                 LET'S EXPLORE THE WORLD <br />

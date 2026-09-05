@@ -378,8 +378,10 @@ export const WizardView: React.FC = () => {
                       <span className="font-bold text-slate-800">{wizardData.destination}</span>
                     </div>
                     <div>
-                      <span className="text-slate-400 block text-[10px]">Processing Fee</span>
-                      <span className="font-bold text-[#0B1E3D]">₹{selectedVisa ? selectedVisa.priceInINR.toLocaleString('en-IN') : '5,000'}</span>
+                      <span className="text-slate-400 block text-[10px]">Application Mode</span>
+                      <span className="font-bold text-[#036CFB] flex items-center gap-1">
+                        <Check className="w-3.5 h-3.5 text-[#036CFB]" /> 100% Online Digital
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -438,10 +440,10 @@ export const WizardView: React.FC = () => {
             </p>
 
             <div className="pt-2 border-t border-blue-200/60">
-              <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Direct Phone Support</p>
-              <a href="tel:+9019740030" className="text-sm font-extrabold text-[#0B1E3D] flex items-center space-x-1 mt-0.5">
+              <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Online Support Helpline</p>
+              <a href="tel:+919941900055" className="text-sm font-extrabold text-[#0B1E3D] flex items-center space-x-1 mt-0.5">
                 <Phone className="w-4 h-4 text-[#036CFB]" />
-                <span>+901-974-0030</span>
+                <span>+91 99419 00055</span>
               </a>
             </div>
           </div>

@@ -790,7 +790,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const [websiteSettings, setWebsiteSettings] = useState<WebsiteSettings>({
     siteName: 'NAS INTERNATIONALS TOURS & TRAVELS',
-    supportPhone: '+901-974-0030',
+    supportPhone: '+91 99419 00055',
     supportEmail: 'info@nasinternationals.com',
     heroHeadline: 'Fast-Track Global Visa Processing & Luxury Travel Packages',
     heroSubheadline: 'Guaranteed 99.4% approval rate with full end-to-end document verification, embassy appointment booking, and real-time tracking.',

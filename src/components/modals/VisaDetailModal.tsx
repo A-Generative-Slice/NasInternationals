@@ -24,7 +24,7 @@ export const VisaDetailModal: React.FC = () => {
         </button>
 
         <div className="space-y-1 pr-6">
-          <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#C8A24A]/20 text-[#0B1E3D] uppercase tracking-wider">
+          <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#036CFB]/15 text-[#036CFB] uppercase tracking-wider">
             {selectedVisa.type}
           </span>
           <h2 className="font-display font-extrabold text-2xl text-[#0B1E3D]">
@@ -37,9 +37,10 @@ export const VisaDetailModal: React.FC = () => {
 
         <div className="grid grid-cols-2 gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs">
           <div>
-            <span className="text-slate-400 block text-[10px] uppercase font-bold">Embassy Processing Fee</span>
-            <span className="font-display font-extrabold text-[#0B1E3D] text-lg">
-              ₹{selectedVisa.priceInINR.toLocaleString('en-IN')}
+            <span className="text-slate-400 block text-[10px] uppercase font-bold">Application Mode</span>
+            <span className="font-display font-extrabold text-[#036CFB] text-sm flex items-center gap-1.5 mt-1">
+              <ShieldCheck className="w-4 h-4 text-[#036CFB] shrink-0" />
+              100% Online Digital
             </span>
           </div>
           <div>
@@ -74,7 +75,7 @@ export const VisaDetailModal: React.FC = () => {
           </button>
           <button
             onClick={handleApplyNow}
-            className="px-6 py-2.5 bg-[#C8A24A] hover:bg-[#EAC166] text-[#0B1E3D] font-display font-bold text-xs rounded-xl shadow-md transition flex items-center space-x-1.5"
+            className="px-6 py-2.5 bg-[#036CFB] hover:bg-[#0256c7] text-white font-display font-bold text-xs rounded-xl shadow-md shadow-[#036CFB]/25 transition flex items-center space-x-1.5"
           >
             <span>Proceed to Apply</span>
             <ArrowRight className="w-4 h-4" />

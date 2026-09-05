@@ -58,7 +58,7 @@ export const AdminDashboardView: React.FC = () => {
           <div className="pt-2 flex flex-col sm:flex-row gap-3">
             <button
               onClick={() => setActiveModal('login')}
-              className="flex-1 py-3 px-4 bg-[#0B1E3D] hover:bg-blue-900 text-[#EAC166] font-display font-bold text-xs rounded-xl shadow-md transition"
+              className="flex-1 py-3 px-4 bg-[#036CFB] hover:bg-[#0256c7] text-white font-display font-bold text-xs rounded-xl shadow-md shadow-[#036CFB]/25 transition"
             >
               🔑 Log In as Admin
             </button>
@@ -131,8 +131,8 @@ export const AdminDashboardView: React.FC = () => {
       {/* Left Dark Navy Sidebar */}
       <aside className="w-full md:w-60 bg-[#0B1E3D] text-white p-5 flex flex-col justify-between shrink-0">
         <div className="space-y-6">
-          <div className="flex items-center space-x-2 pb-4 border-b border-slate-700/80">
-            <div className="w-8 h-8 rounded-lg bg-[#C8A24A] text-[#0B1E3D] font-extrabold flex items-center justify-center text-xs">
+          <div className="flex items-center space-x-2 pb-4 border-slate-700/80 border-b">
+            <div className="w-8 h-8 rounded-lg bg-[#036CFB] text-white font-extrabold flex items-center justify-center text-xs shadow-sm">
               NAS
             </div>
             <span className="font-display font-extrabold text-sm tracking-wider">
@@ -141,7 +141,7 @@ export const AdminDashboardView: React.FC = () => {
           </div>
 
           <nav className="space-y-1 text-xs">
-            <button className="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl bg-slate-800 text-[#EAC166] font-bold">
+            <button className="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl bg-[#036CFB] text-white font-bold shadow-sm">
               <Calendar className="w-4 h-4" />
               <span>Bookings & Apps</span>
             </button>
@@ -208,28 +208,28 @@ export const AdminDashboardView: React.FC = () => {
         {/* Top 3 Metrics Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           
-          {/* Card 1: Total Revenue */}
+          {/* Card 1: Total Online Applications */}
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 space-y-2">
             <p className="text-xs font-bold text-slate-500 tracking-wider uppercase">
-              TOTAL REVENUE
+              TOTAL ONLINE APPLICATIONS
             </p>
             <div className="font-display text-3xl font-extrabold text-[#0B1E3D] flex items-baseline space-x-2">
-              <span>₹{totalRevenue.toLocaleString('en-IN')}</span>
+              <span>{applications.length} Active</span>
               <span className="text-xs font-bold text-emerald-600">
-                (↑ 12%)
+                (↑ 24% Digital)
               </span>
             </div>
           </div>
 
-          {/* Card 2: Pending Payments */}
+          {/* Card 2: Verified Documents */}
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 space-y-2">
             <p className="text-xs font-bold text-slate-500 tracking-wider uppercase">
-              PENDING PAYMENTS
+              DOCUMENT VERIFICATIONS
             </p>
             <div className="font-display text-3xl font-extrabold text-[#0B1E3D] flex items-baseline space-x-2">
-              <span>₹{pendingPayments.toLocaleString('en-IN')}</span>
-              <span className="text-xs font-bold text-slate-500">
-                (→ 0%)
+              <span>{applications.reduce((acc, a) => acc + (a.documents?.filter(d => d.status === 'Verified').length || 0), 0)} Verified</span>
+              <span className="text-xs font-bold text-[#036CFB]">
+                (100% Online)
               </span>
             </div>
           </div>
@@ -381,8 +381,8 @@ export const AdminDashboardView: React.FC = () => {
                 <span className="font-mono font-bold text-slate-800">{viewingApp.passportNumber}</span>
               </div>
               <div className="bg-slate-50 p-3 rounded-xl">
-                <span className="text-slate-400 block text-[10px]">Booking Amount</span>
-                <span className="font-bold text-[#0B1E3D]">₹{viewingApp.payment.amount.toLocaleString('en-IN')}</span>
+                <span className="text-slate-400 block text-[10px]">Processing Mode</span>
+                <span className="font-bold text-[#036CFB]">100% Online Digital</span>
               </div>
             </div>
 

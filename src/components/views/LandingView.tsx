@@ -11,54 +11,48 @@ export const LandingView: React.FC = () => {
     {
       id: 'laos',
       name: 'Laos',
-      price: '₹5,770',
       badge: 'Popular',
-      date: 'Get on 19 Aug 2026',
+      date: 'Processing: 3-5 Days',
       image: 'https://images.unsplash.com/photo-1540611025311-01df3cef54b5?auto=format&fit=crop&w=800&q=80',
       category: 'E-Visa'
     },
     {
       id: 'thailand',
       name: 'Thailand',
-      price: '₹1,999',
       badge: '65+ Visas on Time',
-      date: 'Get on 13 Aug 2026',
+      date: 'Processing: 2-3 Days',
       image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80',
       category: 'Trending'
     },
     {
       id: 'madagascar',
       name: 'Madagascar',
-      price: '₹11,237',
       badge: 'Express',
-      date: 'Get on 25 Aug 2026',
+      date: 'Processing: 2-4 Days',
       image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
-      category: 'Cheapest'
+      category: 'Express'
     },
     {
       id: 'france',
       name: 'France',
-      price: '₹7,800',
-      badge: '1+ Visas on Time',
-      date: 'Get on 18 Aug 2026',
+      badge: 'Schengen Area',
+      date: 'Processing: 7-12 Days',
       image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80',
       category: 'Trending'
     },
     {
       id: 'japan',
       name: 'Japan',
-      price: '₹3,450',
       badge: 'E-Visa Available',
-      date: 'Get on 14 Aug 2026',
+      date: 'Processing: 4-5 Days',
       image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80',
       category: 'E-Visa'
     },
     {
       id: 'dubai',
       name: 'Dubai (UAE)',
-      price: '₹6,200',
       badge: 'Express 48H',
-      date: 'Get on 12 Aug 2026',
+      date: 'Processing: 24-48 Hours',
       image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80',
       category: 'Express'
     }
@@ -99,7 +93,7 @@ export const LandingView: React.FC = () => {
             {/* Subtitle */}
             <p className="text-slate-600 font-medium text-base sm:text-lg max-w-lg leading-relaxed">
               Whether it's Japan, France, or Dubai. <br className="hidden sm:inline" />
-              Tripate makes your visa process easy, fast, and fully online.
+              NAS Internationals makes your visa process easy, fast, and 100% online.
             </p>
 
             {/* Floating Search Bar */}
@@ -117,7 +111,7 @@ export const LandingView: React.FC = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-11 h-11 rounded-full bg-[#F5B800] hover:bg-[#e0a800] text-[#062544] flex items-center justify-center shadow-md transition-all shrink-0 cursor-pointer"
+                  className="w-11 h-11 rounded-full bg-[#036CFB] hover:bg-blue-600 text-white flex items-center justify-center shadow-md transition-all shrink-0 cursor-pointer"
                 >
                   <Search className="w-5 h-5 stroke-[2.5]" />
                 </button>
@@ -140,7 +134,7 @@ export const LandingView: React.FC = () => {
                 </div>
                 <div className="text-xs font-bold text-slate-700">
                   Trusted by Travelers <br />
-                  <span className="text-[10px] text-[#F5B800] font-extrabold">180+ successful visa journeys!</span>
+                  <span className="text-[10px] text-[#036CFB] font-extrabold">180+ successful online visas issued!</span>
                 </div>
               </div>
             </div>
@@ -157,14 +151,14 @@ export const LandingView: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center space-y-2 mb-12 relative">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#F5B800] block">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#036CFB] block">
             TRENDY TRAVEL DESTINATIONS
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#062544] tracking-tight relative inline-block">
             Explore Our Most Popular Destinations, <br className="hidden sm:inline" />
             Tailored For Every Traveler
 
-            <svg className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-64 h-8 text-[#F5B800]" viewBox="0 0 250 30" fill="none">
+            <svg className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-64 h-8 text-[#036CFB]" viewBox="0 0 250 30" fill="none">
               <path d="M5 25 Q 125 0 245 25" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
               <polygon points="245,25 235,20 238,28" fill="currentColor" />
             </svg>
@@ -175,13 +169,13 @@ export const LandingView: React.FC = () => {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10">
           
           <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar bg-white p-1.5 rounded-full border border-slate-200 shadow-sm max-w-full">
-            {['All', 'Trending', 'E-Visa', 'Express', 'Cheapest'].map((category) => (
+            {['All', 'Trending', 'E-Visa', 'Express', 'Fast-Track'].map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`px-5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
                   activeCategory === category
-                    ? 'bg-[#062544] text-white shadow-md'
+                    ? 'bg-[#036CFB] text-white shadow-md'
                     : 'text-slate-600 hover:text-[#062544] hover:bg-slate-100'
                 }`}
               >
@@ -192,7 +186,7 @@ export const LandingView: React.FC = () => {
 
           <button
             onClick={() => navigateTo('/visas')}
-            className="px-6 py-2.5 bg-[#F5B800] hover:bg-[#e0a800] text-[#062544] font-bold text-xs rounded-full shadow-md transition-all flex items-center space-x-1.5 cursor-pointer shrink-0"
+            className="px-6 py-2.5 bg-[#036CFB] hover:bg-blue-600 text-white font-bold text-xs rounded-full shadow-md transition-all flex items-center space-x-1.5 cursor-pointer shrink-0"
           >
             <span>See More</span>
             <ArrowUpRight className="w-4 h-4" />
@@ -215,7 +209,7 @@ export const LandingView: React.FC = () => {
                 />
                 
                 <div className="absolute top-4 left-4 bg-[#062544]/90 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1.5 rounded-full shadow-md flex items-center space-x-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#F5B800] animate-pulse"></span>
+                  <span className="w-2 h-2 rounded-full bg-[#38BDF8] animate-pulse"></span>
                   <span>{destination.badge}</span>
                 </div>
               </div>
@@ -223,7 +217,7 @@ export const LandingView: React.FC = () => {
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="font-extrabold text-xl text-[#062544] group-hover:text-[#F5B800] transition-colors">
+                    <h3 className="font-extrabold text-xl text-[#062544] group-hover:text-[#036CFB] transition-colors">
                       {destination.name}
                     </h3>
                     <p className="text-xs font-medium text-slate-500 mt-1">
@@ -232,8 +226,9 @@ export const LandingView: React.FC = () => {
                   </div>
 
                   <div className="text-right">
-                    <span className="text-2xl font-black text-[#F5B800]">
-                      {destination.price}
+                    <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-blue-50 text-[#036CFB] border border-blue-200 inline-flex items-center space-x-1 group-hover:bg-[#036CFB] group-hover:text-white transition-all shadow-xs">
+                      <span>Apply Online</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
                 </div>
@@ -244,7 +239,7 @@ export const LandingView: React.FC = () => {
 
       </section>
 
-      {/* WHY GO WITH NAS INTERNATIONALS SECTION (From Screenshots 3 & 4) */}
+      {/* WHY GO WITH NAS INTERNATIONALS SECTION */}
       <section className="bg-[#041A30] text-white py-20 border-t border-slate-800 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           
@@ -252,15 +247,15 @@ export const LandingView: React.FC = () => {
           <div className="lg:col-span-7 space-y-8">
             
             <div className="space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#F5B800]">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#38BDF8]">
                 WHY GO WITH NAS INTERNATIONALS
               </span>
               <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-tight">
-                Experience Hassle-free, Unforgettable <br />
-                Visa Journey With Expert Guidance
+                100% Online Visa Process With <br />
+                Expert Guidance & Zero Office Visits
               </h2>
               <p className="text-sm font-medium text-slate-300 max-w-xl leading-relaxed">
-                We handle every detail of your visa process, ensuring a smooth and stress-free start to your journey.
+                We handle every detail of your visa process completely online, ensuring a smooth and stress-free journey from anywhere in the world.
               </p>
             </div>
 
@@ -268,49 +263,49 @@ export const LandingView: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
               
               <div className="flex items-start space-x-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#F5B800] text-[#062544] flex items-center justify-center shrink-0 shadow-md">
+                <div className="w-10 h-10 rounded-full bg-[#036CFB] text-white flex items-center justify-center shrink-0 shadow-md">
                   <UserCheck className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="font-extrabold text-sm text-white">Expert Guidance</h4>
                   <p className="text-xs text-slate-300 leading-relaxed mt-1">
-                    Our visa team knows exactly what documents you need and helps you avoid mistakes that cause delays.
+                    Our dedicated immigration team verifies every document digitally to prevent delays and rejections.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#F5B800] text-[#062544] flex items-center justify-center shrink-0 shadow-md">
-                  <DollarSign className="w-5 h-5" />
+                <div className="w-10 h-10 rounded-full bg-[#036CFB] text-white flex items-center justify-center shrink-0 shadow-md">
+                  <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-sm text-white">Best Price Guarantee</h4>
+                  <h4 className="font-extrabold text-sm text-white">100% Online & Paperless</h4>
                   <p className="text-xs text-slate-300 leading-relaxed mt-1">
-                    Competitive pricing, no hidden charges. Get full value for your money with every application.
+                    Complete digital application submission, electronic document verification, and live tracking with zero office queues.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#F5B800] text-[#062544] flex items-center justify-center shrink-0 shadow-md">
+                <div className="w-10 h-10 rounded-full bg-[#036CFB] text-white flex items-center justify-center shrink-0 shadow-md">
                   <Headphones className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-sm text-white">24/7 Support</h4>
+                  <h4 className="font-extrabold text-sm text-white">24/7 Digital Support</h4>
                   <p className="text-xs text-slate-300 leading-relaxed mt-1">
-                    Got questions at midnight? No problem. Our support team is always available to help you.
+                    Got questions at any hour? Our specialists are available 24/7 via WhatsApp, phone, and online chat.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#F5B800] text-[#062544] flex items-center justify-center shrink-0 shadow-md">
-                  <Star className="w-5 h-5 fill-current text-[#062544]" />
+                <div className="w-10 h-10 rounded-full bg-[#036CFB] text-white flex items-center justify-center shrink-0 shadow-md">
+                  <Star className="w-5 h-5 fill-current text-white" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-sm text-white">Curated Experiences</h4>
+                  <h4 className="font-extrabold text-sm text-white">Curated Travel Experiences</h4>
                   <p className="text-xs text-slate-300 leading-relaxed mt-1">
-                    We recommend the right visa options based on your purpose tourist, business, or transit so you never overpay.
+                    We match the right visa category and travel itinerary tailored to your exact travel purpose.
                   </p>
                 </div>
               </div>
@@ -322,12 +317,12 @@ export const LandingView: React.FC = () => {
           {/* Right Vector Illustration */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-sm h-80 bg-[#062544] rounded-3xl p-8 flex flex-col items-center justify-center border border-slate-700/80 shadow-2xl text-center">
-              <div className="w-24 h-24 rounded-full bg-[#F5B800] text-[#062544] flex items-center justify-center shadow-xl mb-4">
+              <div className="w-24 h-24 rounded-full bg-[#036CFB] text-white flex items-center justify-center shadow-xl mb-4">
                 <Plane className="w-12 h-12 transform -rotate-45" />
               </div>
               <h3 className="text-xl font-extrabold text-white">NAS INTERNATIONALS</h3>
-              <p className="text-xs font-bold text-[#F5B800] uppercase tracking-widest mt-1">TOURS & TRAVELS</p>
-              <p className="text-xs text-slate-400 font-medium mt-3">HAJJ • UMRAH • VISAS • TOURS • AIR TICKETS</p>
+              <p className="text-xs font-bold text-[#38BDF8] uppercase tracking-widest mt-1">TOURS & TRAVELS</p>
+              <p className="text-xs text-slate-400 font-medium mt-3">100% ONLINE • HAJJ • UMRAH • VISAS • TOURS</p>
             </div>
           </div>
 

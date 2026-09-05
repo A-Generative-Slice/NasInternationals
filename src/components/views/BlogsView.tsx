@@ -44,7 +44,7 @@ export const BlogsView: React.FC = () => {
         
         {/* Header */}
         <div className="text-center space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#F5B800] block">OUR LATEST ARTICLES</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-[#036CFB] block">OUR LATEST ARTICLES</span>
           <h1 className="text-4xl font-extrabold text-[#062544]">Travel & Visa Insights</h1>
           <p className="text-sm font-medium text-slate-600 max-w-xl mx-auto">Stay updated with the latest visa policies, travel tips, and destination guides.</p>
         </div>
@@ -55,22 +55,22 @@ export const BlogsView: React.FC = () => {
             <div key={post.id} className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl transition-all group flex flex-col justify-between">
               <div className="relative h-56 overflow-hidden">
                 <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <span className="absolute top-4 left-4 bg-[#062544] text-[#F5B800] text-[10px] font-extrabold px-3 py-1 rounded-full">{post.category}</span>
+                <span className="absolute top-4 left-4 bg-[#062544] text-[#38BDF8] text-[10px] font-extrabold px-3 py-1 rounded-full">{post.category}</span>
               </div>
 
               <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
                 <div className="space-y-2">
                   <div className="flex items-center space-x-4 text-xs font-semibold text-slate-400">
-                    <span className="flex items-center space-x-1"><Calendar className="w-3.5 h-3.5 text-[#F5B800]" /> <span>{post.date}</span></span>
+                    <span className="flex items-center space-x-1"><Calendar className="w-3.5 h-3.5 text-[#036CFB]" /> <span>{post.date}</span></span>
                     <span>{post.readTime}</span>
                   </div>
-                  <h3 className="font-extrabold text-xl text-[#062544] group-hover:text-[#F5B800] transition-colors">{post.title}</h3>
+                  <h3 className="font-extrabold text-xl text-[#062544] group-hover:text-[#036CFB] transition-colors">{post.title}</h3>
                   <p className="text-xs text-slate-600 leading-relaxed">{post.excerpt}</p>
                 </div>
 
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                   <span className="text-xs font-bold text-slate-500">By {post.author}</span>
-                  <button onClick={() => navigateTo('/visas')} className="text-xs font-extrabold text-[#062544] hover:text-[#F5B800] flex items-center space-x-1">
+                  <button onClick={() => navigateTo('/visas')} className="text-xs font-extrabold text-[#062544] hover:text-[#036CFB] flex items-center space-x-1">
                     <span>Read Article</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>

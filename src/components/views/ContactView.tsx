@@ -35,13 +35,13 @@ export const ContactView: React.FC = () => {
 
           {/* Right Support Agent Illustration Graphic */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm h-56 bg-[#F5B800]/10 rounded-3xl p-6 flex items-center justify-center border border-[#F5B800]/20">
+            <div className="relative w-full max-w-sm h-56 bg-[#036CFB]/10 rounded-3xl p-6 flex items-center justify-center border border-[#036CFB]/20">
               <div className="text-center space-y-2">
-                <div className="w-14 h-14 rounded-full bg-[#062544] text-[#F5B800] flex items-center justify-center mx-auto shadow-md">
+                <div className="w-14 h-14 rounded-full bg-[#062544] text-[#38BDF8] flex items-center justify-center mx-auto shadow-md">
                   <Headphones className="w-7 h-7" />
                 </div>
                 <h3 className="font-extrabold text-[#062544] text-base">Managing Director: N. ABDUL HAKEEM</h3>
-                <p className="text-xs text-slate-600 font-bold text-[#F5B800]">LET'S EXPLORE THE WORLD</p>
+                <p className="text-xs text-[#036CFB] font-bold">100% ONLINE VISA & TRAVEL SUPPORT</p>
               </div>
             </div>
           </div>
@@ -49,8 +49,8 @@ export const ContactView: React.FC = () => {
         </div>
       </section>
 
-      {/* SOLID YELLOW HORIZONTAL ACCENT DIVIDER BAR */}
-      <div className="w-full h-3 bg-[#F5B800]"></div>
+      {/* SOLID BLUE HORIZONTAL ACCENT DIVIDER BAR */}
+      <div className="w-full h-3 bg-[#036CFB]"></div>
 
       {/* MAIN CONTENT SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -62,62 +62,86 @@ export const ContactView: React.FC = () => {
           <div className="lg:col-span-6 space-y-8">
             
             <div className="space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#F5B800] block">
-                NAS INTERNATIONALS HEADQUARTERS
+              <span className="text-xs font-bold uppercase tracking-widest text-[#036CFB] block">
+                100% ONLINE VISA & TRAVEL SERVICES
               </span>
               <h2 className="text-3xl font-extrabold text-[#062544]">
-                Contact with Us for Your Any Help
+                Strictly Online Support & Consultation
               </h2>
               <p className="text-sm font-medium text-slate-600 leading-relaxed">
-                <strong>Need Help With Your Visa, Umrah, or Tour Booking?</strong> : We're here to assist you at every step. Reach out with any questions we respond fast!
+                <strong>Need Help With Your Visa, Umrah, or Tour Booking?</strong> All our services are handled 100% digitally. Reach out directly via phone, WhatsApp, or email — zero in-person visits required.
               </p>
             </div>
 
-            {/* Information Cards from Official Business Card */}
-            <div className="space-y-6">
+            {/* Information Cards - Exclusively Mobile Number, Email Address, and Website URL */}
+            <div className="space-y-5">
               
-              {/* Location Card */}
+              {/* Phone / Mobile Card */}
               <div className="flex items-start space-x-4 p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200/60">
-                <div className="w-12 h-12 rounded-2xl bg-[#062544] text-[#F5B800] flex items-center justify-center shrink-0 shadow-md">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-[#F5B800] text-sm uppercase">Official Office Address</h4>
-                  <p className="text-xs font-bold text-slate-800 leading-relaxed mt-1">
-                    No. 144/183, First Floor, Valluvarkottam High Road, <br />
-                    Nungambakkam, Chennai - 600034, Tamilnadu, India
-                  </p>
-                </div>
-              </div>
-
-              {/* Phone Card */}
-              <div className="flex items-start space-x-4 p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200/60">
-                <div className="w-12 h-12 rounded-2xl bg-[#062544] text-[#F5B800] flex items-center justify-center shrink-0 shadow-md">
+                <div className="w-12 h-12 rounded-2xl bg-[#036CFB] text-white flex items-center justify-center shrink-0 shadow-md">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#F5B800] text-sm uppercase">Direct Phone & WhatsApp</h4>
+                  <h4 className="font-bold text-[#036CFB] text-sm uppercase">Mobile Number & WhatsApp</h4>
                   <p className="text-xs font-bold text-slate-800 leading-relaxed mt-1">
-                    WhatsApp: <strong>+91 99419 00055</strong> 💬 <br />
-                    Landline: <strong>044-26791505</strong> ☎
+                    <a href="tel:+919941900055" className="hover:text-[#036CFB] transition-colors">
+                      +91 99419 00055
+                    </a>
                   </p>
+                  <span className="inline-block mt-1 text-[11px] text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                    Active 24/7 on WhatsApp & Calls
+                  </span>
                 </div>
               </div>
 
-              {/* Email & Web Card */}
+              {/* Email Card */}
               <div className="flex items-start space-x-4 p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200/60">
-                <div className="w-12 h-12 rounded-2xl bg-[#062544] text-[#F5B800] flex items-center justify-center shrink-0 shadow-md">
+                <div className="w-12 h-12 rounded-2xl bg-[#036CFB] text-white flex items-center justify-center shrink-0 shadow-md">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#036CFB] text-sm uppercase">Email Address</h4>
+                  <p className="text-xs font-bold text-slate-800 leading-relaxed mt-1">
+                    <a href="mailto:info@nasinternationals.com" className="hover:text-[#036CFB] transition-colors">
+                      info@nasinternationals.com
+                    </a>
+                  </p>
+                  <span className="inline-block mt-1 text-[11px] text-blue-600 font-semibold bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
+                    Fast email responses within 2 hours
+                  </span>
+                </div>
+              </div>
+
+              {/* Website Portal Card */}
+              <div className="flex items-start space-x-4 p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200/60">
+                <div className="w-12 h-12 rounded-2xl bg-[#036CFB] text-white flex items-center justify-center shrink-0 shadow-md">
                   <Globe className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#F5B800] text-sm uppercase">Email & Online Portal</h4>
+                  <h4 className="font-bold text-[#036CFB] text-sm uppercase">Official Website URL</h4>
                   <p className="text-xs font-bold text-slate-800 leading-relaxed mt-1">
-                    Email: <strong>info@nasinternationals.com</strong> <br />
-                    Website: <strong>www.nasinternationals.com</strong> <br />
-                    Social: <strong>@officialnasinternationals</strong>
+                    <a href="https://www.nasinternationals.com" target="_blank" rel="noreferrer" className="hover:text-[#036CFB] transition-colors">
+                      www.nasinternationals.com
+                    </a>
                   </p>
+                  <span className="inline-block mt-1 text-[11px] text-sky-600 font-semibold bg-sky-50 px-2 py-0.5 rounded border border-sky-200">
+                    100% Online Application & Document Upload
+                  </span>
                 </div>
               </div>
+
+              {/* Strictly Online Guarantee Banner */}
+              <div className="p-4 rounded-2xl bg-blue-50/80 border border-blue-200/80 text-xs text-blue-950 space-y-1">
+                <div className="flex items-center space-x-2 font-bold text-[#036CFB]">
+                  <CheckCircle2 className="w-4 h-4 text-[#036CFB]" />
+                  <span>Strictly Online Operations</span>
+                </div>
+                <p className="text-[11px] text-slate-600 pl-6 leading-relaxed">
+                  No office visits, appointments, or physical paper queues required. Everything from visa eligibility, document verification, application submission to visa issuance happens directly through our online system.
+                </p>
+              </div>
+
+            </div>
 
             </div>
 
@@ -206,7 +230,7 @@ export const ContactView: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 bg-[#F5B800] hover:bg-[#e0a800] text-[#062544] font-extrabold text-xs rounded-full shadow-md transition-all flex items-center justify-center space-x-2 cursor-pointer"
+                  className="w-full py-3.5 bg-[#036CFB] hover:bg-blue-600 text-white font-extrabold text-xs rounded-full shadow-md transition-all flex items-center justify-center space-x-2 cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   <span>Send Message to NAS Internationals</span>

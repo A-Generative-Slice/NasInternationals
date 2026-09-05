@@ -50,7 +50,7 @@ export const PaymentTrackerView: React.FC = () => {
                 onClick={() => setActiveTrackerAppId(item.id)}
                 className={`px-3 py-1 rounded-full text-xs font-mono font-bold transition ${
                   item.id === app.id
-                    ? 'bg-[#0B1E3D] text-[#EAC166]'
+                    ? 'bg-[#036CFB] text-white shadow-sm'
                     : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
                 }`}
               >
@@ -66,7 +66,7 @@ export const PaymentTrackerView: React.FC = () => {
           {/* Box 1: Secure Payment Information */}
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4 flex flex-col justify-between">
             <h3 className="font-display font-bold text-[#0B1E3D] text-base">
-              Secure Payment Information
+              Secure Digital Payment Information
             </h3>
 
             <div className="flex items-center space-x-4">
@@ -88,7 +88,7 @@ export const PaymentTrackerView: React.FC = () => {
                   <p>NAS Travels Pvt Ltd</p>
                   <p>Account No: <span className="font-mono font-bold text-slate-800">{payment?.accountNumber || '1234567890'}</span></p>
                   <p>IFSC: <span className="font-mono font-bold text-slate-800">{payment?.ifscCode || 'HDFC0001234'}</span></p>
-                  <p className="text-[#036CFB] font-bold pt-1">Amount: ₹{payment?.amount?.toLocaleString('en-IN') || '8,500'}</p>
+                  <p className="text-[#036CFB] font-bold pt-1">Service Mode: 100% Online Verification</p>
                 </div>
               </div>
             </div>
@@ -134,16 +134,16 @@ export const PaymentTrackerView: React.FC = () => {
 
               <button
                 type="submit"
-                className="w-full py-2.5 bg-[#0B1E3D] hover:bg-blue-900 text-white font-display font-bold text-xs tracking-wide rounded-xl shadow-md transition"
+                className="w-full py-2.5 bg-[#036CFB] hover:bg-[#0256c7] text-white font-display font-bold text-xs tracking-wide rounded-xl shadow-md shadow-[#036CFB]/25 transition"
               >
-                {isSubmitted ? 'Update Payment Details' : 'Submit Payment'}
+                {isSubmitted ? 'Update Payment Details' : 'Submit Payment Details'}
               </button>
             </form>
 
             {/* Badges Row */}
             <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-500 font-semibold">
               <div className="flex items-center space-x-1">
-                <Lock className="w-3 h-3 text-amber-600" />
+                <Lock className="w-3 h-3 text-[#036CFB]" />
                 <span>256-bit SSL Secure</span>
               </div>
               <div className="flex items-center space-x-1">
@@ -151,7 +151,7 @@ export const PaymentTrackerView: React.FC = () => {
                 <span>Trusted Payment</span>
               </div>
               <div className="flex items-center space-x-1">
-                <Shield className="w-3 h-3 text-blue-600" />
+                <Shield className="w-3 h-3 text-[#036CFB]" />
                 <span>Data Privacy Guaranteed</span>
               </div>
             </div>
@@ -170,7 +170,7 @@ export const PaymentTrackerView: React.FC = () => {
             {/* Step 1: Submitted */}
             <div className="relative space-y-1">
               <div className="absolute -left-[31px] top-0 w-8 h-8 rounded-full bg-[#0B1E3D] text-white flex items-center justify-center shadow-md">
-                <CheckCircle2 className="w-5 h-5 text-[#EAC166]" />
+                <CheckCircle2 className="w-5 h-5 text-[#38BDF8]" />
               </div>
               <p className="font-bold text-slate-800 text-sm">
                 Submitted <span className="text-slate-400 font-normal text-xs">- 10 Oct 2024</span>
@@ -183,7 +183,7 @@ export const PaymentTrackerView: React.FC = () => {
               <div className={`absolute -left-[31px] top-2 w-8 h-8 rounded-full flex items-center justify-center shadow-md ${
                 app.status !== 'Submitted' ? 'bg-[#0B1E3D] text-white' : 'bg-slate-200 text-slate-400'
               }`}>
-                <Clock className="w-5 h-5 text-sky-400" />
+                <Clock className="w-5 h-5 text-[#38BDF8]" />
               </div>
               <p className="font-bold text-slate-800 text-sm">
                 Under Review <span className="text-slate-400 font-normal text-xs">- 12 Oct 2024</span>
@@ -198,7 +198,7 @@ export const PaymentTrackerView: React.FC = () => {
                   ? 'bg-[#0B1E3D] text-white'
                   : 'bg-slate-200 text-slate-400'
               }`}>
-                <ShieldCheck className="w-5 h-5 text-blue-400" />
+                <ShieldCheck className="w-5 h-5 text-[#036CFB]" />
               </div>
               <p className="font-bold text-slate-800 text-sm">
                 Processing <span className="text-slate-400 font-normal text-xs">- 15 Oct 2024</span>
@@ -210,7 +210,7 @@ export const PaymentTrackerView: React.FC = () => {
             <div className="relative pt-2">
               <div className={`absolute -left-[31px] top-2 w-8 h-8 rounded-full flex items-center justify-center shadow-md ${
                 app.status === 'Approved' || app.status === 'Completed'
-                  ? 'bg-amber-500 text-white'
+                  ? 'bg-[#036CFB] text-white shadow-md shadow-[#036CFB]/25'
                   : 'bg-slate-200 text-slate-400'
               }`}>
                 <CheckCircle2 className="w-5 h-5" />
@@ -219,7 +219,7 @@ export const PaymentTrackerView: React.FC = () => {
               {/* Highlight Box matching screenshot */}
               <div className={`p-4 rounded-xl border flex items-center justify-between ${
                 app.status === 'Approved' || app.status === 'Completed'
-                  ? 'bg-amber-50/80 border-amber-200 text-amber-900'
+                  ? 'bg-blue-50/80 border-blue-200 text-blue-900'
                   : 'bg-slate-50 border-slate-200 text-slate-600'
               }`}>
                 <span className="font-display font-extrabold text-sm uppercase">Visa Approved</span>

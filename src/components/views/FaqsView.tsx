@@ -9,15 +9,15 @@ export const FaqsView: React.FC = () => {
   const faqs = [
     {
       q: 'How long does e-Visa processing take?',
-      a: 'E-visa processing depends on the country, but most popular tourist e-visas (like Dubai, Thailand, Japan, and Vietnam) are processed within 24 to 72 hours.'
+      a: 'E-visa processing depends on the country, but most popular tourist e-visas (like Dubai, Thailand, Japan, and Vietnam) are processed within 24 to 72 hours through our 100% online portal.'
     },
     {
-      q: 'Is physical passport submission required for all countries?',
-      a: 'No. For e-visas and ETA permits (such as Dubai, Vietnam, Sri Lanka, and Japan), you only need scanned soft copies of your passport bio-page and photograph. Physical submission is only needed for sticker visas (such as Schengen or Canada).'
+      q: 'Are any in-person visits or physical office appointments required?',
+      a: 'No, absolutely not. NAS Internationals operates as a strictly online service. All applications, document submissions, biometric assistance guidance, and visa issuances are handled 100% digitally. You can complete your entire application from the comfort of your home.'
     },
     {
       q: 'Can I track my visa application status online?',
-      a: 'Yes! After applying with Tripate, you get access to your real-time User Dashboard and Payment Tracker where you can view every step from document verification to approval.'
+      a: 'Yes! After applying with NAS Internationals, you get access to your real-time User Dashboard and Payment Tracker where you can view every step from document verification to approval.'
     },
     {
       q: 'What happens if my document is rejected by embassy specifications?',
@@ -25,7 +25,7 @@ export const FaqsView: React.FC = () => {
     },
     {
       q: 'Are tour package bookings inclusive of flight tickets?',
-      a: 'Yes, our advertised group tour packages (e.g. Bhutan from Hyderabad or Andaman from Chennai) include flights, accommodation, meals, transfers, and sightseeing.'
+      a: 'Yes, our group tour packages include flights, accommodation, meals, transfers, and sightseeing, all bookable 100% online.'
     }
   ];
 
@@ -35,9 +35,9 @@ export const FaqsView: React.FC = () => {
         
         {/* Header */}
         <div className="text-center space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#F5B800] block">GOT QUESTIONS?</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-[#036CFB] block">GOT QUESTIONS?</span>
           <h1 className="text-4xl font-extrabold text-[#062544]">Frequently Asked Questions</h1>
-          <p className="text-sm font-medium text-slate-600">Find quick answers to common visa, tour booking, and document questions.</p>
+          <p className="text-sm font-medium text-slate-600">Find quick answers to common visa, tour booking, and digital document questions.</p>
         </div>
 
         {/* Accordion List */}
@@ -49,7 +49,7 @@ export const FaqsView: React.FC = () => {
                 className="w-full text-left p-6 font-extrabold text-base text-[#062544] flex items-center justify-between hover:bg-slate-50 cursor-pointer"
               >
                 <div className="flex items-center space-x-3">
-                  <HelpCircle className="w-5 h-5 text-[#F5B800] shrink-0" />
+                  <HelpCircle className="w-5 h-5 text-[#036CFB] shrink-0" />
                   <span>{faq.q}</span>
                 </div>
                 <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform ${openIndex === index ? 'transform rotate-180 text-[#062544]' : ''}`} />
@@ -67,9 +67,9 @@ export const FaqsView: React.FC = () => {
         {/* Support CTA */}
         <div className="bg-[#062544] rounded-3xl p-8 text-center text-white space-y-4">
           <h3 className="text-2xl font-extrabold">Still have questions?</h3>
-          <p className="text-xs text-slate-300 max-w-md mx-auto">Our visa experts are online 24/7 to clarify your doubts and guide your application.</p>
-          <button onClick={() => navigateTo('/contact')} className="px-8 py-3 bg-[#F5B800] text-[#062544] font-extrabold text-xs rounded-full shadow-md hover:bg-[#e0a800]">
-            Contact Support
+          <p className="text-xs text-slate-300 max-w-md mx-auto">Our visa experts are online 24/7 to clarify your doubts and guide your online application.</p>
+          <button onClick={() => navigateTo('/contact')} className="px-8 py-3 bg-[#036CFB] hover:bg-blue-600 text-white font-extrabold text-xs rounded-full shadow-md transition-all cursor-pointer">
+            Contact Online Support
           </button>
         </div>
 

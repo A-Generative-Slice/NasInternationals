@@ -54,7 +54,7 @@ export const VisaFinderView: React.FC = () => {
             INTERACTIVE VISA FINDER & SERVICES
           </h1>
           <p className="text-slate-600 text-sm mt-1">
-            Instant eligibility check, upfront processing fees, and fast-track embassy approvals.
+            Instant eligibility check, 100% digital processing, and fast-track embassy approvals.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export const VisaFinderView: React.FC = () => {
                 <select
                   value={selectedDestination}
                   onChange={(e) => setSelectedDestination(e.target.value)}
-                  className="w-full bg-white text-slate-800 text-sm font-medium py-2.5 px-3 pr-8 rounded-xl appearance-none focus:outline-none focus:ring-2 focus:ring-[#C8A24A] cursor-pointer shadow-sm"
+                  className="w-full bg-white text-slate-800 text-sm font-medium py-2.5 px-3 pr-8 rounded-xl appearance-none focus:outline-none focus:ring-2 focus:ring-[#036CFB] cursor-pointer shadow-sm"
                 >
                   {COUNTRIES_LIST.map((c) => (
                     <option key={c} value={c}>
@@ -91,7 +91,7 @@ export const VisaFinderView: React.FC = () => {
                 <select
                   value={selectedNationality}
                   onChange={(e) => setSelectedNationality(e.target.value)}
-                  className="w-full bg-white text-slate-800 text-sm font-medium py-2.5 px-3 pr-8 rounded-xl appearance-none focus:outline-none focus:ring-2 focus:ring-[#C8A24A] cursor-pointer shadow-sm"
+                  className="w-full bg-white text-slate-800 text-sm font-medium py-2.5 px-3 pr-8 rounded-xl appearance-none focus:outline-none focus:ring-2 focus:ring-[#036CFB] cursor-pointer shadow-sm"
                 >
                   {NATIONALITIES_LIST.map((n) => (
                     <option key={n} value={n}>
@@ -112,7 +112,7 @@ export const VisaFinderView: React.FC = () => {
                 <select
                   value={selectedPurpose}
                   onChange={(e) => setSelectedPurpose(e.target.value)}
-                  className="w-full bg-white text-slate-800 text-sm font-medium py-2.5 px-3 pr-8 rounded-xl appearance-none focus:outline-none focus:ring-2 focus:ring-[#C8A24A] cursor-pointer shadow-sm"
+                  className="w-full bg-white text-slate-800 text-sm font-medium py-2.5 px-3 pr-8 rounded-xl appearance-none focus:outline-none focus:ring-2 focus:ring-[#036CFB] cursor-pointer shadow-sm"
                 >
                   {PURPOSES_LIST.map((p) => (
                     <option key={p} value={p}>
@@ -130,7 +130,7 @@ export const VisaFinderView: React.FC = () => {
                 onClick={() => {
                   // Filter trigger feedback
                 }}
-                className="w-full py-2.5 px-4 bg-[#C8A24A] hover:bg-[#EAC166] active:scale-98 text-[#0B1E3D] font-display font-bold text-sm tracking-wide rounded-xl shadow-lg transition-all flex items-center justify-center space-x-2"
+                className="w-full py-2.5 px-4 bg-[#036CFB] hover:bg-[#0256c7] active:scale-98 text-white font-display font-bold text-sm tracking-wide rounded-xl shadow-lg shadow-[#036CFB]/25 transition-all flex items-center justify-center space-x-2"
               >
                 <span>Find Visa</span>
                 <ArrowRight className="w-4 h-4" />
@@ -168,13 +168,11 @@ export const VisaFinderView: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Pricing & Processing info */}
-                  <div className="space-y-1 pt-2">
-                    <div className="text-sm font-medium text-slate-700 flex items-baseline space-x-1">
-                      <span>Starting from</span>
-                      <span className="font-display text-xl font-extrabold text-[#0B1E3D] ml-1">
-                        ₹ {visa.priceInINR.toLocaleString('en-IN')}
-                      </span>
+                  {/* Online Processing Mode & Time info */}
+                  <div className="space-y-2 pt-2">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#036CFB]/10 text-[#036CFB] text-xs font-bold">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#036CFB]" />
+                      <span>100% Online Application</span>
                     </div>
 
                     <p className="text-xs text-slate-500 flex items-center space-x-1">
@@ -192,7 +190,7 @@ export const VisaFinderView: React.FC = () => {
                 <div className="pt-6 relative z-10 flex items-center space-x-2">
                   <button
                     onClick={() => handleApplyClick(visa)}
-                    className="flex-1 py-2.5 px-4 bg-[#C8A24A] hover:bg-[#EAC166] text-[#0B1E3D] font-display font-bold text-xs tracking-wider uppercase rounded-full shadow-md transition-all text-center"
+                    className="flex-1 py-2.5 px-4 bg-[#036CFB] hover:bg-[#0256c7] text-white font-display font-bold text-xs tracking-wider uppercase rounded-full shadow-md shadow-[#036CFB]/25 transition-all text-center"
                   >
                     Apply Now
                   </button>
@@ -224,7 +222,7 @@ export const VisaFinderView: React.FC = () => {
                   DOCUMENT ATTESTATION
                 </h3>
                 <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                  Fast and reliable attestation for educational, personal, and commercial documents from MEA & Foreign Embassies.
+                  Fast and reliable online coordination for educational, personal, and commercial document attestations from MEA & Foreign Embassies.
                 </p>
               </div>
 
@@ -247,7 +245,7 @@ export const VisaFinderView: React.FC = () => {
                   PASSPORT SERVICES
                 </h3>
                 <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                  New passports, renewals, Tatkal appointments, address modifications, and other passport-related services.
+                  Online assistance for new passports, renewals, Tatkal processing, address modifications, and documentation review.
                 </p>
               </div>
 
@@ -259,20 +257,20 @@ export const VisaFinderView: React.FC = () => {
               </button>
             </div>
 
-            {/* Need Assistance Hotline Box */}
-            <div className="bg-gradient-to-br from-[#0B1E3D] to-[#1A365D] rounded-2xl p-5 text-white shadow-lg space-y-3 border border-slate-700">
-              <div className="flex items-center space-x-2 text-[#EAC166] text-xs font-semibold">
+            {/* Need Assistance Helpline Box */}
+            <div className="bg-gradient-to-br from-[#062544] to-[#0B1E3D] rounded-2xl p-5 text-white shadow-lg space-y-3 border border-slate-700">
+              <div className="flex items-center space-x-2 text-[#38BDF8] text-xs font-semibold">
                 <ShieldCheck className="w-4 h-4" />
                 <span>Need Personalized Help?</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Our visa specialists are standing by to review your documents before submission.
+                Our online visa specialists are standing by to review your documents digitally before submission.
               </p>
               <a
-                href="tel:+9019740030"
-                className="block text-center py-2 px-3 bg-white/10 hover:bg-white/20 rounded-xl text-xs font-bold text-[#EAC166] border border-[#C8A24A]/40 transition"
+                href="tel:+919941900055"
+                className="block text-center py-2 px-3 bg-[#036CFB] hover:bg-[#0256c7] rounded-xl text-xs font-bold text-white shadow-md shadow-[#036CFB]/25 transition"
               >
-                Call Support: +901-974-0030
+                Call Helpline: +91 99419 00055
               </a>
             </div>
 

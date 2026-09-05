@@ -13,7 +13,6 @@ export const VisaView: React.FC = () => {
       name: 'Canada Visitor Visa',
       country: 'Canada',
       type: 'Tourist Visa',
-      price: 8500,
       processingTime: '10-15 Days',
       validity: 'Up to 10 Years',
       category: 'Trending',
@@ -26,7 +25,6 @@ export const VisaView: React.FC = () => {
       name: 'France (Schengen) Visa',
       country: 'France',
       type: 'Tourist Visa',
-      price: 9500,
       processingTime: '7-12 Days',
       validity: '90 Days',
       category: 'Express',
@@ -39,7 +37,6 @@ export const VisaView: React.FC = () => {
       name: 'Dubai (UAE) Express Visa',
       country: 'United Arab Emirates',
       type: 'Tourist Visa',
-      price: 6500,
       processingTime: '24-48 Hours',
       validity: '30 / 60 Days',
       category: 'Express',
@@ -52,7 +49,6 @@ export const VisaView: React.FC = () => {
       name: 'Japan E-Visa',
       country: 'Japan',
       type: 'Tourist Visa',
-      price: 3450,
       processingTime: '4-5 Days',
       validity: '90 Days Single Entry',
       category: 'E-Visa',
@@ -65,10 +61,9 @@ export const VisaView: React.FC = () => {
       name: 'Thailand E-Visa',
       country: 'Thailand',
       type: 'Tourist Visa',
-      price: 1999,
       processingTime: '2-3 Days',
       validity: '60 Days',
-      category: 'Cheapest',
+      category: 'Fast-Track',
       badge: 'E-Visa',
       image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80',
       description: 'Instant e-visa for beaches, culture, and leisure travel.'
@@ -78,7 +73,6 @@ export const VisaView: React.FC = () => {
       name: 'United Kingdom Standard Visitor',
       country: 'United Kingdom',
       type: 'Tourist Visa',
-      price: 12500,
       processingTime: '15-20 Days',
       validity: '6 Months',
       category: 'Trending',
@@ -106,22 +100,22 @@ export const VisaView: React.FC = () => {
           {/* Left Text */}
           <div className="lg:col-span-7 space-y-4">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#062544] tracking-tight leading-tight">
-              Apply for all Tourist visa online in one place – Tripate
+              Apply for International Visas 100% Online — NAS Internationals
             </h1>
             <p className="text-base font-bold text-slate-500">
-              Find Your Next Destination
+              Find Your Next Destination • Zero Office Visits Required
             </p>
           </div>
 
           {/* Right Travel Illustration Graphic */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm h-56 bg-[#F5B800]/10 rounded-3xl p-6 flex items-center justify-center border border-[#F5B800]/20">
+            <div className="relative w-full max-w-sm h-56 bg-[#036CFB]/10 rounded-3xl p-6 flex items-center justify-center border border-[#036CFB]/20">
               <div className="text-center space-y-3">
-                <div className="w-16 h-16 rounded-full bg-[#F5B800] text-[#062544] flex items-center justify-center mx-auto shadow-md">
+                <div className="w-16 h-16 rounded-full bg-[#036CFB] text-white flex items-center justify-center mx-auto shadow-md">
                   <Plane className="w-8 h-8 transform -rotate-45" />
                 </div>
                 <h3 className="font-extrabold text-[#062544] text-lg">100% Online Visa Process</h3>
-                <p className="text-xs text-slate-600 font-medium">Fast approval, expert verification & 24/7 status tracking</p>
+                <p className="text-xs text-slate-600 font-medium">Digital document submission, fast approvals & 24/7 online status tracking</p>
               </div>
             </div>
           </div>
@@ -129,8 +123,8 @@ export const VisaView: React.FC = () => {
         </div>
       </section>
 
-      {/* SOLID YELLOW HORIZONTAL ACCENT DIVIDER BAR */}
-      <div className="w-full h-3 bg-[#F5B800]"></div>
+      {/* SOLID BLUE HORIZONTAL ACCENT DIVIDER BAR */}
+      <div className="w-full h-3 bg-[#036CFB]"></div>
 
       {/* FILTER & SEARCH BAR ROW */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6">
@@ -138,13 +132,13 @@ export const VisaView: React.FC = () => {
           
           {/* Left Category Pills */}
           <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar bg-white p-1.5 rounded-full border border-slate-200 shadow-sm max-w-full">
-            {['All', 'Trending', 'E-Visa', 'Express', 'Cheapest'].map((category) => (
+            {['All', 'Trending', 'E-Visa', 'Express', 'Fast-Track'].map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`px-5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
                   activeCategory === category
-                    ? 'bg-[#062544] text-white shadow-md'
+                    ? 'bg-[#036CFB] text-white shadow-md'
                     : 'text-slate-600 hover:text-[#062544] hover:bg-slate-100'
                 }`}
               >
@@ -166,7 +160,7 @@ export const VisaView: React.FC = () => {
                   className="w-full bg-transparent text-xs font-medium text-slate-800 focus:outline-none placeholder-slate-400"
                 />
               </div>
-              <div className="w-8 h-8 rounded-full bg-[#F5B800] text-[#062544] flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-full bg-[#036CFB] text-white flex items-center justify-center shrink-0">
                 <Search className="w-4 h-4" />
               </div>
             </div>
@@ -201,7 +195,7 @@ export const VisaView: React.FC = () => {
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 
                 <div className="space-y-2">
-                  <h3 className="font-extrabold text-xl text-[#062544] group-hover:text-[#F5B800] transition-colors">
+                  <h3 className="font-extrabold text-xl text-[#062544] group-hover:text-[#036CFB] transition-colors">
                     {visa.name}
                   </h3>
                   
@@ -211,7 +205,7 @@ export const VisaView: React.FC = () => {
 
                   <div className="pt-2 space-y-1.5 text-xs text-slate-600 font-medium">
                     <div className="flex items-center space-x-2">
-                      <Clock className="w-3.5 h-3.5 text-[#F5B800]" />
+                      <Clock className="w-3.5 h-3.5 text-[#036CFB]" />
                       <span>Processing Time: <strong>{visa.processingTime}</strong></span>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -221,17 +215,17 @@ export const VisaView: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Footer Action & Price */}
+                {/* Footer Action */}
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Starting Fee</span>
-                    <span className="text-2xl font-black text-[#F5B800]">
-                      ₹{visa.price.toLocaleString()}
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Application Mode</span>
+                    <span className="text-xs font-extrabold text-[#036CFB] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 inline-block mt-0.5">
+                      100% Online E-Visa
                     </span>
                   </div>
 
-                  <button className="px-5 py-2 bg-[#062544] group-hover:bg-[#F5B800] text-white group-hover:text-[#062544] font-bold text-xs rounded-full transition-all flex items-center space-x-1.5">
-                    <span>Apply Now</span>
+                  <button className="px-5 py-2 bg-[#036CFB] group-hover:bg-[#062544] text-white font-bold text-xs rounded-full transition-all flex items-center space-x-1.5 shadow-md">
+                    <span>Apply Online</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>

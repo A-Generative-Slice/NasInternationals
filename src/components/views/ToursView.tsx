@@ -16,7 +16,6 @@ export const ToursView: React.FC = () => {
       destination: 'Bhutan',
       dates: '3 Sep 2026 – 9 Sep 2026',
       duration: '7 Days / 6 Nights',
-      price: '₹ 66,666',
       continent: 'Asia',
       image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80',
       status: 'BOOKING OPEN',
@@ -29,7 +28,6 @@ export const ToursView: React.FC = () => {
       destination: 'Bhutan',
       dates: '16 Sep 2026 – 22 Sep 2026',
       duration: '7 Days / 6 Nights',
-      price: '₹ 66,666',
       continent: 'Asia',
       image: 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=800&q=80',
       status: 'BOOKING OPEN',
@@ -42,7 +40,6 @@ export const ToursView: React.FC = () => {
       destination: 'India',
       dates: '27 Oct 2026 – 31 Oct 2026',
       duration: '5 Days / 4 Nights',
-      price: '₹ 40,999',
       continent: 'Asia',
       image: 'https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?auto=format&fit=crop&w=800&q=80',
       status: 'BOOKING OPEN',
@@ -55,7 +52,6 @@ export const ToursView: React.FC = () => {
       destination: 'Sri Lanka',
       dates: '10 Sep 2026 – 16 Sep 2026',
       duration: '7 Days / 6 Nights',
-      price: '₹ 35,500',
       continent: 'Asia',
       image: 'https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=800&q=80',
       status: 'BOOKING OPEN',
@@ -68,7 +64,6 @@ export const ToursView: React.FC = () => {
       destination: 'Vietnam',
       dates: '05 Oct 2026 – 12 Oct 2026',
       duration: '8 Days / 7 Nights',
-      price: '₹ 52,000',
       continent: 'Asia',
       image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80',
       status: 'BOOKING OPEN',
@@ -81,7 +76,6 @@ export const ToursView: React.FC = () => {
       destination: 'Georgia',
       dates: '15 Nov 2026 – 21 Nov 2026',
       duration: '7 Days / 6 Nights',
-      price: '₹ 48,999',
       continent: 'Europe',
       image: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80',
       status: 'BOOKING OPEN',
@@ -105,7 +99,7 @@ export const ToursView: React.FC = () => {
             Tailored For Every Traveler
             
             {/* Flight trajectory arc line vector illustration */}
-            <svg className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-64 h-8 text-[#F5B800]" viewBox="0 0 250 30" fill="none">
+            <svg className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-64 h-8 text-[#036CFB]" viewBox="0 0 250 30" fill="none">
               <path d="M5 25 Q 125 0 245 25" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
               <polygon points="245,25 235,20 238,28" fill="currentColor" />
             </svg>
@@ -123,7 +117,7 @@ export const ToursView: React.FC = () => {
                 onClick={() => setActiveContinent(continent)}
                 className={`px-5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
                   activeContinent === continent
-                    ? 'bg-[#062544] text-white shadow-md'
+                    ? 'bg-[#036CFB] text-white shadow-md'
                     : 'text-slate-600 hover:text-[#062544] hover:bg-slate-100'
                 }`}
               >
@@ -205,7 +199,7 @@ export const ToursView: React.FC = () => {
 
                 {/* Bottom Right Badge Over Image - 7 Days / 6 Nights */}
                 <div className="absolute bottom-4 right-4 bg-white/95 text-[#062544] text-xs font-bold px-3.5 py-1.5 rounded-full shadow-md flex items-center space-x-2">
-                  <Plane className="w-3.5 h-3.5 text-[#F5B800] transform -rotate-45" />
+                  <Plane className="w-3.5 h-3.5 text-[#036CFB] transform -rotate-45" />
                   <span>+ 🧳 {tour.duration}</span>
                 </div>
               </div>
@@ -214,19 +208,19 @@ export const ToursView: React.FC = () => {
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 
                 <div className="space-y-3">
-                  <h3 className="font-extrabold text-xl text-[#062544] group-hover:text-[#F5B800] transition-colors leading-snug">
+                  <h3 className="font-extrabold text-xl text-[#062544] group-hover:text-[#036CFB] transition-colors leading-snug">
                     {tour.title}
                   </h3>
 
                   {/* Location & Dates */}
                   <div className="flex items-center space-x-6 text-xs text-slate-500 font-semibold">
                     <div className="flex items-center space-x-1.5">
-                      <MapPin className="w-4 h-4 text-[#F5B800]" />
+                      <MapPin className="w-4 h-4 text-[#036CFB]" />
                       <span>{tour.destination}</span>
                     </div>
 
                     <div className="flex items-center space-x-1.5">
-                      <Calendar className="w-4 h-4 text-[#F5B800]" />
+                      <Calendar className="w-4 h-4 text-[#036CFB]" />
                       <span>{tour.dates}</span>
                     </div>
                   </div>
@@ -237,11 +231,12 @@ export const ToursView: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Price Tag */}
-                <div className="pt-2 border-t border-slate-100 flex items-center justify-end">
-                  <div className="text-2xl font-black text-[#062544]">
-                    {tour.price}
-                  </div>
+                {/* Online Action Tag */}
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-500">100% Online Booking</span>
+                  <span className="text-xs font-extrabold text-[#036CFB] flex items-center space-x-1 group-hover:underline">
+                    <span>View Itinerary ↗</span>
+                  </span>
                 </div>
 
               </div>

@@ -57,15 +57,15 @@ export const AdditionalServiceModals: React.FC = () => {
 
           <div className="pt-3 border-t border-slate-100 flex justify-between items-center">
             <a
-              href="tel:+9019740030"
+              href="tel:+919941900055"
               className="text-xs font-extrabold text-[#036CFB] flex items-center space-x-1"
             >
               <Phone className="w-3.5 h-3.5" />
-              <span>Call Hotline: +901-974-0030</span>
+              <span>Call Helpline: +91 99419 00055</span>
             </a>
             <button
               onClick={() => setActiveModal(null)}
-              className="px-4 py-2 bg-[#0B1E3D] text-white text-xs font-bold rounded-xl"
+              className="px-4 py-2 bg-[#062544] text-white text-xs font-bold rounded-xl"
             >
               Close
             </button>
@@ -84,25 +84,25 @@ export const AdditionalServiceModals: React.FC = () => {
           </button>
 
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-100 text-[#C8A24A] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-blue-100 text-[#036CFB] flex items-center justify-center">
               <FileText className="w-5 h-5" />
             </div>
             <div>
               <h3 className="font-display font-bold text-lg text-[#0B1E3D]">
                 Passport Consultancy & Tatkal
               </h3>
-              <p className="text-xs text-slate-500">Expedited Passport Office Appointment Booking</p>
+              <p className="text-xs text-slate-500">Expedited Online Passport Application & Tatkal Assistance</p>
             </div>
           </div>
 
           <div className="space-y-2 text-xs text-slate-700">
             <p className="leading-relaxed">
-              Fast-track fresh passport applications, Tatkal appointments, address modifications, ECNR conversions, and lost passport replacements.
+              Fast-track fresh passport applications, Tatkal appointments, address modifications, ECNR conversions, and lost passport replacements—all managed digitally.
             </p>
             <ul className="space-y-1.5 pt-2 font-medium">
               <li className="flex items-center space-x-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>Fresh Passport & Tatkal Expedited Booking</span>
+                <span>100% Online Passport Application & Tatkal Assistance</span>
               </li>
               <li className="flex items-center space-x-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
@@ -110,22 +110,22 @@ export const AdditionalServiceModals: React.FC = () => {
               </li>
               <li className="flex items-center space-x-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>Lost / Damaged Passport Replacement</span>
+                <span>Lost / Damaged Passport Replacement Guidance</span>
               </li>
             </ul>
           </div>
 
           <div className="pt-3 border-t border-slate-100 flex justify-between items-center">
             <a
-              href="tel:+9019740030"
+              href="tel:+919941900055"
               className="text-xs font-extrabold text-[#036CFB] flex items-center space-x-1"
             >
               <Phone className="w-3.5 h-3.5" />
-              <span>Call Hotline: +901-974-0030</span>
+              <span>Call Helpline: +91 99419 00055</span>
             </a>
             <button
               onClick={() => setActiveModal(null)}
-              className="px-4 py-2 bg-[#0B1E3D] text-white text-xs font-bold rounded-xl"
+              className="px-4 py-2 bg-[#062544] text-white text-xs font-bold rounded-xl"
             >
               Close
             </button>
@@ -144,7 +144,7 @@ export const AdditionalServiceModals: React.FC = () => {
           </button>
 
           <div className="text-center space-y-1">
-            <span className="px-3 py-1 rounded-full text-[10px] font-bold bg-[#C8A24A]/20 text-[#0B1E3D] uppercase tracking-wider">
+            <span className="px-3 py-1 rounded-full text-[10px] font-bold bg-[#036CFB]/15 text-[#036CFB] uppercase tracking-wider">
               Authentication Portal
             </span>
             <h3 className="font-display font-extrabold text-2xl text-[#0B1E3D]">
@@ -191,15 +191,15 @@ export const AdditionalServiceModals: React.FC = () => {
                 }}
                 className={`p-3 rounded-xl border text-left transition space-y-1 ${
                   userRole === 'admin'
-                    ? 'border-[#0B1E3D] bg-slate-900 text-white ring-2 ring-[#C8A24A]'
+                    ? 'border-[#036CFB] bg-slate-900 text-white ring-2 ring-[#036CFB]'
                     : 'border-slate-200 hover:border-slate-300 bg-slate-50'
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className={`font-bold text-xs ${userRole === 'admin' ? 'text-[#EAC166]' : 'text-[#0B1E3D]'}`}>
+                  <span className={`font-bold text-xs ${userRole === 'admin' ? 'text-[#38BDF8]' : 'text-[#0B1E3D]'}`}>
                     🛡️ Admin User
                   </span>
-                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900">Full Ops</span>
+                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300">Full Ops</span>
                 </div>
                 <p className={`text-[10px] font-mono ${userRole === 'admin' ? 'text-slate-300' : 'text-slate-500'}`}>
                   admin@nas.com

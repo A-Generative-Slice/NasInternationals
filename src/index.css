@@ -4,13 +4,13 @@
   --font-display: 'Montserrat', sans-serif;
   --font-sans: 'Inter', sans-serif;
 
-  --color-nas-navy: #0B1E3D;
-  --color-nas-navy-dark: #071329;
+  --color-nas-navy: #062544;
+  --color-nas-navy-dark: #041A30;
   --color-nas-blue: #036CFB;
   --color-nas-blue-light: #EBF3FF;
-  --color-nas-gold: #C8A24A;
-  --color-nas-gold-light: #EAC166;
-  --color-nas-gold-dark: #9A772B;
+  --color-nas-blue-accent: #0284C7;
+  --color-nas-sky: #38BDF8;
+  --color-nas-sky-light: #BAE6FD;
 }
 
 @layer utilities {
@@ -28,23 +28,23 @@
   }
 
   .glass-dark {
-    background: rgba(11, 30, 61, 0.75);
+    background: rgba(6, 37, 68, 0.85);
     backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .gold-gradient {
-    background: linear-gradient(135deg, #C8A24A 0%, #EAC166 50%, #B38933 100%);
+  .blue-accent-gradient {
+    background: linear-gradient(135deg, #036CFB 0%, #0284C7 50%, #38BDF8 100%);
   }
 
-  .gold-gradient-text {
-    background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #C8A24A 100%);
+  .blue-gradient-text {
+    background: linear-gradient(135deg, #38BDF8 0%, #60A5FA 50%, #036CFB 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .blue-gradient {
-    background: linear-gradient(135deg, #0B1E3D 0%, #1A365D 50%, #036CFB 100%);
+    background: linear-gradient(135deg, #041A30 0%, #062544 50%, #036CFB 100%);
   }
 
   .no-scrollbar::-webkit-scrollbar {

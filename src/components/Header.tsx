@@ -15,16 +15,16 @@ export const Header: React.FC = () => {
     <header className="sticky top-0 z-50 bg-[#062544] text-white border-b border-slate-800/80 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* Brand Logo - Tripate / NAS Internationals */}
+        {/* Brand Logo - NAS Internationals */}
         <div className="flex items-center space-x-2.5 cursor-pointer" onClick={() => handleNavClick('/')}>
-          <div className="w-10 h-10 rounded-full bg-[#F5B800] flex items-center justify-center text-[#062544] shadow-md">
+          <div className="w-10 h-10 rounded-full bg-[#036CFB] flex items-center justify-center text-white shadow-md">
             <Plane className="w-6 h-6 transform -rotate-45" />
           </div>
           <div className="flex flex-col">
             <span className="font-extrabold text-2xl tracking-tight text-white flex items-center">
-              tripate
-              <span className="text-[#F5B800] ml-1.5 text-xs font-semibold uppercase tracking-widest bg-[#F5B800]/20 px-1.5 py-0.5 rounded border border-[#F5B800]/30">
-                NAS
+              NAS
+              <span className="text-[#38BDF8] ml-1.5 text-xs font-semibold uppercase tracking-widest bg-[#036CFB]/20 px-2 py-0.5 rounded border border-[#036CFB]/40">
+                INTERNATIONALS
               </span>
             </span>
           </div>
@@ -35,21 +35,21 @@ export const Header: React.FC = () => {
           <button
             onClick={() => handleNavClick('/')}
             className={`text-sm font-semibold transition-colors ${
-              currentView === 'home' ? 'text-[#F5B800]' : 'text-slate-200 hover:text-[#F5B800]'
+              currentView === 'home' ? 'text-[#38BDF8]' : 'text-slate-200 hover:text-[#38BDF8]'
             }`}
           >
             Home
           </button>
 
-          {/* Tours Nav item with yellow "NEW" pill badge above */}
+          {/* Tours Nav item with blue "NEW" pill badge above */}
           <div className="relative">
-            <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#F5B800] text-[#062544] text-[9px] font-black px-1.5 py-0.2 rounded-full uppercase tracking-wider shadow-sm">
+            <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#036CFB] text-white text-[9px] font-black px-1.5 py-0.2 rounded-full uppercase tracking-wider shadow-sm">
               NEW
             </span>
             <button
               onClick={() => handleNavClick('/tours')}
               className={`text-sm font-semibold transition-colors ${
-                currentView === 'tours' ? 'text-[#F5B800]' : 'text-slate-200 hover:text-[#F5B800]'
+                currentView === 'tours' ? 'text-[#38BDF8]' : 'text-slate-200 hover:text-[#38BDF8]'
               }`}
             >
               Tours
@@ -59,7 +59,7 @@ export const Header: React.FC = () => {
           <button
             onClick={() => handleNavClick('/visas')}
             className={`text-sm font-semibold transition-colors ${
-              currentView === 'visa-finder' ? 'text-[#F5B800]' : 'text-slate-200 hover:text-[#F5B800]'
+              currentView === 'visa-finder' ? 'text-[#38BDF8]' : 'text-slate-200 hover:text-[#38BDF8]'
             }`}
           >
             Visa
@@ -68,7 +68,7 @@ export const Header: React.FC = () => {
           <button
             onClick={() => handleNavClick('/contact')}
             className={`text-sm font-semibold transition-colors ${
-              currentView === 'contact' ? 'text-[#F5B800]' : 'text-slate-200 hover:text-[#F5B800]'
+              currentView === 'contact' ? 'text-[#38BDF8]' : 'text-slate-200 hover:text-[#38BDF8]'
             }`}
           >
             Contact Us
@@ -77,7 +77,7 @@ export const Header: React.FC = () => {
           <button
             onClick={() => handleNavClick('/blogs')}
             className={`text-sm font-semibold transition-colors ${
-              currentView === 'blogs' ? 'text-[#F5B800]' : 'text-slate-200 hover:text-[#F5B800]'
+              currentView === 'blogs' ? 'text-[#38BDF8]' : 'text-slate-200 hover:text-[#38BDF8]'
             }`}
           >
             Blogs
@@ -86,7 +86,7 @@ export const Header: React.FC = () => {
           <button
             onClick={() => handleNavClick('/faqs')}
             className={`text-sm font-semibold transition-colors ${
-              currentView === 'faqs' ? 'text-[#F5B800]' : 'text-slate-200 hover:text-[#F5B800]'
+              currentView === 'faqs' ? 'text-[#38BDF8]' : 'text-slate-200 hover:text-[#38BDF8]'
             }`}
           >
             FAQ's
@@ -96,21 +96,21 @@ export const Header: React.FC = () => {
           {userRole === 'ADMIN' && (
             <button
               onClick={() => handleNavClick('/admin/dashboard')}
-              className="text-xs font-bold px-3 py-1.5 rounded-full bg-amber-500/20 text-[#F5B800] border border-[#F5B800]/40 hover:bg-amber-500/30 transition-all flex items-center space-x-1.5"
+              className="text-xs font-bold px-3 py-1.5 rounded-full bg-[#036CFB]/20 text-[#38BDF8] border border-[#38BDF8]/40 hover:bg-[#036CFB]/30 transition-all flex items-center space-x-1.5"
             >
-              <ShieldCheck className="w-3.5 h-3.5 text-[#F5B800]" />
+              <ShieldCheck className="w-3.5 h-3.5 text-[#38BDF8]" />
               <span>Admin</span>
             </button>
           )}
         </nav>
 
-        {/* Right Action Button (Yellow Rounded Pill Login/Signup) */}
+        {/* Right Action Button (Blue Rounded Pill Login/Signup) */}
         <div className="hidden sm:flex items-center space-x-3">
           {currentUser ? (
             <div className="flex items-center space-x-3">
               <button
                 onClick={() => handleNavClick('/dashboard')}
-                className="flex items-center space-x-2 bg-[#F5B800] hover:bg-[#e0a800] text-[#062544] font-bold px-4 py-2.5 rounded-full text-xs shadow-md transition-all cursor-pointer"
+                className="flex items-center space-x-2 bg-[#036CFB] hover:bg-blue-600 text-white font-bold px-4 py-2.5 rounded-full text-xs shadow-md transition-all cursor-pointer"
               >
                 <User className="w-4 h-4" />
                 <span>{currentUser.name ? currentUser.name.split(' ')[0] : 'Account'}</span>
@@ -127,7 +127,7 @@ export const Header: React.FC = () => {
           ) : (
             <button
               onClick={() => openAuthModal('login')}
-              className="px-6 py-2.5 bg-[#F5B800] hover:bg-[#e0a800] text-[#062544] font-bold text-xs rounded-full shadow-md transition-all flex items-center space-x-2 cursor-pointer"
+              className="px-6 py-2.5 bg-[#036CFB] hover:bg-blue-600 text-white font-bold text-xs rounded-full shadow-md transition-all flex items-center space-x-2 cursor-pointer"
             >
               <User className="w-4 h-4 fill-current" />
               <span>Login/Signup</span>
@@ -152,38 +152,38 @@ export const Header: React.FC = () => {
           <div className="space-y-2 pb-3 border-b border-slate-800/80">
             <button
               onClick={() => handleNavClick('/')}
-              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#F5B800]"
+              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#38BDF8]"
             >
               Home
             </button>
             <button
               onClick={() => handleNavClick('/tours')}
-              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#F5B800] flex items-center justify-between"
+              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#38BDF8] flex items-center justify-between"
             >
               <span>Tours</span>
-              <span className="bg-[#F5B800] text-[#062544] text-[9px] font-black px-1.5 py-0.5 rounded-full uppercase">NEW</span>
+              <span className="bg-[#036CFB] text-white text-[9px] font-black px-1.5 py-0.5 rounded-full uppercase">NEW</span>
             </button>
             <button
               onClick={() => handleNavClick('/visas')}
-              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#F5B800]"
+              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#38BDF8]"
             >
               Visa
             </button>
             <button
               onClick={() => handleNavClick('/contact')}
-              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#F5B800]"
+              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#38BDF8]"
             >
               Contact Us
             </button>
             <button
               onClick={() => handleNavClick('/blogs')}
-              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#F5B800]"
+              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#38BDF8]"
             >
               Blogs
             </button>
             <button
               onClick={() => handleNavClick('/faqs')}
-              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#F5B800]"
+              className="w-full text-left py-2 text-sm font-semibold text-slate-200 hover:text-[#38BDF8]"
             >
               FAQ's
             </button>
@@ -196,7 +196,7 @@ export const Header: React.FC = () => {
                   setMobileMenuOpen(false);
                   openAuthModal('login');
                 }}
-                className="w-full py-3 bg-[#F5B800] text-[#062544] font-bold text-center rounded-full text-sm shadow-md"
+                className="w-full py-3 bg-[#036CFB] text-white font-bold text-center rounded-full text-sm shadow-md"
               >
                 Login / Signup
               </button>

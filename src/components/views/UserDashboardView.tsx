@@ -123,14 +123,14 @@ export const UserDashboardView: React.FC = () => {
         <div className="space-y-6">
           {/* Dashboard Logo Header */}
           <div className="flex items-center space-x-2.5 pb-4 border-b border-slate-100">
-            <div className="w-8 h-8 rounded-lg bg-[#0B1E3D] text-[#EAC166] flex items-center justify-center font-extrabold text-xs">
+            <div className="w-8 h-8 rounded-lg bg-[#036CFB] text-white flex items-center justify-center font-extrabold text-xs shadow-sm">
               NAS
             </div>
             <div>
               <span className="font-display font-black text-[#0B1E3D] text-sm tracking-wider block leading-tight">
                 NAS INTERNATIONALS
               </span>
-              <span className="text-[10px] text-slate-400 font-semibold block">User Portal</span>
+              <span className="text-[10px] text-slate-400 font-semibold block">Online User Portal</span>
             </div>
           </div>
 
@@ -253,9 +253,9 @@ export const UserDashboardView: React.FC = () => {
 
         {/* Sidebar Help Card */}
         <div className="pt-6 border-t border-slate-100">
-          <div className="bg-[#0B1E3D] text-white rounded-xl p-3.5 text-xs space-y-1.5">
-            <p className="font-semibold text-[#EAC166]">24/7 Support Hotline</p>
-            <p className="text-slate-300 text-[11px]">+901-974-0030</p>
+          <div className="bg-[#062544] text-white rounded-xl p-3.5 text-xs space-y-1.5">
+            <p className="font-semibold text-[#38BDF8]">Online Support Helpline</p>
+            <p className="text-slate-200 text-[11px] font-bold">+91 99419 00055</p>
           </div>
         </div>
       </aside>
@@ -394,7 +394,7 @@ export const UserDashboardView: React.FC = () => {
               </div>
 
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex items-center space-x-4">
-                <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center shrink-0 text-[#C8A24A]">
+                <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center shrink-0 text-[#036CFB]">
                   <Upload className="w-6 h-6" />
                 </div>
                 <div className="flex-1 space-y-2">
@@ -508,12 +508,12 @@ export const UserDashboardView: React.FC = () => {
                       </span>
                       <h3 className="font-display font-bold text-base text-[#0B1E3D]">{bkg.packageName}</h3>
                       <p className="text-xs text-slate-600">Travel Date: <strong>{bkg.travelDate}</strong> ({bkg.travelersCount} Travelers)</p>
-                      <p className="text-xs text-[#036CFB] font-bold">Total: ₹{bkg.totalAmount.toLocaleString('en-IN')}</p>
+                      <p className="text-xs text-[#036CFB] font-bold">Booking Mode: 100% Online Confirmed</p>
                     </div>
                     <div className="flex items-center space-x-2">
                       <button
                         onClick={() => alert(`Downloading Booking Voucher PDF for ${bkg.id}...`)}
-                        className="px-4 py-2 bg-[#0B1E3D] text-[#EAC166] text-xs font-bold rounded-xl flex items-center space-x-1.5"
+                        className="px-4 py-2 bg-[#036CFB] hover:bg-[#0256c7] text-white text-xs font-bold rounded-xl shadow-sm transition flex items-center space-x-1.5"
                       >
                         <Download className="w-3.5 h-3.5" />
                         <span>Download Voucher</span>
@@ -568,7 +568,7 @@ export const UserDashboardView: React.FC = () => {
                 <label className="block text-xs font-bold text-slate-700 mb-1">Select Application</label>
                 <select className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs font-mono font-bold">
                   {applications.map(a => (
-                    <option key={a.id} value={a.id}>{a.id} ({a.destination}) - ₹{a.payment?.amount}</option>
+                    <option key={a.id} value={a.id}>{a.id} ({a.destination}) - Online Verification</option>
                   ))}
                 </select>
               </div>
@@ -639,15 +639,15 @@ export const UserDashboardView: React.FC = () => {
                 <div key={inv.id} className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
                   <div>
                     <span className="font-mono font-bold text-xs text-[#0B1E3D]">{inv.invoiceNumber}</span>
-                    <p className="text-xs text-slate-600">Total: ₹{inv.total.toLocaleString('en-IN')}</p>
+                    <p className="text-xs text-slate-600">Type: Electronic Service Receipt</p>
                     <p className="text-[10px] text-slate-400">Date: {inv.date}</p>
                   </div>
                   <button
-                    onClick={() => alert(`Downloading Official Tax Invoice ${inv.invoiceNumber}...`)}
-                    className="px-4 py-2 bg-[#0B1E3D] text-[#EAC166] font-bold text-xs rounded-xl flex items-center space-x-1"
+                    onClick={() => alert(`Downloading Official Service Receipt ${inv.invoiceNumber}...`)}
+                    className="px-4 py-2 bg-[#036CFB] hover:bg-[#0256c7] text-white font-bold text-xs rounded-xl flex items-center space-x-1 shadow-sm transition"
                   >
                     <Download className="w-3.5 h-3.5" />
-                    <span>Download Invoice PDF</span>
+                    <span>Download Receipt PDF</span>
                   </button>
                 </div>
               ))}
@@ -727,7 +727,7 @@ export const UserDashboardView: React.FC = () => {
                     setPassCurrent('');
                     setPassNew('');
                   }}
-                  className="px-4 py-2 bg-[#0B1E3D] text-[#EAC166] font-bold rounded-xl"
+                  className="px-4 py-2 bg-[#036CFB] hover:bg-[#0256c7] text-white font-bold rounded-xl shadow-sm transition"
                 >
                   Update Security Password
                 </button>

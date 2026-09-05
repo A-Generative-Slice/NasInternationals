@@ -10,12 +10,12 @@ export const AccessDeniedView: React.FC = () => {
       <div className="bg-white rounded-3xl p-6 sm:p-10 max-w-xl w-full shadow-xl border border-slate-200 text-center space-y-6 relative overflow-hidden">
         
         {/* Decorative Top Accent Bar */}
-        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-rose-600 via-amber-500 to-[#0B1E3D]"></div>
+        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-rose-600 via-[#036CFB] to-[#062544]"></div>
 
         {/* Big Shield Badge */}
         <div className="relative mx-auto w-20 h-20 rounded-3xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 shadow-inner">
           <ShieldAlert className="w-10 h-10" />
-          <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-[#0B1E3D] text-[#EAC166] flex items-center justify-center border-2 border-white">
+          <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-[#036CFB] text-white flex items-center justify-center border-2 border-white shadow-xs">
             <Lock className="w-3.5 h-3.5" />
           </div>
         </div>
@@ -57,7 +57,7 @@ export const AccessDeniedView: React.FC = () => {
         <div className="pt-2 flex flex-col sm:flex-row gap-3">
           <button
             onClick={() => navigateTo('/dashboard')}
-            className="flex-1 py-3 px-5 bg-[#036CFB] hover:bg-[#0B1E3D] text-white font-display font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center space-x-2"
+            className="flex-1 py-3 px-5 bg-[#036CFB] hover:bg-[#0256c7] text-white font-display font-bold text-xs rounded-xl shadow-md shadow-[#036CFB]/25 transition-all flex items-center justify-center space-x-2"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Return to User Dashboard (/dashboard)</span>
@@ -65,7 +65,7 @@ export const AccessDeniedView: React.FC = () => {
           
           <button
             onClick={() => navigateTo('/admin/login')}
-            className="flex-1 py-3 px-5 bg-[#0B1E3D] hover:bg-slate-900 text-[#EAC166] font-display font-bold text-xs rounded-xl border border-[#C8A24A]/40 shadow-md transition-all flex items-center justify-center space-x-2"
+            className="flex-1 py-3 px-5 bg-[#062544] hover:bg-[#0B1E3D] text-[#38BDF8] font-display font-bold text-xs rounded-xl border border-[#036CFB]/40 shadow-md transition-all flex items-center justify-center space-x-2"
           >
             <KeyRound className="w-4 h-4" />
             <span>Admin Portal Login (/admin/login)</span>
