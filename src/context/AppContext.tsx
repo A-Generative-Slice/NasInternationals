@@ -108,25 +108,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const path = window.location.pathname.toLowerCase();
     const hash = window.location.hash.toLowerCase();
 
-    if (path.includes('/admin/login') || hash.includes('admin/login')) return 'admin-login';
-    if (path.includes('/admin/dashboard') || hash.includes('admin/dashboard') || hash.includes('admin')) {
-      const savedUser = localStorage.getItem(USER_STORAGE_KEY);
-      if (savedUser) {
-        try {
-          const u = JSON.parse(savedUser);
-          if (u.role === 'ADMIN') return 'admin-dashboard';
-        } catch (e) {}
-      }
-      return 'access-denied';
+    if (path.includes('/admin') || hash.includes('admin') || path.includes('/dashboard') || hash.includes('dashboard') || path.includes('/payment') || hash.includes('payment')) {
+      return 'payment-tracker';
     }
-    if (path.includes('/dashboard') || hash.includes('dashboard')) return 'user-dashboard';
     if (path.includes('/tours') || hash.includes('tours')) return 'tours';
     if (path.includes('/visas') || hash.includes('visas') || hash.includes('visa')) return 'visa-finder';
     if (path.includes('/contact') || hash.includes('contact')) return 'contact';
     if (path.includes('/blogs') || hash.includes('blogs')) return 'blogs';
     if (path.includes('/faqs') || hash.includes('faqs') || hash.includes('faq')) return 'faqs';
     if (path.includes('/apply') || hash.includes('apply')) return 'wizard';
-    if (path.includes('/payment') || hash.includes('payment')) return 'payment-tracker';
     return 'home';
   };
 
@@ -140,43 +130,27 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // Selected Visa detail
   const [selectedVisa, setSelectedVisa] = useState<VisaItem | null>(VISA_CATEGORIES[0]);
   
-  // Auth state
+  // Auth state - Default customer profile
   const [currentUser, setCurrentUser] = useState<User | null>(() => {
-    const saved = localStorage.getItem(USER_STORAGE_KEY);
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch (e) {
-        console.error('Failed to parse user from localStorage', e);
-      }
-    }
-    // Default logged in user for preview (USER role)
     return {
       id: 'usr-client-001',
-      email: 'client@nas.com',
-      name: 'Rahul Sharma',
+      email: 'customer@nasinternationals.com',
+      name: 'Valued Client',
       role: 'USER',
-      phone: '+91 98765 43210',
+      phone: '+91 99419 00055',
       passportNumber: 'Z8923412',
       status: 'Active'
     };
   });
 
-  const userRole: UserRole = currentUser?.role === 'ADMIN' ? 'ADMIN' : 'USER';
+  const userRole: UserRole = 'USER';
 
-  // Custom Router Navigation with Route Guard & Hash routing for static hosts (GitHub Pages)
+  // Custom Router Navigation with Hash routing for static hosts (GitHub Pages)
   const setCurrentView = (view: ViewMode) => {
-    if (view === 'admin-dashboard') {
-      if (userRole !== 'ADMIN') {
-        setCurrentViewRaw('access-denied');
-        window.location.hash = '#/access-denied';
-        return;
-      }
-      window.location.hash = '#/admin/dashboard';
-    } else if (view === 'admin-login') {
-      window.location.hash = '#/admin/login';
-    } else if (view === 'user-dashboard') {
-      window.location.hash = '#/dashboard';
+    if (view === 'admin-dashboard' || view === 'admin-login' || view === 'user-dashboard' || view === 'access-denied' || view === 'payment-tracker') {
+      window.location.hash = '#/payment';
+      setCurrentViewRaw('payment-tracker');
+      return;
     } else if (view === 'tours') {
       window.location.hash = '#/tours';
     } else if (view === 'visa-finder') {
@@ -189,8 +163,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       window.location.hash = '#/faqs';
     } else if (view === 'wizard') {
       window.location.hash = '#/apply';
-    } else if (view === 'payment-tracker') {
-      window.location.hash = '#/payment';
     } else if (view === 'home') {
       window.location.hash = '#/';
     }
@@ -199,16 +171,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const navigateTo = (path: string) => {
     const cleanPath = path.toLowerCase();
-    if (cleanPath.includes('/admin/dashboard')) {
-      if (userRole !== 'ADMIN') {
-        setCurrentView('access-denied');
-      } else {
-        setCurrentView('admin-dashboard');
-      }
-    } else if (cleanPath.includes('/admin/login')) {
-      setCurrentView('admin-login');
-    } else if (cleanPath.includes('/dashboard')) {
-      setCurrentView('user-dashboard');
+    if (cleanPath.includes('/admin') || cleanPath.includes('/dashboard') || cleanPath.includes('/payment')) {
+      setCurrentView('payment-tracker');
     } else if (cleanPath.includes('/tours')) {
       setCurrentView('tours');
     } else if (cleanPath.includes('/visas') || cleanPath.includes('/visa')) {
@@ -221,8 +185,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       setCurrentView('faqs');
     } else if (cleanPath.includes('/apply')) {
       setCurrentView('wizard');
-    } else if (cleanPath.includes('/payment')) {
-      setCurrentView('payment-tracker');
     } else {
       setCurrentView('home');
     }
@@ -233,13 +195,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const handleUrlChange = () => {
       const p = window.location.pathname.toLowerCase();
       const h = window.location.hash.toLowerCase();
-      if (p.includes('/admin/login') || h.includes('admin/login')) {
-        setCurrentViewRaw('admin-login');
-      } else if (p.includes('/admin/dashboard') || h.includes('admin/dashboard')) {
-        if (currentUser?.role === 'ADMIN') setCurrentViewRaw('admin-dashboard');
-        else setCurrentViewRaw('access-denied');
-      } else if (p.includes('/dashboard') || h.includes('dashboard')) {
-        setCurrentViewRaw('user-dashboard');
+      if (p.includes('/admin') || h.includes('admin') || p.includes('/dashboard') || h.includes('dashboard') || p.includes('/payment') || h.includes('payment')) {
+        setCurrentViewRaw('payment-tracker');
       } else if (p.includes('/tours') || h.includes('tours')) {
         setCurrentViewRaw('tours');
       } else if (p.includes('/visas') || h.includes('visas') || h.includes('visa')) {
@@ -252,8 +209,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         setCurrentViewRaw('faqs');
       } else if (p.includes('/apply') || h.includes('apply')) {
         setCurrentViewRaw('wizard');
-      } else if (p.includes('/payment') || h.includes('payment')) {
-        setCurrentViewRaw('payment-tracker');
       }
     };
     window.addEventListener('popstate', handleUrlChange);

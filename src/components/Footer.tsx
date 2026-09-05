@@ -127,17 +127,18 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Col 4: User & Admin Portal */}
+          {/* Col 4: Online Services & Tracking */}
           <div className="space-y-4">
             <h4 className="text-xs font-black text-[#38BDF8] uppercase tracking-wider flex items-center space-x-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]"></span>
-              <span>Client Portals</span>
+              <span className="w-2 h-2 rounded-full bg-[#38BDF8] animate-pulse"></span>
+              <span>Online Services & Tracking</span>
             </h4>
             <ul className="space-y-2.5 text-xs font-semibold text-slate-300">
-              <li><button onClick={() => navigateTo('/dashboard')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">My User Dashboard</button></li>
-              <li><button onClick={() => navigateTo('/payment-tracker')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Track Payment Status</button></li>
-              <li><button onClick={() => navigateTo('/apply')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Apply Visa Wizard</button></li>
-              <li><button onClick={() => navigateTo('/admin/login')} className="hover:text-[#38BDF8] text-sky-300 flex items-center space-x-1.5 py-1 min-h-[32px]"><ShieldCheck className="w-3.5 h-3.5 text-[#38BDF8]" /> <span>Admin Console Login</span></button></li>
+              <li><button onClick={() => navigateTo('/payment-tracker')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Track Application Status</button></li>
+              <li><button onClick={() => navigateTo('/apply')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Start Visa Application</button></li>
+              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Express E-Visas</button></li>
+              <li><button onClick={() => navigateTo('/tours')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Holiday Tour Packages</button></li>
+              <li><button onClick={() => navigateTo('/contact')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">24/7 Digital Helpline</button></li>
             </ul>
           </div>
 

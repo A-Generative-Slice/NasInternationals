@@ -135,6 +135,26 @@ export const LandingView: React.FC = () => {
               </p>
             </div>
 
+            {/* Feature Trust Chips Row */}
+            <div className="pt-1 flex flex-wrap gap-2">
+              <span className="px-3 py-1 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1">
+                <span>✨</span>
+                <span>100% Online Approvals</span>
+              </span>
+              <span className="px-3 py-1 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1">
+                <span>⚡</span>
+                <span>Fast 24H E-Visas</span>
+              </span>
+              <span className="px-3 py-1 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1">
+                <span>🛡️</span>
+                <span>Embassy Verified</span>
+              </span>
+              <span className="px-3 py-1 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1">
+                <span>📱</span>
+                <span>24/7 Digital Helpline</span>
+              </span>
+            </div>
+
             {/* Bottom-left Floating Trust Badge */}
             <div className="pt-2 flex items-center">
               <div className="glass-frost px-4 sm:px-5 py-3 rounded-2xl border border-white/80 shadow-lg flex items-center space-x-3 sm:space-x-4">
@@ -145,7 +165,7 @@ export const LandingView: React.FC = () => {
                   <img className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Traveler" />
                 </div>
                 <div className="text-xs font-bold text-slate-700">
-                  Trusted by Travelers <br />
+                  Trusted by Travelers Worldwide <br />
                   <span className="text-[10px] text-[#036CFB] font-extrabold">180+ successful online visas issued!</span>
                 </div>
               </div>
@@ -153,7 +173,99 @@ export const LandingView: React.FC = () => {
 
           </div>
 
-          <div className="lg:col-span-5 hidden lg:block relative min-h-[480px]"></div>
+          {/* Right Column: Luxury Frosted Glass Visa Quick-Action Card */}
+          <div className="lg:col-span-5 hidden lg:flex flex-col justify-center relative">
+            <div className="glass-frost rounded-3xl p-7 shadow-2xl border border-white/90 backdrop-blur-2xl space-y-6 relative overflow-hidden">
+              <div className="flex items-center justify-between border-b border-slate-200/60 pb-4">
+                <div className="flex items-center space-x-2.5">
+                  <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#38BDF8] flex items-center justify-center text-white shadow-md shadow-[#036CFB]/30">
+                    <Plane className="w-5 h-5 transform -rotate-45" />
+                  </div>
+                  <div>
+                    <h3 className="font-display font-black text-sm text-[#062544]">Online Visa Clearance</h3>
+                    <p className="text-[10px] font-bold text-[#036CFB] uppercase tracking-wider">Fast-Track Digital Desk</p>
+                  </div>
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold">
+                  ● 100% Online
+                </span>
+              </div>
+
+              {/* Quick destination highlights */}
+              <div className="space-y-3">
+                <label className="text-xs font-bold text-slate-700 block">Popular Destinations Right Now</label>
+                <div className="grid grid-cols-2 gap-2.5 text-xs">
+                  <button
+                    onClick={() => navigateTo('/visas')}
+                    className="p-3 rounded-2xl bg-white/80 hover:bg-white border border-slate-200/80 hover:border-[#036CFB]/40 transition text-left space-y-0.5 shadow-xs group"
+                  >
+                    <div className="font-bold text-[#062544] group-hover:text-[#036CFB] flex items-center justify-between">
+                      <span>Dubai (UAE)</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#036CFB]" />
+                    </div>
+                    <span className="text-[10px] text-slate-500 font-medium block">24-48 Hours Express</span>
+                  </button>
+
+                  <button
+                    onClick={() => navigateTo('/visas')}
+                    className="p-3 rounded-2xl bg-white/80 hover:bg-white border border-slate-200/80 hover:border-[#036CFB]/40 transition text-left space-y-0.5 shadow-xs group"
+                  >
+                    <div className="font-bold text-[#062544] group-hover:text-[#036CFB] flex items-center justify-between">
+                      <span>France / Schengen</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#036CFB]" />
+                    </div>
+                    <span className="text-[10px] text-slate-500 font-medium block">29 Countries Covered</span>
+                  </button>
+
+                  <button
+                    onClick={() => navigateTo('/visas')}
+                    className="p-3 rounded-2xl bg-white/80 hover:bg-white border border-slate-200/80 hover:border-[#036CFB]/40 transition text-left space-y-0.5 shadow-xs group"
+                  >
+                    <div className="font-bold text-[#062544] group-hover:text-[#036CFB] flex items-center justify-between">
+                      <span>Japan E-Visa</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#036CFB]" />
+                    </div>
+                    <span className="text-[10px] text-slate-500 font-medium block">4-5 Days Turnaround</span>
+                  </button>
+
+                  <button
+                    onClick={() => navigateTo('/visas')}
+                    className="p-3 rounded-2xl bg-white/80 hover:bg-white border border-slate-200/80 hover:border-[#036CFB]/40 transition text-left space-y-0.5 shadow-xs group"
+                  >
+                    <div className="font-bold text-[#062544] group-hover:text-[#036CFB] flex items-center justify-between">
+                      <span>Thailand E-Visa</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#036CFB]" />
+                    </div>
+                    <span className="text-[10px] text-slate-500 font-medium block">2-3 Days Fast Track</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <button
+                onClick={() => navigateTo('/apply')}
+                className="w-full py-3.5 bg-gradient-to-r from-[#036CFB] via-[#0284C7] to-[#036CFB] hover:from-[#0256c7] hover:to-[#0284C7] text-white font-display font-black text-xs uppercase tracking-wider rounded-2xl shadow-xl shadow-[#036CFB]/30 border border-white/20 transition-all flex items-center justify-center space-x-2 cursor-pointer active:scale-95"
+              >
+                <span>Start Visa Application Online</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </button>
+
+              <div className="flex items-center justify-between text-[10px] text-slate-500 font-semibold pt-1">
+                <span className="flex items-center space-x-1">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#036CFB]" />
+                  <span>Zero Office Visit</span>
+                </span>
+                <span className="flex items-center space-x-1">
+                  <Clock className="w-3.5 h-3.5 text-[#036CFB]" />
+                  <span>24/7 Processing</span>
+                </span>
+                <span className="flex items-center space-x-1">
+                  <Globe className="w-3.5 h-3.5 text-[#036CFB]" />
+                  <span>Worldwide E-Visas</span>
+                </span>
+              </div>
+            </div>
+          </div>
 
         </div>
       </section>

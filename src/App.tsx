@@ -9,14 +9,9 @@ import { ContactView } from './components/views/ContactView';
 import { BlogsView } from './components/views/BlogsView';
 import { FaqsView } from './components/views/FaqsView';
 import { WizardView } from './components/views/WizardView';
-import { UserDashboardView } from './components/views/UserDashboardView';
-import { AdminDashboardView } from './components/views/AdminDashboardView';
-import { AdminLoginView } from './components/views/AdminLoginView';
-import { AccessDeniedView } from './components/views/AccessDeniedView';
 import { PaymentTrackerView } from './components/views/PaymentTrackerView';
 import { VisaDetailModal } from './components/modals/VisaDetailModal';
 import { AdditionalServiceModals } from './components/modals/AdditionalServiceModals';
-import { AuthModal } from './components/modals/AuthModal';
 
 const MainContent: React.FC = () => {
   const { currentView } = useApp();
@@ -38,13 +33,9 @@ const MainContent: React.FC = () => {
       case 'wizard':
         return <WizardView />;
       case 'user-dashboard':
-        return <UserDashboardView />;
       case 'admin-login':
-        return <AdminLoginView />;
       case 'admin-dashboard':
-        return <AdminDashboardView />;
       case 'access-denied':
-        return <AccessDeniedView />;
       case 'payment-tracker':
         return <PaymentTrackerView />;
       default:
@@ -61,7 +52,6 @@ const MainContent: React.FC = () => {
       <Footer />
 
       {/* Global Modals */}
-      <AuthModal />
       <VisaDetailModal />
       <AdditionalServiceModals />
     </div>

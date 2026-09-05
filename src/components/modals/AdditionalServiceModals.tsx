@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
-import { X, Stamp, FileText, Lock, User, CheckCircle2, Phone } from 'lucide-react';
+import React from 'react';
+import { X, Stamp, FileText, CheckCircle2, Phone } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 
 export const AdditionalServiceModals: React.FC = () => {
-  const { activeModal, setActiveModal, userRole, setUserRole } = useApp();
-
-  const [loginEmail, setLoginEmail] = useState('');
-  const [loginRole, setLoginRole] = useState<'client' | 'admin'>('client');
+  const { activeModal, setActiveModal } = useApp();
 
   if (!activeModal || activeModal === 'visa-detail') return null;
 
@@ -128,102 +125,6 @@ export const AdditionalServiceModals: React.FC = () => {
               className="px-5 py-2.5 bg-[#062544] hover:bg-[#036CFB] text-white text-xs font-bold rounded-full transition-colors min-h-[40px]"
             >
               Close
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Login / Role Switcher Modal */}
-      {activeModal === 'login' && (
-        <div className="glass-frost rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl space-y-5 relative border border-white/90 backdrop-blur-2xl">
-          <button
-            onClick={() => setActiveModal(null)}
-            className="absolute top-4 right-4 p-2 rounded-full hover:bg-slate-100/80 text-slate-500 transition-colors min-h-[38px] min-w-[38px] flex items-center justify-center"
-          >
-            <X className="w-5 h-5" />
-          </button>
-
-          <div className="text-center space-y-1">
-            <span className="px-3 py-1 rounded-full text-[10px] font-bold bg-[#036CFB]/15 text-[#036CFB] uppercase tracking-wider border border-[#036CFB]/20 inline-block">
-              Authentication Portal
-            </span>
-            <h3 className="font-display font-extrabold text-2xl text-[#062544]">
-              Sign In to NAS Portal
-            </h3>
-            <p className="text-xs text-slate-500">
-              Test two different user accounts to verify role-based permissions
-            </p>
-          </div>
-
-          {/* Quick Preset Buttons */}
-          <div className="space-y-2">
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
-              Select Test Account Type:
-            </label>
-            <div className="grid grid-cols-2 gap-3">
-              <button
-                type="button"
-                onClick={() => {
-                  setUserRole('client');
-                  setActiveModal(null);
-                }}
-                className={`p-3.5 rounded-2xl border text-left transition space-y-1 ${
-                  userRole === 'client'
-                    ? 'border-[#036CFB] bg-blue-50/90 ring-2 ring-[#036CFB]/30 shadow-md'
-                    : 'border-slate-200 hover:border-slate-300 bg-white/70'
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-bold text-xs text-[#062544]">👤 Client User</span>
-                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-800">Standard</span>
-                </div>
-                <p className="text-[10px] text-slate-500 font-mono">client@nas.com</p>
-                <p className="text-[10px] text-slate-600 leading-tight">
-                  Cannot access Admin Page
-                </p>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => {
-                  setUserRole('admin');
-                  setActiveModal(null);
-                }}
-                className={`p-3.5 rounded-2xl border text-left transition space-y-1 ${
-                  userRole === 'admin'
-                    ? 'border-[#036CFB] bg-[#062544] text-white ring-2 ring-[#036CFB] shadow-md'
-                    : 'border-slate-200 hover:border-slate-300 bg-white/70'
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className={`font-bold text-xs ${userRole === 'admin' ? 'text-[#38BDF8]' : 'text-[#062544]'}`}>
-                    🛡️ Admin User
-                  </span>
-                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300">Full Ops</span>
-                </div>
-                <p className={`text-[10px] font-mono ${userRole === 'admin' ? 'text-slate-300' : 'text-slate-500'}`}>
-                  admin@nas.com
-                </p>
-                <p className={`text-[10px] leading-tight ${userRole === 'admin' ? 'text-slate-300' : 'text-slate-600'}`}>
-                  Full Access to Admin Page
-                </p>
-              </button>
-            </div>
-          </div>
-
-          <div className="pt-3 border-t border-slate-200/60 space-y-3">
-            <div className="glass-frost-subtle p-3 rounded-2xl border border-white/80 text-xs text-slate-600 space-y-1">
-              <span className="font-bold text-slate-800 block">🔒 Access Control Policy:</span>
-              <p className="text-[11px] text-slate-500">
-                When signed in as <strong>Client User</strong>, navigating to the <strong>Admin Ops</strong> page will display an <strong>Access Denied</strong> security barrier.
-              </p>
-            </div>
-
-            <button
-              onClick={() => setActiveModal(null)}
-              className="w-full py-3 bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0256c7] hover:to-[#036CFB] text-white font-display font-bold text-xs tracking-wide rounded-2xl shadow-lg shadow-[#036CFB]/30 transition min-h-[44px]"
-            >
-              Continue to Portal
             </button>
           </div>
         </div>
