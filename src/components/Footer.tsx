@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plane, Phone, Mail, Globe, Stamp, GraduationCap } from 'lucide-react';
+import { Plane, Phone, Mail, Globe, Stamp, GraduationCap, Clock } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import logoImg from '../assets/logo.jpg';
 
@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
               <Plane className="w-3.5 h-3.5 transform -rotate-45" />
             </div>
             <span className="tracking-wide text-[11px] uppercase font-bold text-white whitespace-nowrap">
-              100% ONLINE SERVICES • VISA SERVICES • AIR TICKETING • DOCUMENT ATTESTATION • EDUCATION CONSULTANCY
+              100% ONLINE SERVICES • SERVICE DURATION: 1 YEAR • VISA SERVICES • AIR TICKETING • DOCUMENT ATTESTATION • EDUCATION CONSULTANCY
             </span>
           </div>
           <button
@@ -89,10 +89,14 @@ export const Footer: React.FC = () => {
                 </a>
               </div>
 
-              <div className="pt-1">
+              <div className="pt-1 flex flex-col gap-1.5">
                 <span className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-bold glass-pill-dark text-[#38BDF8] border border-[#036CFB]/40 shadow-xs">
                   <Globe className="w-3.5 h-3.5 text-[#38BDF8]" />
                   <span>Strictly Online Service • Zero In-Person Visits Needed</span>
+                </span>
+                <span className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-bold glass-pill-dark text-emerald-400 border border-emerald-500/30 shadow-xs">
+                  <Clock className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Service & Payment Duration: 1 Year Validity</span>
                 </span>
               </div>
             </div>
@@ -164,7 +168,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-10 mt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 font-medium gap-4">
-          <p>© 2026 NAS INTERNATIONALS. All rights reserved.</p>
+          <p>© 2026 NAS INTERNATIONALS. All rights reserved. • Service & Payment Duration: 1 Year</p>
           <div className="flex items-center space-x-4 text-[#38BDF8]">
             <span>100% Digital Operations • Verified Travel & Visa Portal</span>
           </div>

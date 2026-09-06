@@ -15,10 +15,17 @@ import {
   Check, 
   Sparkles,
   ExternalLink,
-  AlertCircle
+  AlertCircle,
+  Copy,
+  Building2,
+  QrCode,
+  ZoomIn,
+  X
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useApp } from '../../context/AppContext';
+import paymentQrImg from '../../assets/payment-qr.jpg';
+import paymentQrFullImg from '../../assets/payment-qr-full.jpg';
 
 export const PaymentTrackerView: React.FC = () => {
   const { activeApplication, submitPaymentProof, applications, setActiveTrackerAppId } = useApp();
@@ -34,6 +41,16 @@ export const PaymentTrackerView: React.FC = () => {
   const [proofFileName, setProofFileName] = useState(payment?.proofFileName || '');
   const [isSubmitted, setIsSubmitted] = useState(payment?.isVerified || false);
   const [downloadSuccess, setDownloadSuccess] = useState(false);
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const [showQrModal, setShowQrModal] = useState(false);
+
+  const copyToClipboard = (text: string, key: string) => {
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+    }
+    setCopiedKey(key);
+    setTimeout(() => setCopiedKey(null), 2500);
+  };
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -198,8 +215,8 @@ export const PaymentTrackerView: React.FC = () => {
             </div>
           </div>
 
-          {/* Details 4-Column Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+          {/* Details 5-Column Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 text-xs">
             <div className="p-3 bg-white/70 rounded-2xl border border-slate-200/80 space-y-1">
               <span className="text-slate-500 font-semibold block">Passport No</span>
               <span className="font-mono font-bold text-[#062544]">{app.passportNumber || 'Z8923412'}</span>
@@ -216,6 +233,11 @@ export const PaymentTrackerView: React.FC = () => {
             </div>
 
             <div className="p-3 bg-white/70 rounded-2xl border border-slate-200/80 space-y-1">
+              <span className="text-slate-500 font-semibold block">Service Duration</span>
+              <span className="font-bold text-emerald-600">1 Year Validity</span>
+            </div>
+
+            <div className="p-3 bg-white/70 rounded-2xl border border-slate-200/80 space-y-1 col-span-2 sm:col-span-1">
               <span className="text-slate-500 font-semibold block">Estimated Turnaround</span>
               <span className="font-bold text-[#062544]">{app.processingTime || '2-4 Business Days'}</span>
             </div>
@@ -251,45 +273,212 @@ export const PaymentTrackerView: React.FC = () => {
         </div>
 
         {/* Top 2 Boxes Grid: Secure Digital Payment Info & Upload Payment Proof */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
-          {/* Box 1: Secure Payment Information (Strictly Online, Zero Fees Displayed) */}
-          <div className="glass-frost rounded-3xl p-6 shadow-xl border border-white/80 space-y-4 flex flex-col justify-between backdrop-blur-2xl">
-            <h3 className="font-display font-bold text-[#062544] text-base flex items-center space-x-2">
-              <span className="w-2 h-2 rounded-full bg-[#036CFB]"></span>
-              <span>Online Payment Details</span>
-            </h3>
-
-            <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-3 sm:space-y-0 sm:space-x-4">
-              {/* Scan to Pay QR Code */}
-              <div className="w-32 h-32 bg-white border border-slate-200/80 p-2 rounded-2xl flex items-center justify-center shrink-0 shadow-md">
-                <img
-                  src={payment?.upiQrCodeUrl || 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=nastravels@hdfcbank&pn=NAS%20Travels'}
-                  alt="UPI Payment QR Code"
-                  className="w-full h-full object-contain"
-                />
+          {/* Box 1: Official Bank Details & Digital Payment (GPay/PhonePe/QR) */}
+          <div className="lg:col-span-7 glass-frost rounded-3xl p-6 sm:p-7 shadow-xl border border-white/80 space-y-5 flex flex-col justify-between backdrop-blur-2xl">
+            {/* Header with 1-Year Duration Notice Badge */}
+            <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-200/60">
+              <h3 className="font-display font-black text-[#062544] text-base flex items-center space-x-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#036CFB]"></span>
+                <span>Online Payment & Bank Details</span>
+              </h3>
+              <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold shadow-xs">
+                <Clock className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <span>Service & Payment Duration: 1 Year</span>
               </div>
+            </div>
 
-              {/* Bank Details */}
-              <div className="space-y-1 text-xs text-center sm:text-left">
-                <p className="font-bold text-slate-800 text-sm">Scan to Pay (UPI)</p>
-                <div className="text-slate-600 space-y-0.5 pt-1">
-                  <p><span className="font-semibold text-slate-700">Official Account:</span></p>
-                  <p className="font-medium text-slate-800">{payment?.bankName || 'HDFC Bank'}</p>
-                  <p>NAS Travels Pvt Ltd</p>
-                  <p>Account No: <span className="font-mono font-bold text-slate-800">{payment?.accountNumber || '1234567890'}</span></p>
-                  <p>IFSC: <span className="font-mono font-bold text-slate-800">{payment?.ifscCode || 'HDFC0001234'}</span></p>
-                  <p className="text-[#036CFB] font-bold pt-1">Service Mode: 100% Online Verification</p>
+            {/* Digital Payment Section (Google Pay / PhonePe & QR Code) */}
+            <div className="bg-white/85 rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-sm space-y-4">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                {/* Scan to Pay QR Code */}
+                <div className="relative group shrink-0 text-center flex flex-col items-center">
+                  <div 
+                    onClick={() => setShowQrModal(true)}
+                    className="w-36 h-40 sm:w-40 sm:h-44 bg-white border-2 border-[#036CFB]/30 p-2 rounded-2xl flex items-center justify-center shadow-md overflow-hidden cursor-pointer group-hover:border-[#036CFB] transition relative"
+                    title="Click to Enlarge QR Code"
+                  >
+                    <img
+                      src={paymentQrImg}
+                      alt="Nas Internationals Google Pay UPI QR Code"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-2xl">
+                      <span className="bg-white/95 text-[#062544] text-[10px] font-bold px-2 py-1 rounded-lg flex items-center space-x-1 shadow-sm">
+                        <ZoomIn className="w-3 h-3 text-[#036CFB]" />
+                        <span>Enlarge</span>
+                      </span>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setShowQrModal(true)}
+                    className="text-[10px] font-black text-[#036CFB] hover:underline mt-1.5 uppercase tracking-wider flex items-center space-x-1 cursor-pointer"
+                  >
+                    <QrCode className="w-3 h-3" />
+                    <span>View Full QR</span>
+                  </button>
+                </div>
+
+                {/* Digital Payment Details */}
+                <div className="flex-1 space-y-2.5 w-full text-center sm:text-left">
+                  <div>
+                    <div className="inline-flex items-center space-x-1 text-[11px] font-bold text-[#036CFB] uppercase tracking-wide">
+                      <Sparkles className="w-3 h-3 text-[#036CFB]" />
+                      <span>Digital Payment</span>
+                    </div>
+                    <h4 className="font-display font-extrabold text-[#062544] text-sm sm:text-base">
+                      Google Pay / PhonePe
+                    </h4>
+                    <p className="text-[11px] text-slate-500 font-medium">
+                      Pay instantly via official mobile number or UPI ID:
+                    </p>
+                  </div>
+
+                  {/* Google Pay / PhonePe Box with Copy */}
+                  <div className="p-2.5 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50/70 border border-blue-200/80 flex items-center justify-between gap-2">
+                    <div>
+                      <span className="text-[10px] font-bold uppercase text-slate-500 block">
+                        Google Pay / PhonePe No.
+                      </span>
+                      <span className="font-mono text-sm sm:text-base font-black text-[#062544] tracking-wide">
+                        9941900055
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => copyToClipboard('9941900055', 'gpay')}
+                      className="px-3 py-1.5 rounded-lg bg-white hover:bg-slate-50 text-[#036CFB] border border-blue-200 text-xs font-bold transition flex items-center space-x-1 shadow-xs cursor-pointer active:scale-95"
+                    >
+                      {copiedKey === 'gpay' ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-600" />
+                          <span className="text-emerald-600">Copied</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5" />
+                          <span>Copy</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Official UPI ID Box with Copy */}
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                    <div className="truncate text-left">
+                      <span className="text-[10px] font-bold uppercase text-slate-500 block">
+                        Official UPI ID
+                      </span>
+                      <span className="font-mono text-xs font-bold text-[#062544] truncate block">
+                        nasgroup036@okhdfcbank
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => copyToClipboard('nasgroup036@okhdfcbank', 'upi_id')}
+                      className="px-2.5 py-1.5 rounded-lg bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold transition flex items-center space-x-1 shadow-xs cursor-pointer active:scale-95 shrink-0"
+                    >
+                      {copiedKey === 'upi_id' ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-600" />
+                          <span className="text-emerald-600">Copied</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5 text-[#036CFB]" />
+                          <span>Copy</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Payment Apps Badges */}
+                  <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1 text-[10px] font-bold text-slate-600 pt-0.5">
+                    <span className="px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-slate-700">Google Pay</span>
+                    <span className="px-2 py-0.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200">PhonePe</span>
+                    <span className="px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200">Paytm</span>
+                    <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200">BHIM / SBI</span>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            {/* Bank Account Information Section */}
+            <div className="bg-white/85 rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-sm space-y-3">
+              <div className="flex items-center justify-between">
+                <h4 className="font-display font-extrabold text-[#062544] text-xs uppercase tracking-wider flex items-center space-x-1.5">
+                  <Building2 className="w-4 h-4 text-[#036CFB]" />
+                  <span>Bank Account Information</span>
+                </h4>
+                <span className="text-[10px] font-bold text-[#036CFB] bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200">
+                  Official Account
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                {/* Account Name */}
+                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80">
+                  <span className="text-[10px] font-semibold text-slate-500 block uppercase">Account Name</span>
+                  <span className="font-bold text-[#062544] text-xs block">Nas Internationals</span>
+                </div>
+
+                {/* Bank Name */}
+                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80">
+                  <span className="text-[10px] font-semibold text-slate-500 block uppercase">Bank</span>
+                  <span className="font-bold text-[#062544] text-xs block">State Bank Of India</span>
+                </div>
+
+                {/* Account Number */}
+                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-semibold text-slate-500 block uppercase">Account Number</span>
+                    <span className="font-mono font-black text-[#062544] text-xs tracking-wider">39081079535</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard('39081079535', 'acc')}
+                    className="p-1.5 text-slate-500 hover:text-[#036CFB] hover:bg-white rounded-lg transition"
+                    title="Copy Account Number"
+                  >
+                    {copiedKey === 'acc' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                  </button>
+                </div>
+
+                {/* IFSC & Branch */}
+                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-semibold text-slate-500 block uppercase">IFSC / Branch</span>
+                    <span className="font-mono font-black text-[#062544] text-xs tracking-wider">SBIN0005201</span>
+                    <span className="text-[10px] text-slate-500 font-medium block">Branch: Poonamallee</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard('SBIN0005201', 'ifsc')}
+                    className="p-1.5 text-slate-500 hover:text-[#036CFB] hover:bg-white rounded-lg transition"
+                    title="Copy IFSC Code"
+                  >
+                    {copiedKey === 'ifsc' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Duration / Validity Notice Banner */}
+            <div className="p-3 rounded-2xl bg-emerald-50/80 border border-emerald-200/80 flex items-center space-x-2.5 text-xs text-emerald-900">
+              <Clock className="w-4 h-4 text-emerald-600 shrink-0" />
+              <p className="font-medium text-[11px] leading-tight">
+                <strong>Service / Payment Duration: 1 Year</strong> — All registered visas, consultations, and document tracking remain valid for 1 year from payment processing.
+              </p>
             </div>
           </div>
 
           {/* Box 2: Upload Payment Proof */}
-          <div className="glass-frost rounded-3xl p-6 shadow-xl border border-white/80 space-y-4 flex flex-col justify-between backdrop-blur-2xl">
-            <div className="flex items-center justify-between">
-              <h3 className="font-display font-bold text-[#062544] text-base flex items-center space-x-2">
-                <span className="w-2 h-2 rounded-full bg-[#036CFB]"></span>
+          <div className="lg:col-span-5 glass-frost rounded-3xl p-6 sm:p-7 shadow-xl border border-white/80 space-y-4 flex flex-col justify-between backdrop-blur-2xl">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/60">
+              <h3 className="font-display font-black text-[#062544] text-base flex items-center space-x-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#036CFB]"></span>
                 <span>Submit Digital Proof</span>
               </h3>
               <label className="cursor-pointer py-1.5 px-3 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold rounded-xl border border-slate-200 flex items-center space-x-1.5 shadow-xs">
@@ -331,7 +520,7 @@ export const PaymentTrackerView: React.FC = () => {
 
               <button
                 type="submit"
-                className="w-full py-3 bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0256c7] hover:to-[#036CFB] text-white font-display font-bold text-xs tracking-wide rounded-2xl shadow-lg shadow-[#036CFB]/30 transition min-h-[44px] cursor-pointer"
+                className="w-full py-3 bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0256c7] hover:to-[#036CFB] text-white font-display font-bold text-xs tracking-wide rounded-2xl shadow-lg shadow-[#036CFB]/30 transition min-h-[44px] cursor-pointer active:scale-95"
               >
                 {isSubmitted ? 'Update Payment Verification' : 'Confirm & Submit Proof'}
               </button>
@@ -459,6 +648,66 @@ export const PaymentTrackerView: React.FC = () => {
             </a>
           </div>
         </div>
+
+        {/* Full-Screen QR Code Modal */}
+        {showQrModal && (
+          <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-4">
+            <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-slate-200 space-y-4 relative animate-in fade-in zoom-in-95 duration-150">
+              <button
+                type="button"
+                onClick={() => setShowQrModal(false)}
+                className="absolute top-4 right-4 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 transition cursor-pointer"
+                title="Close"
+              >
+                <X className="w-4 h-4" />
+              </button>
+
+              <div className="text-center space-y-1 pt-1">
+                <h3 className="font-display font-black text-base text-[#062544]">
+                  Nas Internationals
+                </h3>
+                <p className="text-xs text-[#036CFB] font-bold">
+                  Official UPI Merchant Payment QR
+                </p>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-inner bg-slate-50 flex items-center justify-center p-2">
+                <img
+                  src={paymentQrFullImg}
+                  alt="Nas Internationals Full Merchant QR Standee"
+                  className="w-full max-h-[380px] object-contain rounded-xl"
+                />
+              </div>
+
+              <div className="space-y-1 text-center text-xs">
+                <p className="font-mono font-bold text-slate-800">
+                  UPI ID: <span className="text-[#036CFB]">nasgroup036@okhdfcbank</span>
+                </p>
+                <p className="text-[11px] text-slate-500">
+                  Scan with Google Pay, PhonePe, Paytm, BHIM, or any banking app.
+                </p>
+              </div>
+
+              <div className="flex gap-2 pt-1">
+                <a
+                  href={paymentQrFullImg}
+                  download="NasInternationals-UPI-QR.jpg"
+                  className="flex-1 py-2.5 bg-[#036CFB] hover:bg-[#0256c7] text-white rounded-xl text-xs font-bold transition flex items-center justify-center space-x-1.5 shadow-md cursor-pointer"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Download QR</span>
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setShowQrModal(false)}
+                  className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition cursor-pointer"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
       </div>
     </div>

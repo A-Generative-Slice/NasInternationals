@@ -468,11 +468,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       payment: {
         bookingId: `NAS-${randomSuffix}`,
         amount: selectedVisa ? selectedVisa.priceInINR : 5000,
-        upiQrCodeUrl: `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=nastravels@hdfcbank&pn=NAS%20Travels&am=${selectedVisa ? selectedVisa.priceInINR : 5000}&cu=INR`,
-        bankName: 'HDFC Bank',
-        accountName: 'NAS Travels Pvt Ltd',
-        accountNumber: '1234567890',
-        ifscCode: 'HDFC0001234',
+        upiQrCodeUrl: `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa=9941900055@sbi&pn=Nas%20Internationals&am=${selectedVisa ? selectedVisa.priceInINR : 5000}&cu=INR`,
+        bankName: 'State Bank Of India',
+        accountName: 'Nas Internationals',
+        accountNumber: '39081079535',
+        ifscCode: 'SBIN0005201',
+        branch: 'Poonamallee',
+        upiNumber: '9941900055',
+        duration: '1 year',
         isVerified: false
       }
     };

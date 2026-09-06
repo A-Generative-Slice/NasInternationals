@@ -80,6 +80,9 @@ export interface PaymentInfo {
   accountName: string;
   accountNumber: string;
   ifscCode: string;
+  branch?: string;
+  upiNumber?: string;
+  duration?: string;
   transactionId?: string;
   proofFileName?: string;
   proofUrl?: string;
