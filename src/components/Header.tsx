@@ -102,7 +102,6 @@ export const Header: React.FC = () => {
                   : 'text-slate-600 hover:text-slate-900 hover:bg-white/80'
               }`}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
               <span>Track Status</span>
             </button>
 
@@ -150,9 +149,9 @@ export const Header: React.FC = () => {
             ) : (
               <button
                 onClick={() => openAuthModal('login')}
-                className="px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-700 hover:text-[#036CFB] hover:bg-slate-100 transition-colors cursor-pointer"
+                className="px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-700 hover:text-[#036CFB] hover:bg-slate-100 transition-colors cursor-pointer border border-transparent hover:border-slate-200"
               >
-                Sign In
+                Sign In / Sign Up
               </button>
             )}
 

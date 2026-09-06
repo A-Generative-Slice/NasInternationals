@@ -132,7 +132,6 @@ export const Footer: React.FC = () => {
           {/* Col 4: Online Services & Tracking */}
           <div className="space-y-4">
             <h4 className="text-xs font-black text-[#38BDF8] uppercase tracking-wider flex items-center space-x-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#38BDF8] animate-pulse"></span>
               <span>Online Services & Tracking</span>
             </h4>
             <ul className="space-y-2.5 text-xs font-semibold text-slate-300">

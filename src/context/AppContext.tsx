@@ -423,10 +423,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const resetWizard = () => {
     setWizardStep(1);
     setWizardData({
-      applicantName: currentUser?.name || 'Rahul Sharma',
-      email: currentUser?.email || 'client@nas.com',
-      phone: currentUser?.phone || '+91 98765 43210',
-      passportNumber: currentUser?.passportNumber || 'Z8923412',
+      applicantName: currentUser?.name || '',
+      email: currentUser?.email || '',
+      phone: currentUser?.phone || '',
+      passportNumber: currentUser?.passportNumber || '',
       destination: selectedDestination || 'Canada',
       nationality: selectedNationality || 'Indian',
       purpose: selectedPurpose || 'Tourism & Leisure',

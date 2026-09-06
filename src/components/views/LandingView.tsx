@@ -102,13 +102,7 @@ export const LandingView: React.FC = () => {
           {/* Left Column Content */}
           <div className="lg:col-span-7 space-y-4 sm:space-y-6">
             
-            {/* Top pill badge */}
-            <div className="inline-flex items-center space-x-2 px-3 sm:px-3.5 py-1.5 rounded-full glass-frost border border-white/80 shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#036CFB] animate-ping"></span>
-              <span className="text-[10px] sm:text-[11px] font-bold text-[#062544] uppercase tracking-wider">
-                100% Online Digital Operations
-              </span>
-            </div>
+
 
             {/* Big Headline */}
             <div className="space-y-1">
@@ -154,10 +148,7 @@ export const LandingView: React.FC = () => {
 
             {/* Feature Trust Chips Row */}
             <div className="pt-1 flex flex-wrap gap-1.5 sm:gap-2">
-              <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] xs:text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1.5 transition hover:scale-102">
-                <Sparkles className="w-3.5 h-3.5 text-[#036CFB] shrink-0" />
-                <span>100% Online Approvals</span>
-              </span>
+
               <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] xs:text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1.5 transition hover:scale-102">
                 <Zap className="w-3.5 h-3.5 text-amber-500 shrink-0" />
                 <span>Fast 24H E-Visas</span>
@@ -203,10 +194,7 @@ export const LandingView: React.FC = () => {
                     <p className="text-[10px] font-bold text-[#036CFB] uppercase tracking-wider">Fast-Track Digital Desk</p>
                   </div>
                 </div>
-                <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold flex items-center space-x-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span>100% Online</span>
-                </span>
+
               </div>
 
               {/* Quick destination highlights */}
@@ -294,14 +282,13 @@ export const LandingView: React.FC = () => {
         {/* Section Header */}
         <div className="text-center space-y-2 mb-8 sm:mb-12 relative">
           <div className="inline-flex items-center space-x-2 px-3 sm:px-3.5 py-1.5 rounded-full glass-pill text-[#036CFB] text-xs font-bold shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-[#036CFB] animate-pulse"></span>
             <span>OUR 4 APPROVED CORE SERVICES</span>
           </div>
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#062544] tracking-tight">
             Comprehensive Online Visa & Travel Solutions
           </h2>
           <p className="text-xs sm:text-sm font-medium text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            100% digital processing with zero physical visits required. Verified embassy approvals, fast turnarounds, and 24/7 client support.
+            Digital processing with zero physical visits required. Verified embassy approvals, fast turnarounds, and 24/7 client support.
           </p>
         </div>
 
@@ -576,7 +563,6 @@ export const LandingView: React.FC = () => {
                 
                 {/* Frosted Glass Badge Overlay */}
                 <div className="absolute top-3 left-3 sm:top-4 sm:left-4 glass-frost-dark text-white text-[10px] sm:text-[11px] font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-lg border border-white/20 backdrop-blur-md flex items-center space-x-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#38BDF8] animate-pulse"></span>
                   <span>{destination.badge}</span>
                 </div>
               </div>
@@ -622,7 +608,7 @@ export const LandingView: React.FC = () => {
                 WHY GO WITH NAS INTERNATIONALS
               </span>
               <h2 className="font-display text-2xl sm:text-4xl font-black tracking-tight leading-tight">
-                100% Online Visa Process With <br />
+                Visa Process With <br />
                 Expert Guidance & Zero Office Visits
               </h2>
               <p className="text-xs sm:text-sm font-medium text-slate-300 max-w-xl leading-relaxed">
@@ -650,7 +636,7 @@ export const LandingView: React.FC = () => {
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-xs sm:text-sm text-white">100% Online & Paperless</h4>
+                  <h4 className="font-extrabold text-xs sm:text-sm text-white">Digital & Paperless</h4>
                   <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed mt-1">
                     Complete digital application submission, electronic document verification, and live tracking with zero office queues.
                   </p>
@@ -692,7 +678,7 @@ export const LandingView: React.FC = () => {
                 <img src={logoImg} alt="NAS Internationals Logo" className="w-full h-full object-contain" />
               </div>
               <h3 className="font-display font-black text-lg sm:text-xl text-white">NAS INTERNATIONALS</h3>
-              <p className="text-[11px] sm:text-xs font-bold text-[#38BDF8] uppercase tracking-widest mt-1">100% ONLINE SERVICES</p>
+              <p className="text-[11px] sm:text-xs font-bold text-[#38BDF8] uppercase tracking-widest mt-1">VERIFIED SERVICES</p>
               <p className="text-[11px] sm:text-xs text-slate-300 font-medium mt-3">VISAS • AIR TICKETING • ATTESTATION • EDUCATION</p>
               <div className="mt-4 pt-4 border-t border-white/10 w-full text-center">
                 <span className="text-[10px] sm:text-[11px] font-bold text-[#38BDF8] bg-white/10 px-3.5 py-1.5 rounded-full border border-white/10 inline-flex items-center space-x-1.5 shadow-xs">

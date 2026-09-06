@@ -16,14 +16,16 @@ export const AuthModal: React.FC = () => {
   const [mobileOtp, setMobileOtp] = useState('');
 
   // Email Sign In State
-  const [email, setEmail] = useState('client@nas.com');
-  const [password, setPassword] = useState('user123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   // Sign Up (Register) State
   const [signupName, setSignupName] = useState('');
   const [signupPhone, setSignupPhone] = useState('');
   const [signupEmail, setSignupEmail] = useState('');
   const [signupPassword, setSignupPassword] = useState('');
+  const [signupOtpSent, setSignupOtpSent] = useState(false);
+  const [signupOtp, setSignupOtp] = useState('');
 
   // Feedback Messages
   const [errorMsg, setErrorMsg] = useState('');
@@ -95,11 +97,26 @@ export const AuthModal: React.FC = () => {
       return;
     }
 
+    if (!signupOtpSent) {
+      setIsLoading(true);
+      setTimeout(() => {
+        setSignupOtpSent(true);
+        setIsLoading(false);
+        setSuccessMsg(`SMTP verification code sent to ${signupEmail}. Demo code: 123456`);
+      }, 800);
+      return;
+    }
+
+    if (!signupOtp.trim()) {
+      setErrorMsg('Please enter the verification code.');
+      return;
+    }
+
     setIsLoading(true);
     try {
       const res = await registerUser(signupName, signupEmail, signupPhone, signupPassword || 'pass123');
       if (res.success) {
-        setSuccessMsg('Account created successfully! Redirecting...');
+        setSuccessMsg('Email verified! Account created successfully. Redirecting...');
         setTimeout(() => {
           closeAuthModal();
           navigateTo('/dashboard');
@@ -196,7 +213,7 @@ export const AuthModal: React.FC = () => {
               <p className="text-xs text-slate-500 font-medium">
                 {activeTab === 'signin' 
                   ? 'Access your visa applications and tracking documents' 
-                  : 'Get access to 100% online travel and visa assistance'}
+                  : 'Get access to digital travel and visa assistance'}
               </p>
             </div>
 
@@ -282,7 +299,7 @@ export const AuthModal: React.FC = () => {
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="client@nas.com"
+                        placeholder="Enter your email"
                         className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] min-h-[44px]"
                       />
                     </div>
@@ -343,10 +360,11 @@ export const AuthModal: React.FC = () => {
                   <input
                     type="text"
                     required
+                    disabled={signupOtpSent}
                     value={signupName}
                     onChange={(e) => setSignupName(e.target.value)}
-                    placeholder="Rahul Sharma"
-                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] min-h-[44px]"
+                    placeholder="Enter your full legal name"
+                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] min-h-[44px] disabled:opacity-50"
                   />
                 </div>
 
@@ -355,10 +373,11 @@ export const AuthModal: React.FC = () => {
                   <input
                     type="tel"
                     required
+                    disabled={signupOtpSent}
                     value={signupPhone}
                     onChange={(e) => setSignupPhone(e.target.value)}
-                    placeholder="+91 99419 00055"
-                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] min-h-[44px]"
+                    placeholder="Enter your contact number"
+                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] min-h-[44px] disabled:opacity-50"
                   />
                 </div>
 
@@ -367,10 +386,11 @@ export const AuthModal: React.FC = () => {
                   <input
                     type="email"
                     required
+                    disabled={signupOtpSent}
                     value={signupEmail}
                     onChange={(e) => setSignupEmail(e.target.value)}
-                    placeholder="customer@example.com"
-                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] min-h-[44px]"
+                    placeholder="Enter your email address"
+                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] min-h-[44px] disabled:opacity-50"
                   />
                 </div>
 
@@ -379,12 +399,27 @@ export const AuthModal: React.FC = () => {
                   <input
                     type="password"
                     required
+                    disabled={signupOtpSent}
                     value={signupPassword}
                     onChange={(e) => setSignupPassword(e.target.value)}
-                    placeholder="Create a password"
-                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] min-h-[44px]"
+                    placeholder="Create a strong password"
+                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] min-h-[44px] disabled:opacity-50"
                   />
                 </div>
+
+                {signupOtpSent && (
+                  <div>
+                    <label className="block text-xs font-bold text-[#036CFB] mb-1">Email Verification OTP</label>
+                    <input
+                      type="text"
+                      required
+                      value={signupOtp}
+                      onChange={(e) => setSignupOtp(e.target.value)}
+                      placeholder="Enter the 6-digit OTP sent to your email"
+                      className="w-full bg-blue-50 border border-blue-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] min-h-[44px]"
+                    />
+                  </div>
+                )}
 
                 <button
                   type="submit"
@@ -394,11 +429,11 @@ export const AuthModal: React.FC = () => {
                   {isLoading ? (
                     <>
                       <RefreshCw className="w-4 h-4 animate-spin" />
-                      <span>Creating Account...</span>
+                      <span>{signupOtpSent ? 'Verifying...' : 'Processing...'}</span>
                     </>
                   ) : (
                     <>
-                      <span>Create Account & Continue</span>
+                      <span>{signupOtpSent ? 'Verify Email & Create Account' : 'Send Verification OTP'}</span>
                       <ArrowRight className="w-4 h-4" />
                     </>
                   )}

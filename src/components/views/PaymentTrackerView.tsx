@@ -214,7 +214,6 @@ export const PaymentTrackerView: React.FC = () => {
                   ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
                   : 'bg-blue-50 text-[#036CFB] border-blue-200'
               }`}>
-                <span className={`w-2 h-2 rounded-full ${isApproved ? 'bg-emerald-500' : 'bg-[#036CFB] animate-pulse'}`}></span>
                 <span className="uppercase tracking-wider">Status: {app.status}</span>
               </div>
             </div>
@@ -645,7 +644,6 @@ export const PaymentTrackerView: React.FC = () => {
                   isApproved 
                     ? 'bg-emerald-100 text-emerald-700'
                     : app.status === 'Processing' || app.status === 'In Process'
-                    ? 'bg-amber-100 text-amber-700 animate-pulse'
                     : 'bg-slate-100 text-slate-500'
                 }`}>
                   {isApproved ? 'Cleared' : app.status === 'Processing' ? 'In Progress' : 'Queued'}

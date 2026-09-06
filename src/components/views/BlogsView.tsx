@@ -49,7 +49,6 @@ export const BlogsView: React.FC = () => {
         {/* Header */}
         <div className="text-center space-y-3">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-pill text-[#036CFB] text-xs font-bold shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-[#036CFB] animate-pulse"></span>
             <span>OUR LATEST TRAVEL & VISA ARTICLES</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-[#062544] tracking-tight">

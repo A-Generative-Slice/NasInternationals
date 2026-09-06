@@ -31,7 +31,6 @@ export const ContactView: React.FC = () => {
           {/* Left Text */}
           <div className="lg:col-span-7 space-y-3 text-center lg:text-left">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-pill text-[#036CFB] text-xs font-bold shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#036CFB] animate-pulse"></span>
               <span>24/7 Digital Support Helpdesk</span>
             </div>
 

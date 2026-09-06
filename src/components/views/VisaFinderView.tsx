@@ -56,7 +56,6 @@ export const VisaFinderView: React.FC = () => {
         {/* Page Title */}
         <div className="text-center md:text-left space-y-2">
           <div className="inline-flex items-center space-x-2 px-3 sm:px-3.5 py-1.5 rounded-full glass-pill text-[#036CFB] text-xs font-bold shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-[#036CFB] animate-pulse"></span>
             <span>Online Visa Finder & Eligibility Engine</span>
           </div>
           <h1 className="font-display text-2xl xs:text-3xl md:text-4xl font-extrabold text-[#062544] tracking-tight uppercase">

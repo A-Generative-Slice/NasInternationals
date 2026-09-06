@@ -283,7 +283,7 @@ export const UserDashboardView: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h1 className="font-display text-2xl font-extrabold text-[#0B1E3D]">
-              Welcome, {currentUser?.name || 'Rahul Sharma'}
+              Welcome, {currentUser?.name || 'Guest'}
             </h1>
             <p className="text-xs text-slate-500">
               User Portal: Manage visa applications, document uploads, and tracking.
@@ -486,7 +486,7 @@ export const UserDashboardView: React.FC = () => {
                       {getStatusBadge(item.status)}
                     </div>
                     <p className="text-xs text-slate-600 font-medium">
-                      Destination: <strong>{item.destination}</strong> ({item.type}) • Passport: {item.passportNumber}
+                      <span className="font-bold text-[#062544]">{item.destination}</span> <span className="text-slate-500">|</span> <span className="text-[#036CFB] font-semibold">{item.type}</span> <span className="text-slate-500">|</span> <span className="font-mono text-slate-600">Passport: {item.passportNumber}</span>
                     </p>
                     <p className="text-[11px] text-slate-400 mt-1">Submitted: {item.dateSubmitted}</p>
                   </div>
@@ -665,19 +665,19 @@ export const UserDashboardView: React.FC = () => {
             <div className="space-y-3 text-xs">
               <div>
                 <label className="block font-bold text-slate-700 mb-1">Full Legal Name</label>
-                <input type="text" defaultValue={currentUser?.name || 'Rahul Sharma'} className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5" />
+                <input type="text" defaultValue={currentUser?.name || ''} placeholder="Enter your name" className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5" />
               </div>
               <div>
                 <label className="block font-bold text-slate-700 mb-1">Email Address</label>
-                <input type="email" defaultValue={currentUser?.email || 'client@nas.com'} disabled className="w-full bg-slate-100 border border-slate-300 rounded-xl p-2.5 text-slate-500" />
+                <input type="email" defaultValue={currentUser?.email || ''} placeholder="Enter your email" disabled className="w-full bg-slate-100 border border-slate-300 rounded-xl p-2.5 text-slate-500" />
               </div>
               <div>
                 <label className="block font-bold text-slate-700 mb-1">Phone Number (+91)</label>
-                <input type="tel" defaultValue={currentUser?.phone || '+91 98765 43210'} className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5" />
+                <input type="tel" defaultValue={currentUser?.phone || ''} placeholder="Enter your phone" className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5" />
               </div>
               <div>
                 <label className="block font-bold text-slate-700 mb-1">Passport Number</label>
-                <input type="text" defaultValue={currentUser?.passportNumber || 'Z8923412'} className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 font-mono" />
+                <input type="text" defaultValue={currentUser?.passportNumber || ''} placeholder="Enter passport number" className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 font-mono" />
               </div>
               <button
                 onClick={() => alert('Profile updated successfully!')}
