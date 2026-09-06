@@ -18,15 +18,15 @@ export const ContactView: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-[#F8FAFC] relative overflow-hidden min-h-screen pb-24 lg:pb-16">
+    <div className="w-full bg-[#F8FAFC] relative overflow-hidden min-h-screen pb-28 lg:pb-16">
       {/* Ambient background glow blobs for frosted glass reflections */}
       <div className="ambient-glow-blue top-12 left-1/4 -translate-x-1/2"></div>
       <div className="ambient-glow-sky top-96 right-10"></div>
       <div className="ambient-glow-blue bottom-32 left-10"></div>
 
       {/* HERO SECTION */}
-      <section className="relative py-12 sm:py-16 border-b border-white/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+      <section className="relative py-8 sm:py-14 border-b border-white/60">
+        <div className="max-w-7xl mx-auto px-3.5 xs:px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center relative z-10">
           
           {/* Left Text */}
           <div className="lg:col-span-7 space-y-3 text-center lg:text-left">
@@ -35,10 +35,10 @@ export const ContactView: React.FC = () => {
               <span>24/7 Digital Support Helpdesk</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl font-black text-[#062544] tracking-tight">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl font-black text-[#062544] tracking-tight">
               Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#036CFB] via-[#0284C7] to-[#38BDF8]">Us</span>
             </h1>
-            <p className="text-base sm:text-lg font-bold text-slate-500">
+            <p className="text-sm sm:text-lg font-bold text-slate-500">
               NAS INTERNATIONALS — We're here to help!
             </p>
           </div>
@@ -68,15 +68,15 @@ export const ContactView: React.FC = () => {
       <div className="w-full h-1 bg-gradient-to-r from-[#036CFB] via-[#38BDF8] to-[#036CFB]"></div>
 
       {/* MAIN CONTENT SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative z-10">
+      <section className="max-w-7xl mx-auto px-3.5 xs:px-4 sm:px-6 lg:px-8 py-8 sm:py-14 relative z-10">
         
         {/* Main Card Container */}
-        <div className="glass-frost rounded-3xl p-6 sm:p-10 lg:p-12 border border-white/80 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 backdrop-blur-2xl">
+        <div className="glass-frost rounded-2xl sm:rounded-3xl p-4 xs:p-6 sm:p-10 lg:p-12 border border-white/80 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 backdrop-blur-2xl">
           
           {/* Left Contact Information */}
-          <div className="lg:col-span-6 space-y-8">
+          <div className="lg:col-span-6 space-y-6 sm:space-y-8">
             
-            <div className="space-y-3 text-center sm:text-left">
+            <div className="space-y-2.5 text-center sm:text-left">
               <span className="text-xs font-bold uppercase tracking-widest text-[#036CFB] block">
                 100% ONLINE VISA & TRAVEL SERVICES
               </span>
@@ -89,64 +89,64 @@ export const ContactView: React.FC = () => {
             </div>
 
             {/* Information Cards - Exclusively Mobile Number, Email Address, and Website URL */}
-            <div className="space-y-4">
+            <div className="space-y-3.5">
               
               {/* Phone / Mobile Card */}
-              <div className="flex items-start space-x-4 p-5 rounded-3xl bg-white/70 backdrop-blur-md border border-white/80 shadow-sm hover:shadow-md transition-all">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#0284C7] text-white flex items-center justify-center shrink-0 shadow-md shadow-[#036CFB]/20">
-                  <Phone className="w-6 h-6" />
+              <div className="flex items-start space-x-3.5 sm:space-x-4 p-3.5 xs:p-5 rounded-2xl sm:rounded-3xl bg-white/70 backdrop-blur-md border border-white/80 shadow-sm hover:shadow-md transition-all">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#0284C7] text-white flex items-center justify-center shrink-0 shadow-md shadow-[#036CFB]/20">
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div className="flex-1">
-                  <h4 className="font-bold text-[#036CFB] text-xs uppercase tracking-wider">Mobile Number & WhatsApp</h4>
-                  <p className="text-sm font-bold text-slate-800 leading-relaxed mt-1">
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-bold text-[#036CFB] text-[11px] sm:text-xs uppercase tracking-wider">Mobile Number & WhatsApp</h4>
+                  <p className="text-sm font-bold text-slate-800 leading-relaxed mt-0.5">
                     <a href="tel:+919941900055" className="hover:text-[#036CFB] transition-colors inline-block">
                       +91 99419 00055
                     </a>
                   </p>
-                  <span className="inline-block mt-1 text-[11px] text-emerald-700 font-bold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                  <span className="inline-block mt-1 text-[10px] xs:text-[11px] text-emerald-700 font-bold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
                     Active 24/7 on WhatsApp & Direct Call
                   </span>
                 </div>
               </div>
 
               {/* Email Card */}
-              <div className="flex items-start space-x-4 p-5 rounded-3xl bg-white/70 backdrop-blur-md border border-white/80 shadow-sm hover:shadow-md transition-all">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#0284C7] text-white flex items-center justify-center shrink-0 shadow-md shadow-[#036CFB]/20">
-                  <Mail className="w-6 h-6" />
+              <div className="flex items-start space-x-3.5 sm:space-x-4 p-3.5 xs:p-5 rounded-2xl sm:rounded-3xl bg-white/70 backdrop-blur-md border border-white/80 shadow-sm hover:shadow-md transition-all">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#0284C7] text-white flex items-center justify-center shrink-0 shadow-md shadow-[#036CFB]/20">
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div className="flex-1">
-                  <h4 className="font-bold text-[#036CFB] text-xs uppercase tracking-wider">Email Address</h4>
-                  <p className="text-sm font-bold text-slate-800 leading-relaxed mt-1">
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-bold text-[#036CFB] text-[11px] sm:text-xs uppercase tracking-wider">Email Address</h4>
+                  <p className="text-sm font-bold text-slate-800 leading-relaxed mt-0.5">
                     <a href="mailto:info@nasinternationals.com" className="hover:text-[#036CFB] transition-colors inline-block break-all">
                       info@nasinternationals.com
                     </a>
                   </p>
-                  <span className="inline-block mt-1 text-[11px] text-blue-700 font-bold bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200">
+                  <span className="inline-block mt-1 text-[10px] xs:text-[11px] text-blue-700 font-bold bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200">
                     Fast email response within 2 hours
                   </span>
                 </div>
               </div>
 
               {/* Website Portal Card */}
-              <div className="flex items-start space-x-4 p-5 rounded-3xl bg-white/70 backdrop-blur-md border border-white/80 shadow-sm hover:shadow-md transition-all">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#0284C7] text-white flex items-center justify-center shrink-0 shadow-md shadow-[#036CFB]/20">
-                  <Globe className="w-6 h-6" />
+              <div className="flex items-start space-x-3.5 sm:space-x-4 p-3.5 xs:p-5 rounded-2xl sm:rounded-3xl bg-white/70 backdrop-blur-md border border-white/80 shadow-sm hover:shadow-md transition-all">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#0284C7] text-white flex items-center justify-center shrink-0 shadow-md shadow-[#036CFB]/20">
+                  <Globe className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div className="flex-1">
-                  <h4 className="font-bold text-[#036CFB] text-xs uppercase tracking-wider">Official Website URL</h4>
-                  <p className="text-sm font-bold text-slate-800 leading-relaxed mt-1">
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-bold text-[#036CFB] text-[11px] sm:text-xs uppercase tracking-wider">Official Website URL</h4>
+                  <p className="text-sm font-bold text-slate-800 leading-relaxed mt-0.5">
                     <a href="https://www.nasinternationals.com" target="_blank" rel="noreferrer" className="hover:text-[#036CFB] transition-colors inline-block">
                       www.nasinternationals.com
                     </a>
                   </p>
-                  <span className="inline-block mt-1 text-[11px] text-sky-700 font-bold bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200">
+                  <span className="inline-block mt-1 text-[10px] xs:text-[11px] text-sky-700 font-bold bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200">
                     100% Online Application & Document Upload
                   </span>
                 </div>
               </div>
 
               {/* Strictly Online Guarantee Banner */}
-              <div className="p-4 rounded-2xl bg-blue-50/90 border border-blue-200/80 text-xs text-blue-950 space-y-1 backdrop-blur-md">
+              <div className="p-3.5 xs:p-4 rounded-2xl bg-blue-50/90 border border-blue-200/80 text-xs text-blue-950 space-y-1 backdrop-blur-md">
                 <div className="flex items-center space-x-2 font-bold text-[#036CFB]">
                   <CheckCircle2 className="w-4 h-4 text-[#036CFB]" />
                   <span>Strictly Online Operations</span>
@@ -161,7 +161,7 @@ export const ContactView: React.FC = () => {
           </div>
 
           {/* Right Interactive Form */}
-          <div className="lg:col-span-6 glass-frost-subtle p-6 sm:p-8 rounded-3xl border border-white/90 shadow-lg">
+          <div className="lg:col-span-6 glass-frost-subtle p-4 xs:p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/90 shadow-lg">
             {submitted ? (
               <div className="text-center py-12 space-y-4">
                 <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-md">

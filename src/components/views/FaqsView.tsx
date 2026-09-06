@@ -38,32 +38,32 @@ export const FaqsView: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-[#F8FAFC] py-14 relative overflow-hidden min-h-screen pb-24 lg:pb-16">
+    <div className="w-full bg-[#F8FAFC] py-8 sm:py-14 relative overflow-hidden min-h-screen pb-28 lg:pb-16 px-3.5 xs:px-4 sm:px-6 lg:px-8">
       {/* Ambient luminous glow blobs */}
       <div className="ambient-glow-blue top-12 left-1/4 -translate-x-1/2"></div>
       <div className="ambient-glow-sky top-96 right-10"></div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
+      <div className="max-w-4xl mx-auto space-y-8 sm:space-y-12 relative z-10">
         
         {/* Header */}
-        <div className="text-center space-y-3">
+        <div className="text-center space-y-2.5 sm:space-y-3">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-pill text-[#036CFB] text-xs font-bold shadow-xs">
             <span className="w-2 h-2 rounded-full bg-[#036CFB] animate-pulse"></span>
             <span>GOT QUESTIONS? WE HAVE ANSWERS</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black text-[#062544] tracking-tight">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl font-black text-[#062544] tracking-tight">
             Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#036CFB] via-[#0284C7] to-[#38BDF8]">Questions</span>
           </h1>
           <p className="text-xs sm:text-sm font-medium text-slate-600 max-w-md mx-auto">Find quick answers to common visa, air ticketing, document attestation, and education consultancy questions.</p>
         </div>
 
         {/* Accordion List */}
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="glass-frost rounded-3xl border border-white/80 shadow-sm overflow-hidden transition-all backdrop-blur-xl">
+            <div key={index} className="glass-frost rounded-2xl sm:rounded-3xl border border-white/80 shadow-sm overflow-hidden transition-all backdrop-blur-xl">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full text-left p-5 sm:p-6 font-extrabold text-sm sm:text-base text-[#062544] flex items-center justify-between hover:bg-white/40 cursor-pointer min-h-[52px]"
+                className="w-full text-left p-4 xs:p-5 sm:p-6 font-extrabold text-xs xs:text-sm sm:text-base text-[#062544] flex items-center justify-between hover:bg-white/40 cursor-pointer min-h-[48px]"
               >
                 <div className="flex items-center space-x-3 pr-4">
                   <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#036CFB] flex items-center justify-center shrink-0">
@@ -84,14 +84,14 @@ export const FaqsView: React.FC = () => {
         </div>
 
         {/* Support CTA */}
-        <div className="glass-frost-navy rounded-3xl p-8 text-center text-white space-y-4 border border-white/15 shadow-2xl relative overflow-hidden">
+        <div className="glass-frost-navy rounded-2xl sm:rounded-3xl p-5 xs:p-6 sm:p-8 text-center text-white space-y-4 border border-white/15 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-[#036CFB]/30 rounded-full blur-2xl pointer-events-none"></div>
           <div className="relative z-10 space-y-3">
-            <h3 className="text-2xl font-extrabold tracking-tight">Still have questions?</h3>
+            <h3 className="text-xl xs:text-2xl font-extrabold tracking-tight">Still have questions?</h3>
             <p className="text-xs text-slate-300 max-w-md mx-auto leading-relaxed">Our visa experts are online 24/7 to clarify your doubts and guide your online application.</p>
             <button
               onClick={() => navigateTo('/contact')}
-              className="px-8 py-3.5 bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0256c7] hover:to-[#036CFB] text-white font-extrabold text-xs rounded-full shadow-lg shadow-[#036CFB]/30 transition-all cursor-pointer min-h-[44px]"
+              className="px-8 py-3.5 bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0256c7] hover:to-[#036CFB] active:scale-95 text-white font-extrabold text-xs rounded-full shadow-lg shadow-[#036CFB]/30 transition-all cursor-pointer min-h-[44px]"
             >
               Contact Online Support
             </button>

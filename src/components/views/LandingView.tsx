@@ -87,32 +87,32 @@ export const LandingView: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-[#F8FAFC] relative overflow-hidden">
+    <div className="w-full bg-[#F8FAFC] relative overflow-hidden pb-24 lg:pb-0">
       
       {/* Ambient background light orbs for frosted glass reflections */}
       <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-[#036CFB]/15 via-[#38BDF8]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-0"></div>
       <div className="absolute top-[800px] -right-40 w-[450px] h-[450px] bg-gradient-to-br from-[#036CFB]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-0"></div>
 
       {/* HERO SECTION */}
-      <section className="relative w-full min-h-[580px] sm:min-h-[640px] bg-cover bg-center overflow-hidden flex items-center" style={{
+      <section className="relative w-full min-h-[520px] sm:min-h-[640px] bg-cover bg-center overflow-hidden flex items-center" style={{
         backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 55%, rgba(255, 255, 255, 0.2) 100%), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1920&q=80')`
       }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-8 sm:py-16 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
           
           {/* Left Column Content */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-4 sm:space-y-6">
             
             {/* Top pill badge */}
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-frost border border-white/80 shadow-xs">
+            <div className="inline-flex items-center space-x-2 px-3 sm:px-3.5 py-1.5 rounded-full glass-frost border border-white/80 shadow-xs">
               <span className="w-2 h-2 rounded-full bg-[#036CFB] animate-ping"></span>
-              <span className="text-[11px] font-bold text-[#062544] uppercase tracking-wider">
+              <span className="text-[10px] sm:text-[11px] font-bold text-[#062544] uppercase tracking-wider">
                 100% Online Digital Operations
               </span>
             </div>
 
             {/* Big Headline */}
             <div className="space-y-1">
-              <h1 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-[#062544] tracking-tight leading-[1.12]">
+              <h1 className="font-display font-black text-2xl xs:text-3xl sm:text-5xl lg:text-6xl text-[#062544] tracking-tight leading-[1.12]">
                 GET THE VISA. <br />
                 WITHOUT ANY <br />
                 <span className="blue-gradient-text">STRESS.</span>
@@ -120,68 +120,68 @@ export const LandingView: React.FC = () => {
             </div>
 
             {/* Subtitle */}
-            <p className="text-slate-600 font-medium text-sm sm:text-base lg:text-lg max-w-lg leading-relaxed">
+            <p className="text-slate-600 font-medium text-xs xs:text-sm sm:text-base lg:text-lg max-w-lg leading-relaxed">
               Whether it's Japan, France, or Dubai — NAS Internationals makes your visa process easy, fast, and completely online with zero in-person visits.
             </p>
 
             {/* Floating Glassmorphic Search Bar */}
-            <div className="pt-2">
-              <form onSubmit={handleSearchSubmit} className="relative max-w-lg glass-frost rounded-full p-2 pl-5 shadow-xl border border-white/80 flex items-center justify-between group transition-all focus-within:ring-2 focus-within:ring-[#036CFB]/40 focus-within:border-[#036CFB]/40">
-                <div className="flex items-center space-x-3 flex-1 mr-2">
-                  <Plane className="w-5 h-5 text-[#036CFB] transform -rotate-45 shrink-0" />
+            <div className="pt-1 sm:pt-2">
+              <form onSubmit={handleSearchSubmit} className="relative max-w-lg glass-frost rounded-full p-1.5 pl-3.5 sm:p-2 sm:pl-5 shadow-xl border border-white/80 flex items-center justify-between group transition-all focus-within:ring-2 focus-within:ring-[#036CFB]/40 focus-within:border-[#036CFB]/40">
+                <div className="flex items-center space-x-2.5 sm:space-x-3 flex-1 mr-2 min-w-0">
+                  <Plane className="w-4 h-4 sm:w-5 sm:h-5 text-[#036CFB] transform -rotate-45 shrink-0" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Where to, Captain? The world is yours."
-                    className="w-full bg-transparent text-sm font-medium text-slate-800 focus:outline-none placeholder-slate-400"
+                    placeholder="Where to, Captain? (e.g. Japan, Dubai)"
+                    className="w-full bg-transparent text-xs sm:text-sm font-medium text-slate-800 focus:outline-none placeholder-slate-400 truncate"
                   />
                 </div>
                 <button
                   type="submit"
                   aria-label="Search destination"
-                  className="w-11 h-11 rounded-full bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0284C7] hover:to-[#036CFB] text-white flex items-center justify-center shadow-lg shadow-[#036CFB]/30 border border-white/20 transition-all shrink-0 cursor-pointer active:scale-95"
+                  className="w-10 h-10 sm:w-11 sm:h-11 min-h-[40px] min-w-[40px] rounded-full bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0284C7] hover:to-[#036CFB] text-white flex items-center justify-center shadow-lg shadow-[#036CFB]/30 border border-white/20 transition-all shrink-0 cursor-pointer active:scale-95"
                 >
-                  <Search className="w-5 h-5 stroke-[2.5]" />
+                  <Search className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
                 </button>
               </form>
 
               {/* Sub-caption helper */}
-              <p className="text-xs text-slate-500 font-medium mt-2.5 ml-4">
+              <p className="text-[11px] sm:text-xs text-slate-500 font-medium mt-2 ml-3 sm:ml-4">
                 Search your visa by country – e.g. Japan, France, Dubai, Singapore..
               </p>
             </div>
 
-            {/* Feature Trust Chips Row (SVG Icons per UI/UX Pro Max Guideline) */}
-            <div className="pt-1 flex flex-wrap gap-2">
-              <span className="px-3 py-1.5 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1.5 transition hover:scale-102">
+            {/* Feature Trust Chips Row */}
+            <div className="pt-1 flex flex-wrap gap-1.5 sm:gap-2">
+              <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] xs:text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1.5 transition hover:scale-102">
                 <Sparkles className="w-3.5 h-3.5 text-[#036CFB] shrink-0" />
                 <span>100% Online Approvals</span>
               </span>
-              <span className="px-3 py-1.5 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1.5 transition hover:scale-102">
+              <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] xs:text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1.5 transition hover:scale-102">
                 <Zap className="w-3.5 h-3.5 text-amber-500 shrink-0" />
                 <span>Fast 24H E-Visas</span>
               </span>
-              <span className="px-3 py-1.5 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1.5 transition hover:scale-102">
+              <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] xs:text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1.5 transition hover:scale-102">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span>Embassy Verified</span>
               </span>
-              <span className="px-3 py-1.5 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1.5 transition hover:scale-102">
+              <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] xs:text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1.5 transition hover:scale-102">
                 <Phone className="w-3.5 h-3.5 text-[#036CFB] shrink-0" />
                 <span>24/7 Digital Helpline</span>
               </span>
             </div>
 
             {/* Bottom-left Floating Trust Badge */}
-            <div className="pt-2 flex items-center">
-              <div className="glass-frost px-4 sm:px-5 py-3 rounded-2xl border border-white/80 shadow-lg flex items-center space-x-3 sm:space-x-4">
-                <div className="text-xl sm:text-2xl font-black text-[#062544]">240+</div>
-                <div className="flex -space-x-2 overflow-hidden">
-                  <img className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Traveler" />
-                  <img className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Traveler" />
-                  <img className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Traveler" />
+            <div className="pt-1 sm:pt-2 flex items-center">
+              <div className="glass-frost px-3.5 py-2.5 sm:px-5 sm:py-3 rounded-2xl border border-white/80 shadow-lg flex items-center space-x-3 sm:space-x-4 max-w-full">
+                <div className="text-lg sm:text-2xl font-black text-[#062544] shrink-0">240+</div>
+                <div className="flex -space-x-2 overflow-hidden shrink-0">
+                  <img className="inline-block h-7 w-7 sm:h-8 sm:w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Traveler" />
+                  <img className="inline-block h-7 w-7 sm:h-8 sm:w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Traveler" />
+                  <img className="inline-block h-7 w-7 sm:h-8 sm:w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Traveler" />
                 </div>
-                <div className="text-xs font-bold text-slate-700">
+                <div className="text-[11px] sm:text-xs font-bold text-slate-700 leading-snug">
                   Trusted by Travelers Worldwide <br />
                   <span className="text-[10px] text-[#036CFB] font-extrabold">180+ successful online visas issued!</span>
                 </div>
@@ -289,31 +289,31 @@ export const LandingView: React.FC = () => {
       </section>
 
       {/* 4 APPROVED SERVICES SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10">
+      <section className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center space-y-2 mb-12 relative">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-pill text-[#036CFB] text-xs font-bold shadow-xs">
+        <div className="text-center space-y-2 mb-8 sm:mb-12 relative">
+          <div className="inline-flex items-center space-x-2 px-3 sm:px-3.5 py-1.5 rounded-full glass-pill text-[#036CFB] text-xs font-bold shadow-xs">
             <span className="w-2 h-2 rounded-full bg-[#036CFB] animate-pulse"></span>
             <span>OUR 4 APPROVED CORE SERVICES</span>
           </div>
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#062544] tracking-tight">
             Comprehensive Online Visa & Travel Solutions
           </h2>
-          <p className="text-xs sm:text-sm font-medium text-slate-600 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm font-medium text-slate-600 max-w-2xl mx-auto leading-relaxed">
             100% digital processing with zero physical visits required. Verified embassy approvals, fast turnarounds, and 24/7 client support.
           </p>
         </div>
 
         {/* 4 Core Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           
           {/* Service 1: Visa Services */}
-          <div className="glass-frost glass-card-hover rounded-3xl p-6 sm:p-7 border border-white/80 shadow-md hover:shadow-2xl flex flex-col justify-between group transition-all">
-            <div className="space-y-4">
+          <div className="glass-frost glass-card-hover rounded-3xl p-5 sm:p-7 border border-white/80 shadow-md hover:shadow-2xl flex flex-col justify-between group transition-all">
+            <div className="space-y-3.5 sm:space-y-4">
               <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#38BDF8] text-white flex items-center justify-center shadow-md shadow-[#036CFB]/30 group-hover:scale-108 transition-transform">
-                  <Globe className="w-6 h-6" />
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#38BDF8] text-white flex items-center justify-center shadow-md shadow-[#036CFB]/30 group-hover:scale-108 transition-transform">
+                  <Globe className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 <span className="px-2.5 py-1 rounded-full bg-blue-50 text-[#036CFB] border border-blue-200 text-[10px] font-bold">
                   Fast-Track
@@ -321,7 +321,7 @@ export const LandingView: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="font-display font-black text-lg text-[#062544] group-hover:text-[#036CFB] transition-colors">
+                <h3 className="font-display font-black text-base sm:text-lg text-[#062544] group-hover:text-[#036CFB] transition-colors">
                   Visa Services
                 </h3>
                 <p className="text-xs text-slate-500 font-semibold mt-0.5">Tourist, Business & E-Visas</p>
@@ -347,10 +347,10 @@ export const LandingView: React.FC = () => {
               </ul>
             </div>
 
-            <div className="pt-6 border-t border-slate-200/60 mt-6">
+            <div className="pt-5 sm:pt-6 border-t border-slate-200/60 mt-5 sm:mt-6">
               <button
                 onClick={() => navigateTo('/visas')}
-                className="w-full py-2.5 px-4 bg-[#036CFB] hover:bg-[#0256c7] text-white text-xs font-bold rounded-xl shadow-md shadow-[#036CFB]/25 transition-all flex items-center justify-center space-x-1.5 cursor-pointer active:scale-98"
+                className="w-full min-h-[44px] py-2.5 px-4 bg-[#036CFB] hover:bg-[#0256c7] text-white text-xs font-bold rounded-xl shadow-md shadow-[#036CFB]/25 transition-all flex items-center justify-center space-x-1.5 cursor-pointer active:scale-98"
               >
                 <span>Explore Visas</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -359,11 +359,11 @@ export const LandingView: React.FC = () => {
           </div>
 
           {/* Service 2: Air Ticketing */}
-          <div className="glass-frost glass-card-hover rounded-3xl p-6 sm:p-7 border border-white/80 shadow-md hover:shadow-2xl flex flex-col justify-between group transition-all">
-            <div className="space-y-4">
+          <div className="glass-frost glass-card-hover rounded-3xl p-5 sm:p-7 border border-white/80 shadow-md hover:shadow-2xl flex flex-col justify-between group transition-all">
+            <div className="space-y-3.5 sm:space-y-4">
               <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#0284C7] text-white flex items-center justify-center shadow-md shadow-[#036CFB]/30 group-hover:scale-108 transition-transform">
-                  <Plane className="w-6 h-6 transform -rotate-45" />
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#0284C7] text-white flex items-center justify-center shadow-md shadow-[#036CFB]/30 group-hover:scale-108 transition-transform">
+                  <Plane className="w-5 h-5 sm:w-6 sm:h-6 transform -rotate-45" />
                 </div>
                 <span className="px-2.5 py-1 rounded-full bg-sky-50 text-sky-700 border border-sky-200 text-[10px] font-bold">
                   Instant PNR
@@ -371,7 +371,7 @@ export const LandingView: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="font-display font-black text-lg text-[#062544] group-hover:text-[#036CFB] transition-colors">
+                <h3 className="font-display font-black text-base sm:text-lg text-[#062544] group-hover:text-[#036CFB] transition-colors">
                   Air Ticketing
                 </h3>
                 <p className="text-xs text-slate-500 font-semibold mt-0.5">Domestic & International Flights</p>
@@ -397,10 +397,10 @@ export const LandingView: React.FC = () => {
               </ul>
             </div>
 
-            <div className="pt-6 border-t border-slate-200/60 mt-6">
+            <div className="pt-5 sm:pt-6 border-t border-slate-200/60 mt-5 sm:mt-6">
               <button
                 onClick={() => setActiveModal('air-ticketing')}
-                className="w-full py-2.5 px-4 bg-[#062544] hover:bg-[#036CFB] text-white text-xs font-bold rounded-xl shadow-md transition-all flex items-center justify-center space-x-1.5 cursor-pointer active:scale-98"
+                className="w-full min-h-[44px] py-2.5 px-4 bg-[#062544] hover:bg-[#036CFB] text-white text-xs font-bold rounded-xl shadow-md transition-all flex items-center justify-center space-x-1.5 cursor-pointer active:scale-98"
               >
                 <span>Book Flight Tickets</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -409,11 +409,11 @@ export const LandingView: React.FC = () => {
           </div>
 
           {/* Service 3: Document Attestation */}
-          <div className="glass-frost glass-card-hover rounded-3xl p-6 sm:p-7 border border-white/80 shadow-md hover:shadow-2xl flex flex-col justify-between group transition-all">
-            <div className="space-y-4">
+          <div className="glass-frost glass-card-hover rounded-3xl p-5 sm:p-7 border border-white/80 shadow-md hover:shadow-2xl flex flex-col justify-between group transition-all">
+            <div className="space-y-3.5 sm:space-y-4">
               <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#38BDF8] text-white flex items-center justify-center shadow-md shadow-[#036CFB]/30 group-hover:scale-108 transition-transform">
-                  <Stamp className="w-6 h-6" />
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#38BDF8] text-white flex items-center justify-center shadow-md shadow-[#036CFB]/30 group-hover:scale-108 transition-transform">
+                  <Stamp className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 <span className="px-2.5 py-1 rounded-full bg-blue-50 text-[#036CFB] border border-blue-200 text-[10px] font-bold">
                   MEA & Embassy
@@ -421,7 +421,7 @@ export const LandingView: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="font-display font-black text-lg text-[#062544] group-hover:text-[#036CFB] transition-colors">
+                <h3 className="font-display font-black text-base sm:text-lg text-[#062544] group-hover:text-[#036CFB] transition-colors">
                   Document Attestation
                 </h3>
                 <p className="text-xs text-slate-500 font-semibold mt-0.5">MEA, HRD & Apostille Verification</p>
@@ -447,10 +447,10 @@ export const LandingView: React.FC = () => {
               </ul>
             </div>
 
-            <div className="pt-6 border-t border-slate-200/60 mt-6">
+            <div className="pt-5 sm:pt-6 border-t border-slate-200/60 mt-5 sm:mt-6">
               <button
                 onClick={() => setActiveModal('attestation')}
-                className="w-full py-2.5 px-4 bg-[#036CFB] hover:bg-[#0256c7] text-white text-xs font-bold rounded-xl shadow-md shadow-[#036CFB]/25 transition-all flex items-center justify-center space-x-1.5 cursor-pointer active:scale-98"
+                className="w-full min-h-[44px] py-2.5 px-4 bg-[#036CFB] hover:bg-[#0256c7] text-white text-xs font-bold rounded-xl shadow-md shadow-[#036CFB]/25 transition-all flex items-center justify-center space-x-1.5 cursor-pointer active:scale-98"
               >
                 <span>Attestation Details</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -459,11 +459,11 @@ export const LandingView: React.FC = () => {
           </div>
 
           {/* Service 4: Education Consultancy */}
-          <div className="glass-frost glass-card-hover rounded-3xl p-6 sm:p-7 border border-white/80 shadow-md hover:shadow-2xl flex flex-col justify-between group transition-all">
-            <div className="space-y-4">
+          <div className="glass-frost glass-card-hover rounded-3xl p-5 sm:p-7 border border-white/80 shadow-md hover:shadow-2xl flex flex-col justify-between group transition-all">
+            <div className="space-y-3.5 sm:space-y-4">
               <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#0284C7] text-white flex items-center justify-center shadow-md shadow-[#036CFB]/30 group-hover:scale-108 transition-transform">
-                  <GraduationCap className="w-6 h-6" />
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#0284C7] text-white flex items-center justify-center shadow-md shadow-[#036CFB]/30 group-hover:scale-108 transition-transform">
+                  <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold">
                   Global Study
@@ -471,7 +471,7 @@ export const LandingView: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="font-display font-black text-lg text-[#062544] group-hover:text-[#036CFB] transition-colors">
+                <h3 className="font-display font-black text-base sm:text-lg text-[#062544] group-hover:text-[#036CFB] transition-colors">
                   Education Consultancy
                 </h3>
                 <p className="text-xs text-slate-500 font-semibold mt-0.5">Overseas Admissions & Student Visas</p>
@@ -497,10 +497,10 @@ export const LandingView: React.FC = () => {
               </ul>
             </div>
 
-            <div className="pt-6 border-t border-slate-200/60 mt-6">
+            <div className="pt-5 sm:pt-6 border-t border-slate-200/60 mt-5 sm:mt-6">
               <button
                 onClick={() => setActiveModal('education')}
-                className="w-full py-2.5 px-4 bg-[#062544] hover:bg-[#036CFB] text-white text-xs font-bold rounded-xl shadow-md transition-all flex items-center justify-center space-x-1.5 cursor-pointer active:scale-98"
+                className="w-full min-h-[44px] py-2.5 px-4 bg-[#062544] hover:bg-[#036CFB] text-white text-xs font-bold rounded-xl shadow-md transition-all flex items-center justify-center space-x-1.5 cursor-pointer active:scale-98"
               >
                 <span>Education Guidance</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -513,10 +513,10 @@ export const LandingView: React.FC = () => {
       </section>
 
       {/* POPULAR VISA DESTINATIONS SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10">
+      <section className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center space-y-2 mb-10 sm:mb-12 relative">
+        <div className="text-center space-y-2 mb-8 sm:mb-12 relative">
           <span className="text-xs font-bold uppercase tracking-widest text-[#036CFB] block">
             POPULAR VISA DESTINATIONS
           </span>
@@ -532,14 +532,14 @@ export const LandingView: React.FC = () => {
         </div>
 
         {/* Category Pill Filters Bar + See More button */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-8 sm:mb-10">
           
-          <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar glass-frost p-1.5 rounded-full border border-white/70 shadow-md max-w-full">
+          <div className="flex items-center space-x-1.5 sm:space-x-2 overflow-x-auto no-scrollbar scroll-smooth glass-frost p-1 sm:p-1.5 rounded-full border border-white/70 shadow-md max-w-full">
             {['All', 'Trending', 'E-Visa', 'Express', 'Fast-Track'].map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-4 sm:px-5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                className={`min-h-[38px] px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs font-bold transition-all cursor-pointer whitespace-nowrap active:scale-95 ${
                   activeCategory === category
                     ? 'bg-gradient-to-r from-[#036CFB] to-[#0284C7] text-white shadow-md shadow-[#036CFB]/30'
                     : 'text-slate-600 hover:text-[#062544] hover:bg-white/60'
@@ -552,7 +552,7 @@ export const LandingView: React.FC = () => {
 
           <button
             onClick={() => navigateTo('/visas')}
-            className="px-6 py-2.5 bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0284C7] hover:to-[#036CFB] text-white font-display font-bold text-xs rounded-full shadow-lg shadow-[#036CFB]/25 border border-white/20 transition-all flex items-center space-x-1.5 cursor-pointer shrink-0 active:scale-95"
+            className="min-h-[42px] px-5 sm:px-6 py-2 sm:py-2.5 bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0284C7] hover:to-[#036CFB] text-white font-display font-bold text-xs rounded-full shadow-lg shadow-[#036CFB]/25 border border-white/20 transition-all flex items-center justify-center space-x-1.5 cursor-pointer shrink-0 active:scale-95"
           >
             <span>See More</span>
             <ArrowUpRight className="w-4 h-4" />
@@ -560,14 +560,14 @@ export const LandingView: React.FC = () => {
         </div>
 
         {/* Cards Grid - 3 Columns with Frosted Glass Styling */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {filteredDestinations.map((destination) => (
             <div
               key={destination.id}
               onClick={() => navigateTo('/visas')}
-              className="glass-frost glass-card-hover rounded-3xl overflow-hidden border border-white/80 shadow-md hover:shadow-2xl flex flex-col group cursor-pointer"
+              className="glass-frost glass-card-hover rounded-3xl overflow-hidden border border-white/80 shadow-md hover:shadow-2xl flex flex-col group cursor-pointer active:scale-[0.99]"
             >
-              <div className="relative h-60 sm:h-64 overflow-hidden">
+              <div className="relative h-48 xs:h-52 sm:h-64 overflow-hidden">
                 <img
                   src={destination.image}
                   alt={destination.name}
@@ -575,26 +575,26 @@ export const LandingView: React.FC = () => {
                 />
                 
                 {/* Frosted Glass Badge Overlay */}
-                <div className="absolute top-4 left-4 glass-frost-dark text-white text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg border border-white/20 backdrop-blur-md flex items-center space-x-1.5">
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 glass-frost-dark text-white text-[10px] sm:text-[11px] font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-lg border border-white/20 backdrop-blur-md flex items-center space-x-1.5">
                   <span className="w-2 h-2 rounded-full bg-[#38BDF8] animate-pulse"></span>
                   <span>{destination.badge}</span>
                 </div>
               </div>
 
-              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between space-y-3 sm:space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="font-display font-black text-xl text-[#062544] group-hover:text-[#036CFB] transition-colors">
+                    <h3 className="font-display font-black text-lg sm:text-xl text-[#062544] group-hover:text-[#036CFB] transition-colors">
                       {destination.name}
                     </h3>
-                    <p className="text-xs font-medium text-slate-500 mt-1 flex items-center space-x-1">
+                    <p className="text-[11px] sm:text-xs font-medium text-slate-500 mt-0.5 sm:mt-1 flex items-center space-x-1">
                       <Clock className="w-3.5 h-3.5 text-[#036CFB]" />
                       <span>{destination.date}</span>
                     </p>
                   </div>
 
                   <div className="text-right">
-                    <span className="text-xs font-bold px-3.5 py-1.5 rounded-full bg-[#036CFB]/10 text-[#036CFB] border border-[#036CFB]/25 inline-flex items-center space-x-1 group-hover:bg-[#036CFB] group-hover:text-white transition-all shadow-xs">
+                    <span className="text-xs font-bold min-h-[34px] px-3 py-1.5 rounded-full bg-[#036CFB]/10 text-[#036CFB] border border-[#036CFB]/25 inline-flex items-center space-x-1 group-hover:bg-[#036CFB] group-hover:text-white transition-all shadow-xs">
                       <span>Apply Online</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </span>
@@ -608,74 +608,74 @@ export const LandingView: React.FC = () => {
       </section>
 
       {/* WHY GO WITH NAS INTERNATIONALS SECTION (Frosted Dark Glass Styling) */}
-      <section className="bg-gradient-to-b from-[#041A30] via-[#062544] to-[#041A30] text-white py-16 sm:py-24 border-t border-white/10 relative overflow-hidden">
+      <section className="bg-gradient-to-b from-[#041A30] via-[#062544] to-[#041A30] text-white py-12 sm:py-20 lg:py-24 border-t border-white/10 relative overflow-hidden">
         {/* Ambient background glow */}
         <div className="absolute top-10 right-10 w-96 h-96 bg-[#036CFB]/15 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
           
           {/* Left Text & Features */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 space-y-6 sm:space-y-8">
             
-            <div className="space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#38BDF8] inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10">
+            <div className="space-y-2.5 sm:space-y-3">
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#38BDF8] inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10">
                 WHY GO WITH NAS INTERNATIONALS
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight leading-tight">
+              <h2 className="font-display text-2xl sm:text-4xl font-black tracking-tight leading-tight">
                 100% Online Visa Process With <br />
                 Expert Guidance & Zero Office Visits
               </h2>
-              <p className="text-sm font-medium text-slate-300 max-w-xl leading-relaxed">
+              <p className="text-xs sm:text-sm font-medium text-slate-300 max-w-xl leading-relaxed">
                 We handle every detail of your visa process completely online, ensuring a smooth and stress-free journey from anywhere in the world.
               </p>
             </div>
 
             {/* 4 Feature Items with Frosted Dark Glass Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-5 pt-1 sm:pt-2">
               
-              <div className="glass-frost-dark rounded-2xl p-5 border border-white/10 hover:border-[#38BDF8]/40 transition-all shadow-lg flex items-start space-x-3.5">
-                <div className="w-11 h-11 rounded-2xl bg-[#036CFB] text-white flex items-center justify-center shrink-0 shadow-lg shadow-[#036CFB]/30 border border-white/20">
+              <div className="glass-frost-dark rounded-2xl p-4 sm:p-5 border border-white/10 hover:border-[#38BDF8]/40 transition-all shadow-lg flex items-start space-x-3.5">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-[#036CFB] text-white flex items-center justify-center shrink-0 shadow-lg shadow-[#036CFB]/30 border border-white/20">
                   <UserCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-sm text-white">Expert Guidance</h4>
-                  <p className="text-xs text-slate-300 leading-relaxed mt-1">
+                  <h4 className="font-extrabold text-xs sm:text-sm text-white">Expert Guidance</h4>
+                  <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed mt-1">
                     Our dedicated immigration team verifies every document digitally to prevent delays and rejections.
                   </p>
                 </div>
               </div>
 
-              <div className="glass-frost-dark rounded-2xl p-5 border border-white/10 hover:border-[#38BDF8]/40 transition-all shadow-lg flex items-start space-x-3.5">
-                <div className="w-11 h-11 rounded-2xl bg-[#036CFB] text-white flex items-center justify-center shrink-0 shadow-lg shadow-[#036CFB]/30 border border-white/20">
+              <div className="glass-frost-dark rounded-2xl p-4 sm:p-5 border border-white/10 hover:border-[#38BDF8]/40 transition-all shadow-lg flex items-start space-x-3.5">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-[#036CFB] text-white flex items-center justify-center shrink-0 shadow-lg shadow-[#036CFB]/30 border border-white/20">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-sm text-white">100% Online & Paperless</h4>
-                  <p className="text-xs text-slate-300 leading-relaxed mt-1">
+                  <h4 className="font-extrabold text-xs sm:text-sm text-white">100% Online & Paperless</h4>
+                  <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed mt-1">
                     Complete digital application submission, electronic document verification, and live tracking with zero office queues.
                   </p>
                 </div>
               </div>
 
-              <div className="glass-frost-dark rounded-2xl p-5 border border-white/10 hover:border-[#38BDF8]/40 transition-all shadow-lg flex items-start space-x-3.5">
-                <div className="w-11 h-11 rounded-2xl bg-[#036CFB] text-white flex items-center justify-center shrink-0 shadow-lg shadow-[#036CFB]/30 border border-white/20">
+              <div className="glass-frost-dark rounded-2xl p-4 sm:p-5 border border-white/10 hover:border-[#38BDF8]/40 transition-all shadow-lg flex items-start space-x-3.5">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-[#036CFB] text-white flex items-center justify-center shrink-0 shadow-lg shadow-[#036CFB]/30 border border-white/20">
                   <Headphones className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-sm text-white">24/7 Digital Support</h4>
-                  <p className="text-xs text-slate-300 leading-relaxed mt-1">
+                  <h4 className="font-extrabold text-xs sm:text-sm text-white">24/7 Digital Support</h4>
+                  <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed mt-1">
                     Got questions at any hour? Our specialists are available 24/7 via WhatsApp, phone, and online chat.
                   </p>
                 </div>
               </div>
 
-              <div className="glass-frost-dark rounded-2xl p-5 border border-white/10 hover:border-[#38BDF8]/40 transition-all shadow-lg flex items-start space-x-3.5">
-                <div className="w-11 h-11 rounded-2xl bg-[#036CFB] text-white flex items-center justify-center shrink-0 shadow-lg shadow-[#036CFB]/30 border border-white/20">
+              <div className="glass-frost-dark rounded-2xl p-4 sm:p-5 border border-white/10 hover:border-[#38BDF8]/40 transition-all shadow-lg flex items-start space-x-3.5">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-[#036CFB] text-white flex items-center justify-center shrink-0 shadow-lg shadow-[#036CFB]/30 border border-white/20">
                   <Star className="w-5 h-5 fill-current text-white" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-sm text-white">Curated Travel Experiences</h4>
-                  <p className="text-xs text-slate-300 leading-relaxed mt-1">
+                  <h4 className="font-extrabold text-xs sm:text-sm text-white">Curated Travel Experiences</h4>
+                  <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed mt-1">
                     We match the right visa category and travel itinerary tailored to your exact travel purpose.
                   </p>
                 </div>
@@ -687,15 +687,15 @@ export const LandingView: React.FC = () => {
 
           {/* Right Brand Badge in Frosted Navy Container */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm glass-frost-navy rounded-3xl p-8 flex flex-col items-center justify-center border border-[#38BDF8]/30 shadow-2xl text-center backdrop-blur-2xl group">
-              <div className="w-24 h-24 rounded-2xl bg-white p-2 flex items-center justify-center shadow-xl shadow-[#036CFB]/40 border border-white/20 mb-4 group-hover:scale-105 transition-all duration-300 overflow-hidden">
+            <div className="relative w-full max-w-sm glass-frost-navy rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-center border border-[#38BDF8]/30 shadow-2xl text-center backdrop-blur-2xl group">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white p-2 flex items-center justify-center shadow-xl shadow-[#036CFB]/40 border border-white/20 mb-4 group-hover:scale-105 transition-all duration-300 overflow-hidden">
                 <img src={logoImg} alt="NAS Internationals Logo" className="w-full h-full object-contain" />
               </div>
-              <h3 className="font-display font-black text-xl text-white">NAS INTERNATIONALS</h3>
-              <p className="text-xs font-bold text-[#38BDF8] uppercase tracking-widest mt-1">100% ONLINE SERVICES</p>
-              <p className="text-xs text-slate-300 font-medium mt-3">VISAS • AIR TICKETING • ATTESTATION • EDUCATION</p>
+              <h3 className="font-display font-black text-lg sm:text-xl text-white">NAS INTERNATIONALS</h3>
+              <p className="text-[11px] sm:text-xs font-bold text-[#38BDF8] uppercase tracking-widest mt-1">100% ONLINE SERVICES</p>
+              <p className="text-[11px] sm:text-xs text-slate-300 font-medium mt-3">VISAS • AIR TICKETING • ATTESTATION • EDUCATION</p>
               <div className="mt-4 pt-4 border-t border-white/10 w-full text-center">
-                <span className="text-[11px] font-bold text-[#38BDF8] bg-white/10 px-3.5 py-1.5 rounded-full border border-white/10 inline-flex items-center space-x-1.5 shadow-xs">
+                <span className="text-[10px] sm:text-[11px] font-bold text-[#38BDF8] bg-white/10 px-3.5 py-1.5 rounded-full border border-white/10 inline-flex items-center space-x-1.5 shadow-xs">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#38BDF8]" />
                   <span>Verified Digital Operations</span>
                 </span>

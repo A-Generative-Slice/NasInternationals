@@ -14,8 +14,8 @@ export const VisaDetailModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-[#062544]/60 backdrop-blur-md flex items-center justify-center p-4">
-      <div className="glass-frost rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto relative border border-white/90 backdrop-blur-2xl">
+    <div className="fixed inset-0 z-50 bg-[#062544]/60 backdrop-blur-md flex items-center justify-center p-3 xs:p-4">
+      <div className="glass-frost rounded-2xl sm:rounded-3xl max-w-lg w-full p-5 xs:p-6 sm:p-8 shadow-2xl space-y-5 max-h-[90dvh] overflow-y-auto overscroll-contain relative border border-white/90 backdrop-blur-2xl">
         <button
           onClick={() => setActiveModal(null)}
           className="absolute top-4 right-4 p-2 rounded-full hover:bg-slate-100/80 text-slate-500 transition-colors min-h-[38px] min-w-[38px] flex items-center justify-center"
@@ -70,13 +70,13 @@ export const VisaDetailModal: React.FC = () => {
         <div className="pt-4 border-t border-slate-200/60 flex items-center justify-between gap-3">
           <button
             onClick={() => setActiveModal(null)}
-            className="px-5 py-2.5 text-xs font-bold text-slate-600 hover:bg-white/80 rounded-full border border-slate-200 transition min-h-[44px]"
+            className="px-5 py-2.5 text-xs font-bold text-slate-600 hover:bg-white/80 active:scale-95 rounded-full border border-slate-200 transition min-h-[44px]"
           >
             Close
           </button>
           <button
             onClick={handleApplyNow}
-            className="px-6 py-2.5 bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0256c7] hover:to-[#036CFB] text-white font-display font-bold text-xs rounded-full shadow-lg shadow-[#036CFB]/30 transition flex items-center space-x-1.5 min-h-[44px]"
+            className="px-6 py-2.5 bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0256c7] hover:to-[#036CFB] active:scale-98 text-white font-display font-bold text-xs rounded-full shadow-lg shadow-[#036CFB]/30 transition flex items-center space-x-1.5 min-h-[44px]"
           >
             <span>Proceed to Apply</span>
             <ArrowRight className="w-4 h-4" />

@@ -56,7 +56,7 @@ export const WizardView: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#F8FAFC] min-h-[calc(100vh-5rem)] py-8 px-4 sm:px-6 lg:px-8 relative overflow-hidden pb-24 lg:pb-16">
+    <div className="bg-[#F8FAFC] min-h-[calc(100vh-5rem)] py-5 xs:py-6 sm:py-8 px-3 xs:px-4 sm:px-6 lg:px-8 relative overflow-hidden pb-28 lg:pb-16">
       {/* Ambient background glow blobs for frosted glass reflections */}
       <div className="ambient-glow-blue top-12 left-1/4 -translate-x-1/2"></div>
       <div className="ambient-glow-sky top-80 right-10"></div>
@@ -65,7 +65,7 @@ export const WizardView: React.FC = () => {
       <div className="max-w-5xl mx-auto space-y-8 relative z-10">
         
         {/* Top Stepper Progress Bar */}
-        <div className="glass-frost rounded-3xl p-5 sm:p-6 shadow-md border border-white/80 backdrop-blur-xl">
+        <div className="glass-frost rounded-2xl sm:rounded-3xl p-3.5 xs:p-4 sm:p-6 shadow-md border border-white/80 backdrop-blur-xl">
           <div className="flex items-center justify-between max-w-3xl mx-auto relative">
             
             {/* Connecting Line */}
@@ -133,7 +133,7 @@ export const WizardView: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
           
           {/* Main Wizard Form Card (Span 3) */}
-          <div className="lg:col-span-3 glass-frost rounded-3xl p-6 sm:p-8 shadow-xl border border-white/80 space-y-6 backdrop-blur-2xl">
+          <div className="lg:col-span-3 glass-frost rounded-2xl sm:rounded-3xl p-4 xs:p-6 sm:p-8 shadow-xl border border-white/80 space-y-6 backdrop-blur-2xl">
             
             {/* Step 1: Personal Details */}
             {wizardStep === 1 && (
@@ -401,11 +401,11 @@ export const WizardView: React.FC = () => {
             )}
 
             {/* Action Bar */}
-            <div className="pt-6 border-t border-slate-200/60 flex items-center justify-between gap-3">
+            <div className="pt-6 border-t border-slate-200/60 flex flex-col-reverse xs:flex-row items-stretch xs:items-center justify-between gap-3">
               {wizardStep > 1 ? (
                 <button
                   onClick={handlePrev}
-                  className="px-5 py-2.5 bg-white hover:bg-slate-100 text-slate-700 font-bold text-xs rounded-full border border-slate-200 transition flex items-center space-x-1.5 shadow-xs min-h-[44px]"
+                  className="px-5 py-2.5 bg-white hover:bg-slate-100 active:scale-95 text-slate-700 font-bold text-xs rounded-full border border-slate-200 transition flex items-center justify-center space-x-1.5 shadow-xs min-h-[44px]"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Previous</span>
@@ -413,7 +413,7 @@ export const WizardView: React.FC = () => {
               ) : (
                 <button
                   onClick={() => setCurrentView('visa-finder')}
-                  className="px-5 py-2.5 bg-white hover:bg-slate-100 text-slate-700 font-bold text-xs rounded-full border border-slate-200 transition shadow-xs min-h-[44px]"
+                  className="px-5 py-2.5 bg-white hover:bg-slate-100 active:scale-95 text-slate-700 font-bold text-xs rounded-full border border-slate-200 transition shadow-xs min-h-[44px] flex items-center justify-center"
                 >
                   Save as Draft
                 </button>
@@ -421,7 +421,7 @@ export const WizardView: React.FC = () => {
 
               <button
                 onClick={handleNext}
-                className="px-8 py-2.5 bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0256c7] hover:to-[#036CFB] text-white font-display font-bold text-xs tracking-wide rounded-full shadow-lg shadow-[#036CFB]/30 transition flex items-center space-x-2 min-h-[44px]"
+                className="px-8 py-2.5 bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0256c7] hover:to-[#036CFB] active:scale-98 text-white font-display font-bold text-xs tracking-wide rounded-full shadow-lg shadow-[#036CFB]/30 transition flex items-center justify-center space-x-2 min-h-[44px]"
               >
                 <span>{wizardStep === 4 ? 'Submit Application' : 'Save & Next'}</span>
                 <ArrowRight className="w-4 h-4" />

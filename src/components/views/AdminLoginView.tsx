@@ -40,7 +40,7 @@ export const AdminLoginView: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#0B1E3D] min-h-[calc(100vh-5rem)] flex items-center justify-center p-4 sm:p-6 text-white relative overflow-hidden">
+    <div className="bg-[#0B1E3D] min-h-[calc(100vh-5rem)] flex items-center justify-center p-4 sm:p-6 pb-28 sm:pb-6 text-white relative overflow-hidden">
       
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#036CFB_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none"></div>

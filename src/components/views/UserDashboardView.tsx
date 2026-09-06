@@ -116,7 +116,7 @@ export const UserDashboardView: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#EBF3FF]/70 min-h-[calc(100vh-5rem)] flex flex-col md:flex-row">
+    <div className="bg-[#EBF3FF]/70 min-h-[calc(100vh-5rem)] flex flex-col md:flex-row pb-28 md:pb-0">
       
       {/* Left Sidebar Navigation */}
       <aside className="w-full md:w-64 bg-white border-r border-slate-200 p-5 flex flex-col justify-between shrink-0">

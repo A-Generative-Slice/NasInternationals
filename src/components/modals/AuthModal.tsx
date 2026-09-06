@@ -97,19 +97,19 @@ export const AuthModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-[#062544]/60 backdrop-blur-md flex items-center justify-center p-4">
-      <div className="glass-frost rounded-3xl max-w-4xl w-full shadow-2xl border border-white/90 relative overflow-hidden grid grid-cols-1 md:grid-cols-12 animate-in fade-in zoom-in-95 duration-200 backdrop-blur-2xl">
+    <div className="fixed inset-0 z-50 bg-[#062544]/60 backdrop-blur-md flex items-center justify-center p-3 xs:p-4">
+      <div className="glass-frost rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[92dvh] overflow-y-auto overscroll-contain shadow-2xl border border-white/90 relative grid grid-cols-1 md:grid-cols-12 animate-in fade-in zoom-in-95 duration-200 backdrop-blur-2xl">
         
         {/* Close Button */}
         <button
           onClick={closeAuthModal}
-          className="absolute top-4 right-4 z-20 p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100/80 transition-colors cursor-pointer min-h-[38px] min-w-[38px] flex items-center justify-center"
+          className="absolute top-3.5 right-3.5 z-20 p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100/80 active:scale-90 transition-all cursor-pointer min-h-[38px] min-w-[38px] flex items-center justify-center"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* LEFT COLUMN: AUTH FORM */}
-        <div className="md:col-span-6 p-8 sm:p-10 flex flex-col justify-between space-y-6">
+        <div className="md:col-span-6 p-5 xs:p-7 sm:p-10 flex flex-col justify-between space-y-6">
           
           <div className="space-y-6">
             
@@ -188,7 +188,7 @@ export const AuthModal: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className={`w-full py-3.5 font-bold text-xs rounded-2xl shadow-md transition-all flex items-center justify-center space-x-2 cursor-pointer ${
+                  className={`w-full py-3.5 font-bold text-xs rounded-2xl shadow-md transition-all flex items-center justify-center space-x-2 cursor-pointer min-h-[46px] active:scale-98 ${
                     mobileNumber ? 'bg-[#036CFB] hover:bg-blue-600 text-white' : 'bg-slate-300 text-slate-600'
                   }`}
                 >
@@ -224,7 +224,7 @@ export const AuthModal: React.FC = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="client@nas.com"
-                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB]"
+                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] min-h-[44px]"
                   />
                 </div>
 
@@ -236,14 +236,14 @@ export const AuthModal: React.FC = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
-                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB]"
+                    className="w-full bg-white border border-slate-200 rounded-2xl p-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] min-h-[44px]"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full py-3.5 bg-[#036CFB] hover:bg-blue-600 text-white font-bold text-xs rounded-2xl shadow-md transition-all flex items-center justify-center space-x-2 cursor-pointer"
+                  className="w-full py-3.5 bg-[#036CFB] hover:bg-blue-600 text-white font-bold text-xs rounded-2xl shadow-md transition-all flex items-center justify-center space-x-2 cursor-pointer min-h-[46px] active:scale-98"
                 >
                   {isLoading ? (
                     <>
@@ -279,7 +279,7 @@ export const AuthModal: React.FC = () => {
                     setAuthMethod('email');
                     setErrorMsg('');
                   }}
-                  className="w-full py-3 px-4 bg-white border border-slate-200 hover:border-slate-300 rounded-2xl text-xs font-bold text-slate-700 shadow-xs flex items-center justify-center space-x-2.5 transition-all cursor-pointer"
+                  className="w-full py-3 px-4 bg-white border border-slate-200 hover:border-slate-300 active:scale-98 rounded-2xl text-xs font-bold text-slate-700 shadow-xs flex items-center justify-center space-x-2.5 transition-all cursor-pointer min-h-[44px]"
                 >
                   <Mail className="w-4 h-4 text-slate-500" />
                   <span>Continue with Email</span>
@@ -291,7 +291,7 @@ export const AuthModal: React.FC = () => {
                     setAuthMethod('mobile');
                     setErrorMsg('');
                   }}
-                  className="w-full py-3 px-4 bg-white border border-slate-200 hover:border-slate-300 rounded-2xl text-xs font-bold text-slate-700 shadow-xs flex items-center justify-center space-x-2.5 transition-all cursor-pointer"
+                  className="w-full py-3 px-4 bg-white border border-slate-200 hover:border-slate-300 active:scale-98 rounded-2xl text-xs font-bold text-slate-700 shadow-xs flex items-center justify-center space-x-2.5 transition-all cursor-pointer min-h-[44px]"
                 >
                   <Phone className="w-4 h-4 text-slate-500" />
                   <span>Continue with Mobile Number</span>
@@ -301,7 +301,7 @@ export const AuthModal: React.FC = () => {
               <button
                 type="button"
                 onClick={handleGoogleLogin}
-                className="w-full py-3 px-4 bg-white border border-slate-200 hover:border-slate-300 rounded-2xl text-xs font-bold text-slate-700 shadow-xs flex items-center justify-center space-x-2.5 transition-all cursor-pointer"
+                className="w-full py-3 px-4 bg-white border border-slate-200 hover:border-slate-300 active:scale-98 rounded-2xl text-xs font-bold text-slate-700 shadow-xs flex items-center justify-center space-x-2.5 transition-all cursor-pointer min-h-[44px]"
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
