@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plane, Phone, Mail, MapPin, ShieldCheck } from 'lucide-react';
+import { Plane, Phone, Mail, MapPin, ShieldCheck, Globe } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export const Footer: React.FC = () => {
@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
           </div>
           <button
             onClick={() => navigateTo('/visas')}
-            className="bg-[#062544]/90 hover:bg-[#062544] text-white px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer shrink-0 shadow-md border border-white/20 min-h-[34px] flex items-center"
+            className="bg-[#062544]/90 hover:bg-[#062544] text-white px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer shrink-0 shadow-md border border-white/20 min-h-[34px] flex items-center active:scale-95 focus-ring"
           >
             Apply Online ↗
           </button>
@@ -89,8 +89,9 @@ export const Footer: React.FC = () => {
               </div>
 
               <div className="pt-1">
-                <span className="inline-block px-3.5 py-1.5 rounded-full text-[11px] font-bold glass-pill-dark text-[#38BDF8] border border-[#036CFB]/40 shadow-xs">
-                  🌐 Strictly Online Service • Zero In-Person Visits Needed
+                <span className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-bold glass-pill-dark text-[#38BDF8] border border-[#036CFB]/40 shadow-xs">
+                  <Globe className="w-3.5 h-3.5 text-[#38BDF8]" />
+                  <span>Strictly Online Service • Zero In-Person Visits Needed</span>
                 </span>
               </div>
             </div>

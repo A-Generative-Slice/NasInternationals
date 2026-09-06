@@ -163,11 +163,12 @@ export const VisaView: React.FC = () => {
 
           {/* Right Search Bar */}
           <div className="w-full md:w-80">
-            <div className="relative glass-frost rounded-full p-1.5 pl-4 shadow-md border border-white/80 flex items-center justify-between">
+            <div className="relative glass-frost rounded-full p-1.5 pl-4 shadow-md border border-white/80 flex items-center justify-between group focus-within:ring-2 focus-within:ring-[#036CFB]/30">
               <div className="flex items-center space-x-2 flex-1 mr-2">
                 <Plane className="w-4 h-4 text-[#036CFB] transform -rotate-45 shrink-0" />
                 <input
                   type="text"
+                  aria-label="Search destination country"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search destination country..."

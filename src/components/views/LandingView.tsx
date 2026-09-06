@@ -1,5 +1,19 @@
 import React, { useState } from 'react';
-import { Plane, Search, ArrowUpRight, ShieldCheck, Clock, Globe, UserCheck, DollarSign, Headphones, Star } from 'lucide-react';
+import { 
+  Plane, 
+  Search, 
+  ArrowUpRight, 
+  ShieldCheck, 
+  Clock, 
+  Globe, 
+  UserCheck, 
+  Headphones, 
+  Star,
+  Sparkles,
+  Zap,
+  Phone,
+  CheckCircle2
+} from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 
 export const LandingView: React.FC = () => {
@@ -135,22 +149,22 @@ export const LandingView: React.FC = () => {
               </p>
             </div>
 
-            {/* Feature Trust Chips Row */}
+            {/* Feature Trust Chips Row (SVG Icons per UI/UX Pro Max Guideline) */}
             <div className="pt-1 flex flex-wrap gap-2">
-              <span className="px-3 py-1 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1">
-                <span>✨</span>
+              <span className="px-3 py-1.5 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1.5 transition hover:scale-102">
+                <Sparkles className="w-3.5 h-3.5 text-[#036CFB] shrink-0" />
                 <span>100% Online Approvals</span>
               </span>
-              <span className="px-3 py-1 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1">
-                <span>⚡</span>
+              <span className="px-3 py-1.5 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1.5 transition hover:scale-102">
+                <Zap className="w-3.5 h-3.5 text-amber-500 shrink-0" />
                 <span>Fast 24H E-Visas</span>
               </span>
-              <span className="px-3 py-1 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1">
-                <span>🛡️</span>
+              <span className="px-3 py-1.5 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1.5 transition hover:scale-102">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span>Embassy Verified</span>
               </span>
-              <span className="px-3 py-1 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1">
-                <span>📱</span>
+              <span className="px-3 py-1.5 rounded-full text-[11px] font-bold glass-pill text-[#062544] border border-blue-200/60 shadow-xs flex items-center space-x-1.5 transition hover:scale-102">
+                <Phone className="w-3.5 h-3.5 text-[#036CFB] shrink-0" />
                 <span>24/7 Digital Helpline</span>
               </span>
             </div>
@@ -186,8 +200,9 @@ export const LandingView: React.FC = () => {
                     <p className="text-[10px] font-bold text-[#036CFB] uppercase tracking-wider">Fast-Track Digital Desk</p>
                   </div>
                 </div>
-                <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold">
-                  ● 100% Online
+                <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold flex items-center space-x-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span>100% Online</span>
                 </span>
               </div>
 
@@ -445,16 +460,17 @@ export const LandingView: React.FC = () => {
 
           {/* Right Vector Illustration in Frosted Navy Container */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm glass-frost-navy rounded-3xl p-8 flex flex-col items-center justify-center border border-[#38BDF8]/30 shadow-2xl text-center backdrop-blur-2xl">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#036CFB] to-[#0284C7] text-white flex items-center justify-center shadow-xl shadow-[#036CFB]/40 border border-white/20 mb-4 animate-bounce">
-                <Plane className="w-12 h-12 transform -rotate-45" />
+            <div className="relative w-full max-w-sm glass-frost-navy rounded-3xl p-8 flex flex-col items-center justify-center border border-[#38BDF8]/30 shadow-2xl text-center backdrop-blur-2xl group">
+              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#036CFB] to-[#0284C7] text-white flex items-center justify-center shadow-xl shadow-[#036CFB]/40 border border-white/20 mb-4 group-hover:scale-108 transition-all duration-300">
+                <Plane className="w-12 h-12 transform -rotate-45 group-hover:rotate-[-40deg] transition-transform duration-300" />
               </div>
               <h3 className="font-display font-black text-xl text-white">NAS INTERNATIONALS</h3>
               <p className="text-xs font-bold text-[#38BDF8] uppercase tracking-widest mt-1">TOURS & TRAVELS</p>
               <p className="text-xs text-slate-300 font-medium mt-3">100% ONLINE • HAJJ • UMRAH • VISAS • TOURS</p>
               <div className="mt-4 pt-4 border-t border-white/10 w-full text-center">
-                <span className="text-[11px] font-bold text-[#38BDF8] bg-white/10 px-3 py-1 rounded-full border border-white/10">
-                  ✓ Verified Digital Operations
+                <span className="text-[11px] font-bold text-[#38BDF8] bg-white/10 px-3.5 py-1.5 rounded-full border border-white/10 inline-flex items-center space-x-1.5 shadow-xs">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#38BDF8]" />
+                  <span>Verified Digital Operations</span>
                 </span>
               </div>
             </div>

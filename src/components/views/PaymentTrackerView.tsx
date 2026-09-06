@@ -14,7 +14,8 @@ import {
   Mail, 
   Check, 
   Sparkles,
-  ExternalLink
+  ExternalLink,
+  AlertCircle
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useApp } from '../../context/AppContext';
@@ -112,20 +113,24 @@ export const PaymentTrackerView: React.FC = () => {
         <div className="glass-frost rounded-3xl p-5 sm:p-6 shadow-xl border border-white/80 backdrop-blur-2xl space-y-3">
           <form onSubmit={handleSearch} className="flex flex-col sm:flex-row items-center gap-3">
             <div className="relative flex-1 w-full">
+              <label htmlFor="tracker-search-input" className="sr-only">
+                Application Reference or Passport Number
+              </label>
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
                 <Search className="w-4 h-4 text-[#036CFB]" />
               </div>
               <input
+                id="tracker-search-input"
                 type="text"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="Enter Application Ref (e.g. NAS-101) or Passport No (e.g. Z8923412)..."
-                className="w-full bg-white/90 border border-slate-200/90 rounded-2xl pl-11 pr-4 py-3 text-xs sm:text-sm focus:ring-2 focus:ring-[#036CFB]/30 font-medium min-h-[46px] shadow-inner"
+                className="w-full bg-white/90 border border-slate-200/90 rounded-2xl pl-11 pr-4 py-3 text-xs sm:text-sm focus:ring-2 focus:ring-[#036CFB]/30 font-medium min-h-[46px] shadow-inner focus-ring"
               />
             </div>
             <button
               type="submit"
-              className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0284C7] hover:to-[#036CFB] text-white font-display font-bold text-xs sm:text-sm rounded-2xl shadow-lg shadow-[#036CFB]/30 border border-white/20 transition-all flex items-center justify-center space-x-2 shrink-0 cursor-pointer min-h-[46px] active:scale-95"
+              className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0284C7] hover:to-[#036CFB] text-white font-display font-bold text-xs sm:text-sm rounded-2xl shadow-lg shadow-[#036CFB]/30 border border-white/20 transition-all flex items-center justify-center space-x-2 shrink-0 cursor-pointer min-h-[46px] active:scale-95 focus-ring"
             >
               <span>Track Application</span>
               <Plane className="w-4 h-4 transform -rotate-45" />
@@ -141,7 +146,7 @@ export const PaymentTrackerView: React.FC = () => {
           )}
           {searchError && (
             <p className="text-xs text-rose-600 font-semibold flex items-center space-x-1.5 pl-1 animate-fadeIn">
-              <span>⚠️</span>
+              <AlertCircle className="w-3.5 h-3.5 shrink-0" />
               <span>{searchError}</span>
             </p>
           )}
@@ -224,8 +229,9 @@ export const PaymentTrackerView: React.FC = () => {
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-display font-extrabold text-sm text-[#062544]">
-                    🎉 Congratulations! Your E-Visa is Approved
+                  <h4 className="font-display font-extrabold text-sm text-[#062544] flex items-center space-x-1.5">
+                    <Sparkles className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Congratulations! Your E-Visa is Approved</span>
                   </h4>
                   <p className="text-xs text-slate-600 font-medium">
                     Your official consular electronic visa document has been issued and digitally signed.
@@ -303,17 +309,22 @@ export const PaymentTrackerView: React.FC = () => {
 
             <form onSubmit={handleSubmitPayment} className="space-y-3">
               <div>
+                <label htmlFor="transaction-id-input" className="sr-only">
+                  Transaction ID or UTR Number
+                </label>
                 <input
+                  id="transaction-id-input"
                   type="text"
                   placeholder="Transaction ID / UTR Number"
                   value={transactionId}
                   onChange={(e) => setTransactionId(e.target.value)}
                   required
-                  className="w-full bg-white/90 border border-slate-200/90 rounded-2xl px-4 py-3 text-xs focus:ring-2 focus:ring-[#036CFB]/20 font-mono font-bold min-h-[44px]"
+                  className="w-full bg-white/90 border border-slate-200/90 rounded-2xl px-4 py-3 text-xs focus:ring-2 focus:ring-[#036CFB]/20 font-mono font-bold min-h-[44px] focus-ring"
                 />
                 {proofFileName && (
-                  <p className="text-[11px] text-emerald-600 font-semibold mt-1.5 pl-1">
-                    ✓ Attached file: {proofFileName}
+                  <p className="text-[11px] text-emerald-600 font-semibold mt-1.5 pl-1 flex items-center space-x-1">
+                    <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                    <span>Attached file: {proofFileName}</span>
                   </p>
                 )}
               </div>

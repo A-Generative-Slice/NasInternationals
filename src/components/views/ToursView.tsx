@@ -142,12 +142,14 @@ export const ToursView: React.FC = () => {
           {/* Right Dropdowns */}
           <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-700 w-full lg:w-auto justify-start lg:justify-end">
             
-            <div className="flex items-center space-x-2 glass-frost px-3 py-1.5 rounded-2xl border border-white/80 shadow-xs">
-              <span className="text-[11px] font-bold text-slate-500">Type:</span>
+            <div className="flex items-center space-x-2 glass-frost px-3.5 py-2 rounded-2xl border border-white/80 shadow-xs">
+              <label htmlFor="tour-type-filter" className="text-[11px] font-bold text-slate-500">Type:</label>
               <select
+                id="tour-type-filter"
+                aria-label="Filter tours by type"
                 value={tourTypeFilter}
                 onChange={(e) => setTourTypeFilter(e.target.value)}
-                className="bg-transparent text-slate-800 font-bold focus:outline-none cursor-pointer text-xs"
+                className="bg-transparent text-slate-800 font-bold focus:outline-none cursor-pointer text-xs focus-ring rounded-lg px-1"
               >
                 <option value="ALL">ALL</option>
                 <option value="GROUP">GROUP</option>
@@ -155,12 +157,14 @@ export const ToursView: React.FC = () => {
               </select>
             </div>
 
-            <div className="flex items-center space-x-2 glass-frost px-3 py-1.5 rounded-2xl border border-white/80 shadow-xs">
-              <span className="text-[11px] font-bold text-slate-500">Date:</span>
+            <div className="flex items-center space-x-2 glass-frost px-3.5 py-2 rounded-2xl border border-white/80 shadow-xs">
+              <label htmlFor="tour-date-filter" className="text-[11px] font-bold text-slate-500">Date:</label>
               <select
+                id="tour-date-filter"
+                aria-label="Filter tours by departure date"
                 value={yearMonthFilter}
                 onChange={(e) => setYearMonthFilter(e.target.value)}
-                className="bg-transparent text-slate-800 font-bold focus:outline-none cursor-pointer text-xs"
+                className="bg-transparent text-slate-800 font-bold focus:outline-none cursor-pointer text-xs focus-ring rounded-lg px-1"
               >
                 <option value="ALL">ALL</option>
                 <option value="SEP2026">Sep 2026</option>
@@ -169,12 +173,14 @@ export const ToursView: React.FC = () => {
               </select>
             </div>
 
-            <div className="flex items-center space-x-2 glass-frost px-3 py-1.5 rounded-2xl border border-white/80 shadow-xs">
-              <span className="text-[11px] font-bold text-slate-500">Status:</span>
+            <div className="flex items-center space-x-2 glass-frost px-3.5 py-2 rounded-2xl border border-white/80 shadow-xs">
+              <label htmlFor="tour-status-filter" className="text-[11px] font-bold text-slate-500">Status:</label>
               <select
+                id="tour-status-filter"
+                aria-label="Filter tours by booking status"
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="bg-transparent text-slate-800 font-bold focus:outline-none cursor-pointer text-xs"
+                className="bg-transparent text-slate-800 font-bold focus:outline-none cursor-pointer text-xs focus-ring rounded-lg px-1"
               >
                 <option value="ALL">ALL</option>
                 <option value="OPEN">BOOKING OPEN</option>

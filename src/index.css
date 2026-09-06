@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+:root {
+  --nas-navy: #062544;
+  --nas-navy-dark: #041A30;
+  --nas-blue: #036CFB;
+  --nas-blue-accent: #0284C7;
+  --nas-sky: #38BDF8;
+  --nas-surface: #F8FAFC;
+  --nas-glass-bg: rgba(255, 255, 255, 0.78);
+  --nas-glass-border: rgba(255, 255, 255, 0.65);
+  --blur-amount: 20px;
+}
+
 @theme {
   --font-display: 'Montserrat', sans-serif;
   --font-sans: 'Inter', sans-serif;
@@ -23,11 +35,11 @@
 
   /* Ultra-Modern Frosted Glass Utilities */
   .glass-frost {
-    background: rgba(255, 255, 255, 0.78);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.65);
-    box-shadow: 0 10px 30px -5px rgba(3, 108, 251, 0.07), 0 4px 12px -2px rgba(0, 0, 0, 0.04), inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px) saturate(190%);
+    -webkit-backdrop-filter: blur(20px) saturate(190%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow: 0 10px 30px -5px rgba(3, 108, 251, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03), inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
   }
 
   .glass-frost-subtle {
@@ -149,3 +161,32 @@ html, body {
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+/* Accessibility: Respect Reduced Motion Preferences (UI/UX Pro Max Guideline) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Accessible interactive states */
+.interactive-tap {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease-out;
+}
+.interactive-tap:active {
+  transform: scale(0.97);
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid #036CFB;
+  outline-offset: 2px;
+}
+
