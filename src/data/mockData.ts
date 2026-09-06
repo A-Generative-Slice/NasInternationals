@@ -73,12 +73,12 @@ export const VISA_CATEGORIES: VisaItem[] = [
 
 export const DESTINATIONS: Destination[] = [
   {
-    id: 'mecca',
-    name: 'Mecca',
-    tagline: 'Spiritual Gateway & Umrah Pilgrimage',
-    description: 'Mecca welcomes millions of faithful yearly for spiritual renewal, Umrah and Haj packages with premium accommodation near Al-Haram.',
-    image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=80',
-    startingPrice: 45000
+    id: 'singapore',
+    name: 'Singapore',
+    tagline: 'Modern Metropolis & Garden City',
+    description: 'Explore futuristic architecture, Marina Bay, world-class entertainment, and global shopping hubs with express digital e-visas.',
+    image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80',
+    startingPrice: 3500
   },
   {
     id: 'london',
@@ -173,18 +173,18 @@ export const INITIAL_APPLICATIONS: ApplicationItem[] = [
     }
   },
   {
-    id: 'TOUR-DXB-20240720',
+    id: 'AIR-DXB-20240720',
     applicantName: 'Rahul Sharma',
     email: 'rahul.sharma@example.com',
     phone: '+91 98765 43210',
     passportNumber: 'Z8923412',
-    type: 'Tour Package',
+    type: 'Air Ticketing',
     destination: 'Dubai',
     nationality: 'Indian',
-    purpose: 'Tourism & Leisure',
+    purpose: 'Air Ticketing & Transit',
     dateSubmitted: '20 Jul 2024',
     status: 'Completed',
-    statusNote: 'Dubai Tour Package and 30-Day Express Visa issued successfully.',
+    statusNote: 'Dubai Flight Tickets and 30-Day Express Visa issued successfully.',
     timeline: [
       { title: 'Submitted', date: '20 Jul 2024', completed: true, isCurrent: false },
       { title: 'Under Review', date: '21 Jul 2024', completed: true, isCurrent: false },
@@ -275,15 +275,15 @@ export const INITIAL_APPLICATIONS: ApplicationItem[] = [
     }
   },
   {
-    id: 'TOUR-THA-20241023',
+    id: 'DOC-THA-20241023',
     applicantName: 'Rahul K.',
     email: 'rahul.k@example.com',
     phone: '+91 99887 76655',
     passportNumber: 'P7721893',
-    type: 'Tour Package',
+    type: 'Document Attestation',
     destination: 'Thailand',
     nationality: 'Indian',
-    purpose: 'Tourism & Leisure',
+    purpose: 'Document Verification & Attestation',
     dateSubmitted: '23 Oct 2024',
     status: 'Pending Payment',
     statusNote: 'Awaiting payment verification before forwarding to Thai consulate.',
@@ -306,15 +306,15 @@ export const INITIAL_APPLICATIONS: ApplicationItem[] = [
     }
   },
   {
-    id: 'TOUR-FRA-20241023',
+    id: 'EDU-FRA-20241023',
     applicantName: 'Andiria Allan',
     email: 'andiria@example.com',
     phone: '+44 7700 900077',
     passportNumber: 'G8839210',
-    type: 'Tour Package',
+    type: 'Education Consultancy',
     destination: 'France',
     nationality: 'British',
-    purpose: 'Tourism & Leisure',
+    purpose: 'Education & Studies',
     dateSubmitted: '23 Oct 2024',
     status: 'Pending Payment',
     statusNote: 'Payment authorization required.',
@@ -405,5 +405,5 @@ export const PURPOSES_LIST = [
   'Education & Studies',
   'Employment & Work',
   'Family Visit',
-  'Haj & Umrah Pilgrimage'
+  'Document Attestation & Air Ticketing'
 ];

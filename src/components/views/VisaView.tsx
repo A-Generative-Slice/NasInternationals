@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Plane, ArrowRight, ShieldCheck, Clock, Check } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
+import logoImg from '../../assets/logo.jpg';
 
 export const VisaView: React.FC = () => {
   const { navigateTo, setSelectedVisa } = useApp();
@@ -121,8 +122,8 @@ export const VisaView: React.FC = () => {
             <div className="relative w-full max-w-sm glass-frost-navy rounded-3xl p-6 text-white border border-white/15 shadow-2xl overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#036CFB]/30 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500"></div>
               <div className="relative z-10 text-center space-y-3">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#38BDF8] text-white flex items-center justify-center mx-auto shadow-lg shadow-[#036CFB]/30">
-                  <Plane className="w-8 h-8 transform -rotate-45" />
+                <div className="w-16 h-16 rounded-2xl bg-white p-1.5 flex items-center justify-center mx-auto shadow-lg shadow-[#036CFB]/30 overflow-hidden">
+                  <img src={logoImg} alt="NAS Internationals Logo" className="w-full h-full object-contain" />
                 </div>
                 <h3 className="font-extrabold text-white text-lg tracking-tight">100% Online Visa Process</h3>
                 <p className="text-xs text-slate-300 font-medium leading-relaxed">Digital document submission, fast-track embassy approvals & 24/7 online tracking</p>

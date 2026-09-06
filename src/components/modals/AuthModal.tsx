@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Mail, Lock, User as UserIcon, Phone, ArrowRight, CheckCircle2, AlertCircle, RefreshCw, Plane, ChevronDown } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
+import logoImg from '../../assets/logo.jpg';
 
 export const AuthModal: React.FC = () => {
   const { isAuthModalOpen, authModalMode, closeAuthModal, loginUser, registerUser, navigateTo } = useApp();
@@ -336,16 +337,16 @@ export const AuthModal: React.FC = () => {
             {/* Floating Flight Graphic & Traveler Card Illustration */}
             <div className="w-64 h-64 mx-auto rounded-3xl bg-[#062544]/5 p-6 flex flex-col items-center justify-center border border-[#062544]/10 relative">
               
-              <div className="w-20 h-20 rounded-full bg-[#036CFB] text-white flex items-center justify-center shadow-lg shadow-[#036CFB]/25 mb-4 animate-bounce">
-                <Plane className="w-10 h-10 transform -rotate-45" />
+              <div className="w-20 h-20 rounded-2xl bg-white p-2 flex items-center justify-center shadow-lg shadow-[#036CFB]/20 mb-4 overflow-hidden">
+                <img src={logoImg} alt="NAS Internationals Logo" className="w-full h-full object-contain" />
               </div>
 
               <h4 className="font-extrabold text-[#062544] text-xl">NAS INTERNATIONALS</h4>
-              <p className="text-xs font-bold text-[#036CFB] uppercase tracking-widest mt-1">TOURS & TRAVELS • 100% ONLINE</p>
+              <p className="text-xs font-bold text-[#036CFB] uppercase tracking-widest mt-1">100% ONLINE SERVICES</p>
               
               <p className="text-xs text-slate-500 font-medium mt-3 leading-relaxed">
-                LET'S EXPLORE THE WORLD <br />
-                Hajj • Umrah • Visas • Tour Packages • Air Tickets
+                Visa Services • Air Ticketing <br />
+                Document Attestation • Education Consultancy
               </p>
 
             </div>

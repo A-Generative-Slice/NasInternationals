@@ -24,8 +24,16 @@ export const FaqsView: React.FC = () => {
       a: 'Our specialist team checks all uploaded documents before submission. If any photo or document fails specification, we will notify you immediately in your dashboard with re-upload instructions.'
     },
     {
-      q: 'Are tour package bookings inclusive of flight tickets?',
-      a: 'Yes, our group tour packages include flights, accommodation, meals, transfers, and sightseeing, all bookable 100% online.'
+      q: 'Can you assist with flight reservations and airline ticketing?',
+      a: 'Yes! We provide complete domestic and international air ticketing across all airlines with instant e-ticket issuance and 24/7 rescheduling assistance, 100% online.'
+    },
+    {
+      q: 'How does online Document Attestation work?',
+      a: 'You can submit scanned copies for preliminary verification. We coordinate end-to-end MEA, HRD, apostille, and foreign embassy attestation with secure doorstep collection and delivery.'
+    },
+    {
+      q: 'What education consultancy services do you offer for overseas studies?',
+      a: 'We provide university selection, application vetting, statement of purpose (SOP) guidance, and complete student visa filing for top study destinations worldwide.'
     }
   ];
 
@@ -46,7 +54,7 @@ export const FaqsView: React.FC = () => {
           <h1 className="text-3xl sm:text-4xl font-black text-[#062544] tracking-tight">
             Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#036CFB] via-[#0284C7] to-[#38BDF8]">Questions</span>
           </h1>
-          <p className="text-xs sm:text-sm font-medium text-slate-600 max-w-md mx-auto">Find quick answers to common visa, tour booking, and digital document questions.</p>
+          <p className="text-xs sm:text-sm font-medium text-slate-600 max-w-md mx-auto">Find quick answers to common visa, air ticketing, document attestation, and education consultancy questions.</p>
         </div>
 
         {/* Accordion List */}

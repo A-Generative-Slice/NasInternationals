@@ -1,9 +1,10 @@
 import React from 'react';
-import { Plane, Phone, Mail, MapPin, ShieldCheck, Globe } from 'lucide-react';
+import { Plane, Phone, Mail, Globe, Stamp, GraduationCap } from 'lucide-react';
 import { useApp } from '../context/AppContext';
+import logoImg from '../assets/logo.jpg';
 
 export const Footer: React.FC = () => {
-  const { navigateTo } = useApp();
+  const { navigateTo, setActiveModal } = useApp();
 
   return (
     <footer className="bg-[#031526] text-white border-t border-white/10 relative overflow-hidden pb-24 lg:pb-12">
@@ -19,7 +20,7 @@ export const Footer: React.FC = () => {
               <Plane className="w-3.5 h-3.5 transform -rotate-45" />
             </div>
             <span className="tracking-wide text-[11px] uppercase font-bold text-white whitespace-nowrap">
-              100% ONLINE SERVICES • HAJJ • UMRAH • VISA ASSISTANCE • TOUR PACKAGES • AIR TICKET • DOCUMENTS ATTESTATION
+              100% ONLINE SERVICES • VISA SERVICES • AIR TICKETING • DOCUMENT ATTESTATION • EDUCATION CONSULTANCY
             </span>
           </div>
           <button
@@ -37,21 +38,21 @@ export const Footer: React.FC = () => {
           {/* Col 1: Brand & Official Card Info */}
           <div className="lg:col-span-2 space-y-5">
             <div className="flex items-center space-x-3 cursor-pointer group" onClick={() => navigateTo('/')}>
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#38BDF8] flex items-center justify-center text-white shadow-lg shadow-[#036CFB]/30 group-hover:scale-105 transition-transform">
-                <Plane className="w-6 h-6 transform -rotate-45" />
+              <div className="w-12 h-12 rounded-2xl bg-white p-1 flex items-center justify-center shadow-lg shadow-[#036CFB]/30 group-hover:scale-105 transition-transform overflow-hidden shrink-0">
+                <img src={logoImg} alt="NAS Internationals Logo" className="w-full h-full object-contain" />
               </div>
               <div>
                 <span className="font-black text-xl tracking-tight text-white block leading-tight">
                   NAS INTERNATIONALS
                 </span>
                 <span className="text-[10px] font-bold text-[#38BDF8] uppercase tracking-widest block">
-                  TOURS & TRAVELS • 100% ONLINE SERVICE
+                  100% ONLINE SERVICES
                 </span>
               </div>
             </div>
 
             <p className="text-xs text-slate-300 leading-relaxed font-medium max-w-sm">
-              Strictly online travel & visa portal for Hajj, Umrah, international visas, document attestation, educational consultancy, and group tour packages. Processed 100% digitally from anywhere in the world.
+              Strictly online portal for Visa Services, Air Ticketing, Document Attestation, and Education Consultancy. Processed 100% digitally from anywhere in the world.
             </p>
 
             {/* Official Contact Info - Exclusively Mobile, Email & Website URL */}
@@ -81,7 +82,7 @@ export const Footer: React.FC = () => {
 
               <div className="flex items-center space-x-3 p-2.5 rounded-2xl glass-frost-dark border border-white/10">
                 <div className="w-8 h-8 rounded-xl bg-[#036CFB]/30 text-[#38BDF8] flex items-center justify-center shrink-0">
-                  <Plane className="w-4 h-4 transform -rotate-45" />
+                  <Globe className="w-4 h-4 text-[#38BDF8]" />
                 </div>
                 <a href="https://www.nasinternationals.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
                   Website: <strong className="text-white block sm:inline">www.nasinternationals.com</strong>
@@ -105,26 +106,42 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-xs font-semibold text-slate-300">
               <li><button onClick={() => navigateTo('/')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Home</button></li>
-              <li><button onClick={() => navigateTo('/tours')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Tour Packages</button></li>
               <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Visa Applications</button></li>
+              <li><button onClick={() => setActiveModal('air-ticketing')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Air Ticketing</button></li>
+              <li><button onClick={() => setActiveModal('attestation')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Document Attestation</button></li>
+              <li><button onClick={() => setActiveModal('education')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Education Consultancy</button></li>
               <li><button onClick={() => navigateTo('/contact')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Contact Us</button></li>
-              <li><button onClick={() => navigateTo('/blogs')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Blogs & Guides</button></li>
               <li><button onClick={() => navigateTo('/faqs')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">FAQ's</button></li>
             </ul>
           </div>
 
-          {/* Col 3: Services */}
+          {/* Col 3: Services (Strictly the 4 approved services) */}
           <div className="space-y-4">
             <h4 className="text-xs font-black text-[#38BDF8] uppercase tracking-wider flex items-center space-x-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]"></span>
               <span>Our Services</span>
             </h4>
             <ul className="space-y-2.5 text-xs font-semibold text-slate-300">
-              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Hajj & Umrah Packages</button></li>
-              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Tourist & Business Visas</button></li>
-              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Document Attestation</button></li>
-              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Educational Consultancy</button></li>
-              <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Air Ticket Reservations</button></li>
+              <li>
+                <button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">
+                  Visa Services
+                </button>
+              </li>
+              <li>
+                <button onClick={() => setActiveModal('air-ticketing')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">
+                  Air Ticketing
+                </button>
+              </li>
+              <li>
+                <button onClick={() => setActiveModal('attestation')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">
+                  Document Attestation
+                </button>
+              </li>
+              <li>
+                <button onClick={() => setActiveModal('education')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">
+                  Education Consultancy
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -138,7 +155,7 @@ export const Footer: React.FC = () => {
               <li><button onClick={() => navigateTo('/payment-tracker')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Track Application Status</button></li>
               <li><button onClick={() => navigateTo('/apply')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Start Visa Application</button></li>
               <li><button onClick={() => navigateTo('/visas')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Express E-Visas</button></li>
-              <li><button onClick={() => navigateTo('/tours')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Holiday Tour Packages</button></li>
+              <li><button onClick={() => setActiveModal('air-ticketing')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Flight Reservation Desk</button></li>
               <li><button onClick={() => navigateTo('/contact')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">24/7 Digital Helpline</button></li>
             </ul>
           </div>
@@ -147,9 +164,9 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-10 mt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 font-medium gap-4">
-          <p>© 2026 NAS INTERNATIONALS TOURS & TRAVELS. All rights reserved.</p>
+          <p>© 2026 NAS INTERNATIONALS. All rights reserved.</p>
           <div className="flex items-center space-x-4 text-[#38BDF8]">
-            <span>Social: @officialnasinternationals</span>
+            <span>100% Digital Operations • Verified Travel & Visa Portal</span>
           </div>
         </div>
 

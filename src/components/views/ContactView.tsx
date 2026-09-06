@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Send, Headphones, CheckCircle2, Globe, Building2 } from 'lucide-react';
+import logoImg from '../../assets/logo.jpg';
 
 export const ContactView: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -38,7 +39,7 @@ export const ContactView: React.FC = () => {
               Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#036CFB] via-[#0284C7] to-[#38BDF8]">Us</span>
             </h1>
             <p className="text-base sm:text-lg font-bold text-slate-500">
-              NAS INTERNATIONALS TOURS & TRAVELS — We're here to help!
+              NAS INTERNATIONALS — We're here to help!
             </p>
           </div>
 
@@ -47,8 +48,8 @@ export const ContactView: React.FC = () => {
             <div className="relative w-full max-w-sm glass-frost-navy rounded-3xl p-6 text-white border border-white/15 shadow-2xl overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#036CFB]/30 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500"></div>
               <div className="relative z-10 text-center space-y-3">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#38BDF8] text-white flex items-center justify-center mx-auto shadow-lg shadow-[#036CFB]/30">
-                  <Headphones className="w-7 h-7" />
+                <div className="w-16 h-16 rounded-2xl bg-white p-1.5 flex items-center justify-center mx-auto shadow-lg shadow-[#036CFB]/30 overflow-hidden">
+                  <img src={logoImg} alt="NAS Internationals Logo" className="w-full h-full object-contain" />
                 </div>
                 <h3 className="font-extrabold text-white text-base tracking-tight">Managing Director: N. ABDUL HAKEEM</h3>
                 <p className="text-xs text-[#38BDF8] font-bold">100% ONLINE VISA & TRAVEL SUPPORT</p>
@@ -83,7 +84,7 @@ export const ContactView: React.FC = () => {
                 Strictly Online Support & Consultation
               </h2>
               <p className="text-xs sm:text-sm font-medium text-slate-600 leading-relaxed">
-                <strong>Need Help With Your Visa, Umrah, or Tour Booking?</strong> All our services are handled 100% digitally. Reach out directly via phone, WhatsApp, or email — zero in-person visits required.
+                <strong>Need Help With Visa Services, Air Ticketing, Document Attestation, or Education Consultancy?</strong> All our services are handled 100% digitally. Reach out directly via phone, WhatsApp, or email — zero in-person visits required.
               </p>
             </div>
 
@@ -243,7 +244,7 @@ export const ContactView: React.FC = () => {
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    placeholder="e.g. Visa Assistance / Hajj & Umrah / Tour Packages"
+                    placeholder="e.g. Visa Services / Air Ticketing / Document Attestation / Education Consultancy"
                     className="w-full bg-white/90 border border-slate-200/90 rounded-2xl px-4 py-3 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] focus:ring-2 focus:ring-[#036CFB]/20 min-h-[44px] transition focus-ring"
                   />
                 </div>

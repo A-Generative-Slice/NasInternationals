@@ -12,12 +12,15 @@ import {
   Sparkles,
   Zap,
   Phone,
-  CheckCircle2
+  CheckCircle2,
+  Stamp,
+  GraduationCap
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
+import logoImg from '../../assets/logo.jpg';
 
 export const LandingView: React.FC = () => {
-  const { navigateTo } = useApp();
+  const { navigateTo, setActiveModal } = useApp();
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
@@ -285,17 +288,241 @@ export const LandingView: React.FC = () => {
         </div>
       </section>
 
-      {/* TRENDY TRAVEL DESTINATIONS SECTION */}
+      {/* 4 APPROVED SERVICES SECTION */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10">
+        
+        {/* Section Header */}
+        <div className="text-center space-y-2 mb-12 relative">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-pill text-[#036CFB] text-xs font-bold shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-[#036CFB] animate-pulse"></span>
+            <span>OUR 4 APPROVED CORE SERVICES</span>
+          </div>
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#062544] tracking-tight">
+            Comprehensive Online Visa & Travel Solutions
+          </h2>
+          <p className="text-xs sm:text-sm font-medium text-slate-600 max-w-2xl mx-auto">
+            100% digital processing with zero physical visits required. Verified embassy approvals, fast turnarounds, and 24/7 client support.
+          </p>
+        </div>
+
+        {/* 4 Core Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          {/* Service 1: Visa Services */}
+          <div className="glass-frost glass-card-hover rounded-3xl p-6 sm:p-7 border border-white/80 shadow-md hover:shadow-2xl flex flex-col justify-between group transition-all">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#38BDF8] text-white flex items-center justify-center shadow-md shadow-[#036CFB]/30 group-hover:scale-108 transition-transform">
+                  <Globe className="w-6 h-6" />
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-blue-50 text-[#036CFB] border border-blue-200 text-[10px] font-bold">
+                  Fast-Track
+                </span>
+              </div>
+
+              <div>
+                <h3 className="font-display font-black text-lg text-[#062544] group-hover:text-[#036CFB] transition-colors">
+                  Visa Services
+                </h3>
+                <p className="text-xs text-slate-500 font-semibold mt-0.5">Tourist, Business & E-Visas</p>
+              </div>
+
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                End-to-end online visa assistance for over 60+ countries worldwide with express 24-48 hour turnaround and zero embassy visits.
+              </p>
+
+              <ul className="space-y-2 text-xs font-semibold text-slate-700 pt-1">
+                <li className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Express 24-48h E-Visa Processing</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Digital Document Verification</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>99.2% Online Approval Rate</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="pt-6 border-t border-slate-200/60 mt-6">
+              <button
+                onClick={() => navigateTo('/visas')}
+                className="w-full py-2.5 px-4 bg-[#036CFB] hover:bg-[#0256c7] text-white text-xs font-bold rounded-xl shadow-md shadow-[#036CFB]/25 transition-all flex items-center justify-center space-x-1.5 cursor-pointer active:scale-98"
+              >
+                <span>Explore Visas</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Service 2: Air Ticketing */}
+          <div className="glass-frost glass-card-hover rounded-3xl p-6 sm:p-7 border border-white/80 shadow-md hover:shadow-2xl flex flex-col justify-between group transition-all">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#0284C7] text-white flex items-center justify-center shadow-md shadow-[#036CFB]/30 group-hover:scale-108 transition-transform">
+                  <Plane className="w-6 h-6 transform -rotate-45" />
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-sky-50 text-sky-700 border border-sky-200 text-[10px] font-bold">
+                  Instant PNR
+                </span>
+              </div>
+
+              <div>
+                <h3 className="font-display font-black text-lg text-[#062544] group-hover:text-[#036CFB] transition-colors">
+                  Air Ticketing
+                </h3>
+                <p className="text-xs text-slate-500 font-semibold mt-0.5">Domestic & International Flights</p>
+              </div>
+
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                Instant flight ticket bookings across all premier global airlines with guaranteed PNR issuance and direct electronic delivery.
+              </p>
+
+              <ul className="space-y-2 text-xs font-semibold text-slate-700 pt-1">
+                <li className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Instant E-Ticket & WhatsApp Delivery</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Best Route Optimization</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>24/7 Rescheduling & Route Support</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="pt-6 border-t border-slate-200/60 mt-6">
+              <button
+                onClick={() => setActiveModal('air-ticketing')}
+                className="w-full py-2.5 px-4 bg-[#062544] hover:bg-[#036CFB] text-white text-xs font-bold rounded-xl shadow-md transition-all flex items-center justify-center space-x-1.5 cursor-pointer active:scale-98"
+              >
+                <span>Book Flight Tickets</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Service 3: Document Attestation */}
+          <div className="glass-frost glass-card-hover rounded-3xl p-6 sm:p-7 border border-white/80 shadow-md hover:shadow-2xl flex flex-col justify-between group transition-all">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#38BDF8] text-white flex items-center justify-center shadow-md shadow-[#036CFB]/30 group-hover:scale-108 transition-transform">
+                  <Stamp className="w-6 h-6" />
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-blue-50 text-[#036CFB] border border-blue-200 text-[10px] font-bold">
+                  MEA & Embassy
+                </span>
+              </div>
+
+              <div>
+                <h3 className="font-display font-black text-lg text-[#062544] group-hover:text-[#036CFB] transition-colors">
+                  Document Attestation
+                </h3>
+                <p className="text-xs text-slate-500 font-semibold mt-0.5">MEA, HRD & Apostille Verification</p>
+              </div>
+
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                Certified legalization for educational, personal, and commercial credentials with foreign embassy accreditation and MEA apostille.
+              </p>
+
+              <ul className="space-y-2 text-xs font-semibold text-slate-700 pt-1">
+                <li className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>MEA Apostille & HRD Verification</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>UAE & GCC Embassy Legalization</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Doorstep Pickup & Return Tracking</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="pt-6 border-t border-slate-200/60 mt-6">
+              <button
+                onClick={() => setActiveModal('attestation')}
+                className="w-full py-2.5 px-4 bg-[#036CFB] hover:bg-[#0256c7] text-white text-xs font-bold rounded-xl shadow-md shadow-[#036CFB]/25 transition-all flex items-center justify-center space-x-1.5 cursor-pointer active:scale-98"
+              >
+                <span>Attestation Details</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Service 4: Education Consultancy */}
+          <div className="glass-frost glass-card-hover rounded-3xl p-6 sm:p-7 border border-white/80 shadow-md hover:shadow-2xl flex flex-col justify-between group transition-all">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#036CFB] to-[#0284C7] text-white flex items-center justify-center shadow-md shadow-[#036CFB]/30 group-hover:scale-108 transition-transform">
+                  <GraduationCap className="w-6 h-6" />
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold">
+                  Global Study
+                </span>
+              </div>
+
+              <div>
+                <h3 className="font-display font-black text-lg text-[#062544] group-hover:text-[#036CFB] transition-colors">
+                  Education Consultancy
+                </h3>
+                <p className="text-xs text-slate-500 font-semibold mt-0.5">Overseas Admissions & Student Visas</p>
+              </div>
+
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                End-to-end academic guidance, top university shortlisting, SOP document vetting, and student visa application management.
+              </p>
+
+              <ul className="space-y-2 text-xs font-semibold text-slate-700 pt-1">
+                <li className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>UK, USA, Canada, Europe Universities</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>SOP Vetting & Application Filing</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Comprehensive Student Visa Filing</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="pt-6 border-t border-slate-200/60 mt-6">
+              <button
+                onClick={() => setActiveModal('education')}
+                className="w-full py-2.5 px-4 bg-[#062544] hover:bg-[#036CFB] text-white text-xs font-bold rounded-xl shadow-md transition-all flex items-center justify-center space-x-1.5 cursor-pointer active:scale-98"
+              >
+                <span>Education Guidance</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* POPULAR VISA DESTINATIONS SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10">
         
         {/* Section Header */}
         <div className="text-center space-y-2 mb-10 sm:mb-12 relative">
           <span className="text-xs font-bold uppercase tracking-widest text-[#036CFB] block">
-            TRENDY TRAVEL DESTINATIONS
+            POPULAR VISA DESTINATIONS
           </span>
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#062544] tracking-tight relative inline-block">
-            Explore Our Most Popular Destinations, <br className="hidden sm:inline" />
-            Tailored For Every Traveler
+            Explore Fast-Track Visa Clearance <br className="hidden sm:inline" />
+            For Popular Global Destinations
 
             <svg className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-64 h-8 text-[#036CFB]" viewBox="0 0 250 30" fill="none">
               <path d="M5 25 Q 125 0 245 25" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
@@ -458,15 +685,15 @@ export const LandingView: React.FC = () => {
 
           </div>
 
-          {/* Right Vector Illustration in Frosted Navy Container */}
+          {/* Right Brand Badge in Frosted Navy Container */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-sm glass-frost-navy rounded-3xl p-8 flex flex-col items-center justify-center border border-[#38BDF8]/30 shadow-2xl text-center backdrop-blur-2xl group">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#036CFB] to-[#0284C7] text-white flex items-center justify-center shadow-xl shadow-[#036CFB]/40 border border-white/20 mb-4 group-hover:scale-108 transition-all duration-300">
-                <Plane className="w-12 h-12 transform -rotate-45 group-hover:rotate-[-40deg] transition-transform duration-300" />
+              <div className="w-24 h-24 rounded-2xl bg-white p-2 flex items-center justify-center shadow-xl shadow-[#036CFB]/40 border border-white/20 mb-4 group-hover:scale-105 transition-all duration-300 overflow-hidden">
+                <img src={logoImg} alt="NAS Internationals Logo" className="w-full h-full object-contain" />
               </div>
               <h3 className="font-display font-black text-xl text-white">NAS INTERNATIONALS</h3>
-              <p className="text-xs font-bold text-[#38BDF8] uppercase tracking-widest mt-1">TOURS & TRAVELS</p>
-              <p className="text-xs text-slate-300 font-medium mt-3">100% ONLINE • HAJJ • UMRAH • VISAS • TOURS</p>
+              <p className="text-xs font-bold text-[#38BDF8] uppercase tracking-widest mt-1">100% ONLINE SERVICES</p>
+              <p className="text-xs text-slate-300 font-medium mt-3">VISAS • AIR TICKETING • ATTESTATION • EDUCATION</p>
               <div className="mt-4 pt-4 border-t border-white/10 w-full text-center">
                 <span className="text-[11px] font-bold text-[#38BDF8] bg-white/10 px-3.5 py-1.5 rounded-full border border-white/10 inline-flex items-center space-x-1.5 shadow-xs">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#38BDF8]" />

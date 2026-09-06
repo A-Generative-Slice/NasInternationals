@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Briefcase, GraduationCap, Handshake, Stamp, FileText, ChevronDown, CheckCircle, ArrowRight, Clock, ShieldCheck, Sparkles } from 'lucide-react';
+import { Globe, Briefcase, GraduationCap, Handshake, Stamp, FileText, ChevronDown, CheckCircle, ArrowRight, Clock, ShieldCheck, Sparkles, Plane } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { COUNTRIES_LIST, NATIONALITIES_LIST, PURPOSES_LIST, VISA_CATEGORIES } from '../../data/mockData';
 import { VisaItem } from '../../types';
@@ -221,8 +221,31 @@ export const VisaFinderView: React.FC = () => {
           <div className="space-y-6">
             <h2 className="font-display font-bold text-base text-[#062544] uppercase tracking-wider flex items-center space-x-2">
               <span className="w-2 h-2 rounded-full bg-[#036CFB]"></span>
-              <span>ADDITIONAL SERVICES</span>
+              <span>APPROVED CORE SERVICES</span>
             </h2>
+
+            {/* Air Ticketing Card */}
+            <div className="glass-frost glass-card-hover rounded-3xl p-6 shadow-md border border-white/80 space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-50 to-blue-100 flex items-center justify-center shadow-xs">
+                <Plane className="w-6 h-6 text-[#036CFB] transform -rotate-45" />
+              </div>
+
+              <div>
+                <h3 className="font-display font-bold text-[#062544] text-base uppercase tracking-tight">
+                  AIR TICKETING
+                </h3>
+                <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                  Domestic and international airline flight reservations with instant electronic PNR confirmations and route coordination.
+                </p>
+              </div>
+
+              <button
+                onClick={() => setActiveModal('air-ticketing')}
+                className="inline-flex items-center text-xs font-bold text-[#036CFB] hover:text-[#062544] underline underline-offset-4 transition-colors"
+              >
+                Book Tickets
+              </button>
+            </div>
 
             {/* Document Attestation Card */}
             <div className="glass-frost glass-card-hover rounded-3xl p-6 shadow-md border border-white/80 space-y-4">
@@ -247,26 +270,26 @@ export const VisaFinderView: React.FC = () => {
               </button>
             </div>
 
-            {/* Passport Services Card */}
+            {/* Education Consultancy Card */}
             <div className="glass-frost glass-card-hover rounded-3xl p-6 shadow-md border border-white/80 space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-50 to-blue-100 flex items-center justify-center shadow-xs">
-                <FileText className="w-6 h-6 text-[#036CFB]" />
+                <GraduationCap className="w-6 h-6 text-[#036CFB]" />
               </div>
 
               <div>
                 <h3 className="font-display font-bold text-[#062544] text-base uppercase tracking-tight">
-                  PASSPORT SERVICES
+                  EDUCATION CONSULTANCY
                 </h3>
                 <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                  Online assistance for new passports, renewals, Tatkal processing, address modifications, and digital documentation review.
+                  Overseas university selection, application vetting, SOP assistance, and complete student visa filing.
                 </p>
               </div>
 
               <button
-                onClick={() => setActiveModal('passport')}
+                onClick={() => setActiveModal('education')}
                 className="inline-flex items-center text-xs font-bold text-[#036CFB] hover:text-[#062544] underline underline-offset-4 transition-colors"
               >
-                Learn More
+                Explore Admissions
               </button>
             </div>
 

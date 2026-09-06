@@ -3,7 +3,6 @@ import { AppProvider, useApp } from './context/AppContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { LandingView } from './components/views/LandingView';
-import { ToursView } from './components/views/ToursView';
 import { VisaView } from './components/views/VisaView';
 import { ContactView } from './components/views/ContactView';
 import { BlogsView } from './components/views/BlogsView';
@@ -21,7 +20,6 @@ const MainContent: React.FC = () => {
       case 'home':
         return <LandingView />;
       case 'tours':
-        return <ToursView />;
       case 'visa-finder':
         return <VisaView />;
       case 'contact':

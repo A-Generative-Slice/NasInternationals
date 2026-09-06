@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
-import { Plane, Menu, X, Globe, Compass, FileText, Phone, Home, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Plane, Menu, X, Globe, Stamp, GraduationCap, FileText, Phone, Home, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
 import { useApp } from '../context/AppContext';
+import logoImg from '../assets/logo.jpg';
 
 export const Header: React.FC = () => {
-  const { currentView, navigateTo } = useApp();
+  const { currentView, navigateTo, setActiveModal } = useApp();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleNavClick = (path: string) => {
     navigateTo(path);
+    setMobileMenuOpen(false);
+  };
+
+  const handleOpenModal = (modal: 'attestation' | 'air-ticketing' | 'education') => {
+    setActiveModal(modal);
     setMobileMenuOpen(false);
   };
 
@@ -22,8 +28,8 @@ export const Header: React.FC = () => {
           
           {/* Brand Logo - NAS Internationals */}
           <div className="flex items-center space-x-3 cursor-pointer group" onClick={() => handleNavClick('/')}>
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#036CFB] to-[#38BDF8] flex items-center justify-center text-white shadow-lg shadow-[#036CFB]/30 border border-white/20 group-hover:scale-105 transition-all">
-              <Plane className="w-5 h-5 transform -rotate-45" />
+            <div className="w-11 h-11 rounded-2xl bg-white p-1 flex items-center justify-center shadow-lg shadow-[#036CFB]/30 border border-white/20 group-hover:scale-105 transition-all overflow-hidden shrink-0">
+              <img src={logoImg} alt="NAS Internationals Logo" className="w-full h-full object-contain" />
             </div>
             <div className="flex flex-col">
               <span className="font-display font-black text-xl sm:text-2xl tracking-tight text-white flex items-center">
@@ -33,16 +39,16 @@ export const Header: React.FC = () => {
                 </span>
               </span>
               <span className="text-[10px] text-slate-300 font-semibold tracking-wider hidden sm:block">
-                100% Online Tours & Travel Services
+                100% Online Visa & Travel Services
               </span>
             </div>
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-1.5 bg-white/5 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 shadow-inner">
+          <nav className="hidden lg:flex items-center space-x-1 bg-white/5 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 shadow-inner">
             <button
               onClick={() => handleNavClick('/')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 currentView === 'home'
                   ? 'bg-[#036CFB] text-white shadow-md shadow-[#036CFB]/30'
                   : 'text-slate-300 hover:text-white hover:bg-white/10'
@@ -51,38 +57,49 @@ export const Header: React.FC = () => {
               Home
             </button>
 
-            {/* Tours Nav item with blue "NEW" pill badge */}
-            <div className="relative">
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#38BDF8] text-[#062544] text-[8px] font-black px-1.5 py-0.2 rounded-full uppercase tracking-wider shadow-xs">
-                NEW
-              </span>
-              <button
-                onClick={() => handleNavClick('/tours')}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                  currentView === 'tours'
-                    ? 'bg-[#036CFB] text-white shadow-md shadow-[#036CFB]/30'
-                    : 'text-slate-300 hover:text-white hover:bg-white/10'
-                }`}
-              >
-                Tour Packages
-              </button>
-            </div>
-
+            {/* 1. Visa Services */}
             <button
               onClick={() => handleNavClick('/visas')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 currentView === 'visa-finder'
                   ? 'bg-[#036CFB] text-white shadow-md shadow-[#036CFB]/30'
                   : 'text-slate-300 hover:text-white hover:bg-white/10'
               }`}
             >
-              International Visas
+              Visa Services
+            </button>
+
+            {/* 2. Air Ticketing */}
+            <button
+              onClick={() => handleOpenModal('air-ticketing')}
+              className="px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer text-slate-300 hover:text-white hover:bg-white/10 flex items-center space-x-1"
+            >
+              <Plane className="w-3.5 h-3.5 text-[#38BDF8] transform -rotate-45" />
+              <span>Air Ticketing</span>
+            </button>
+
+            {/* 3. Document Attestation */}
+            <button
+              onClick={() => handleOpenModal('attestation')}
+              className="px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer text-slate-300 hover:text-white hover:bg-white/10 flex items-center space-x-1"
+            >
+              <Stamp className="w-3.5 h-3.5 text-[#38BDF8]" />
+              <span>Document Attestation</span>
+            </button>
+
+            {/* 4. Education Consultancy */}
+            <button
+              onClick={() => handleOpenModal('education')}
+              className="px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer text-slate-300 hover:text-white hover:bg-white/10 flex items-center space-x-1"
+            >
+              <GraduationCap className="w-3.5 h-3.5 text-[#38BDF8]" />
+              <span>Education Consultancy</span>
             </button>
 
             {/* Track Application Nav Item with Radar Dot */}
             <button
               onClick={() => handleNavClick('/payment')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center space-x-1.5 ${
+              className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center space-x-1.5 ${
                 currentView === 'payment-tracker' || currentView === 'user-dashboard'
                   ? 'bg-[#036CFB] text-white shadow-md shadow-[#036CFB]/30'
                   : 'text-slate-300 hover:text-white hover:bg-white/10'
@@ -93,19 +110,8 @@ export const Header: React.FC = () => {
             </button>
 
             <button
-              onClick={() => handleNavClick('/blogs')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                currentView === 'blogs'
-                  ? 'bg-[#036CFB] text-white shadow-md shadow-[#036CFB]/30'
-                  : 'text-slate-300 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              Blogs
-            </button>
-
-            <button
               onClick={() => handleNavClick('/faqs')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 currentView === 'faqs'
                   ? 'bg-[#036CFB] text-white shadow-md shadow-[#036CFB]/30'
                   : 'text-slate-300 hover:text-white hover:bg-white/10'
@@ -116,7 +122,7 @@ export const Header: React.FC = () => {
 
             <button
               onClick={() => handleNavClick('/contact')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 currentView === 'contact'
                   ? 'bg-[#036CFB] text-white shadow-md shadow-[#036CFB]/30'
                   : 'text-slate-300 hover:text-white hover:bg-white/10'
@@ -176,18 +182,32 @@ export const Header: React.FC = () => {
                 <span>Home</span>
               </button>
               <button
-                onClick={() => handleNavClick('/tours')}
-                className="flex items-center space-x-2.5 p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-left text-xs font-bold text-white transition-all"
-              >
-                <Compass className="w-4 h-4 text-[#38BDF8]" />
-                <span>Tour Packages</span>
-              </button>
-              <button
                 onClick={() => handleNavClick('/visas')}
                 className="flex items-center space-x-2.5 p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-left text-xs font-bold text-white transition-all"
               >
                 <Globe className="w-4 h-4 text-[#38BDF8]" />
                 <span>Visa Services</span>
+              </button>
+              <button
+                onClick={() => handleOpenModal('air-ticketing')}
+                className="flex items-center space-x-2.5 p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-left text-xs font-bold text-white transition-all"
+              >
+                <Plane className="w-4 h-4 text-[#38BDF8] transform -rotate-45" />
+                <span>Air Ticketing</span>
+              </button>
+              <button
+                onClick={() => handleOpenModal('attestation')}
+                className="flex items-center space-x-2.5 p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-left text-xs font-bold text-white transition-all"
+              >
+                <Stamp className="w-4 h-4 text-[#38BDF8]" />
+                <span>Document Attestation</span>
+              </button>
+              <button
+                onClick={() => handleOpenModal('education')}
+                className="flex items-center space-x-2.5 p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-left text-xs font-bold text-white transition-all"
+              >
+                <GraduationCap className="w-4 h-4 text-[#38BDF8]" />
+                <span>Education Consultancy</span>
               </button>
               <button
                 onClick={() => handleNavClick('/payment')}
@@ -197,18 +217,18 @@ export const Header: React.FC = () => {
                 <span>Track Application</span>
               </button>
               <button
-                onClick={() => handleNavClick('/blogs')}
-                className="flex items-center space-x-2.5 p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-left text-xs font-bold text-white transition-all"
-              >
-                <FileText className="w-4 h-4 text-[#38BDF8]" />
-                <span>Travel Blogs</span>
-              </button>
-              <button
                 onClick={() => handleNavClick('/faqs')}
                 className="flex items-center space-x-2.5 p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-left text-xs font-bold text-white transition-all"
               >
                 <Sparkles className="w-4 h-4 text-[#38BDF8]" />
                 <span>FAQ Support</span>
+              </button>
+              <button
+                onClick={() => handleNavClick('/contact')}
+                className="flex items-center space-x-2.5 p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-left text-xs font-bold text-white transition-all"
+              >
+                <Phone className="w-4 h-4 text-[#38BDF8]" />
+                <span>Contact Us</span>
               </button>
             </div>
 
@@ -234,7 +254,7 @@ export const Header: React.FC = () => {
         )}
       </header>
 
-      {/* MOBILE-OPTIMIZED FROSTED GLASS BOTTOM DOCK NAVIGATION (Strictly for mobile 19.5:9 / 20:9 screens) */}
+      {/* MOBILE-OPTIMIZED FROSTED GLASS BOTTOM DOCK NAVIGATION */}
       <nav className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-[#062544]/85 backdrop-blur-2xl border-t border-white/15 shadow-[0_-8px_30px_rgba(0,0,0,0.5)] px-3 py-1.5 safe-bottom">
         <div className="flex items-center justify-around max-w-md mx-auto">
           
@@ -270,21 +290,13 @@ export const Header: React.FC = () => {
             )}
           </button>
 
-          {/* Tours */}
+          {/* Air Tickets Modal Quick trigger */}
           <button
-            onClick={() => handleNavClick('/tours')}
-            className={`flex flex-col items-center justify-center py-1 px-3 rounded-xl transition-all relative ${
-              currentView === 'tours'
-                ? 'text-[#38BDF8] scale-105'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
+            onClick={() => handleOpenModal('air-ticketing')}
+            className="flex flex-col items-center justify-center py-1 px-3 rounded-xl transition-all text-slate-400 hover:text-slate-200"
           >
-            <span className="absolute top-0 right-2 w-2 h-2 rounded-full bg-[#036CFB] animate-ping"></span>
-            <Compass className="w-5 h-5 mb-0.5" />
-            <span className="text-[10px] font-bold">Tours</span>
-            {currentView === 'tours' && (
-              <span className="w-1 h-1 rounded-full bg-[#38BDF8] shadow-[0_0_6px_#38BDF8] mt-0.5"></span>
-            )}
+            <Plane className="w-5 h-5 mb-0.5 transform -rotate-45 text-[#38BDF8]" />
+            <span className="text-[10px] font-bold">Flights</span>
           </button>
 
           {/* Track Application */}

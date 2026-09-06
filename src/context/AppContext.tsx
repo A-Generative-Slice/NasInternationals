@@ -58,8 +58,8 @@ interface AppContextType {
   verifyOrRejectPayment: (appId: string, isVerified: boolean, reason?: string) => void;
 
   // Modal State
-  activeModal: 'visa-detail' | 'attestation' | 'passport' | null;
-  setActiveModal: (modal: 'visa-detail' | 'attestation' | 'passport' | null) => void;
+  activeModal: 'visa-detail' | 'attestation' | 'air-ticketing' | 'education' | 'passport' | null;
+  setActiveModal: (modal: 'visa-detail' | 'attestation' | 'air-ticketing' | 'education' | 'passport' | null) => void;
   
   // Auth Modal State
   isAuthModalOpen: boolean;
@@ -151,10 +151,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       window.location.hash = '#/payment';
       setCurrentViewRaw('payment-tracker');
       return;
-    } else if (view === 'tours') {
-      window.location.hash = '#/tours';
-    } else if (view === 'visa-finder') {
+    } else if (view === 'tours' || view === 'visa-finder') {
       window.location.hash = '#/visas';
+      setCurrentViewRaw('visa-finder');
+      return;
     } else if (view === 'contact') {
       window.location.hash = '#/contact';
     } else if (view === 'blogs') {
@@ -173,9 +173,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const cleanPath = path.toLowerCase();
     if (cleanPath.includes('/admin') || cleanPath.includes('/dashboard') || cleanPath.includes('/payment')) {
       setCurrentView('payment-tracker');
-    } else if (cleanPath.includes('/tours')) {
-      setCurrentView('tours');
-    } else if (cleanPath.includes('/visas') || cleanPath.includes('/visa')) {
+    } else if (cleanPath.includes('/tours') || cleanPath.includes('/visas') || cleanPath.includes('/visa')) {
       setCurrentView('visa-finder');
     } else if (cleanPath.includes('/contact')) {
       setCurrentView('contact');
@@ -197,9 +195,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       const h = window.location.hash.toLowerCase();
       if (p.includes('/admin') || h.includes('admin') || p.includes('/dashboard') || h.includes('dashboard') || p.includes('/payment') || h.includes('payment')) {
         setCurrentViewRaw('payment-tracker');
-      } else if (p.includes('/tours') || h.includes('tours')) {
-        setCurrentViewRaw('tours');
-      } else if (p.includes('/visas') || h.includes('visas') || h.includes('visa')) {
+      } else if (p.includes('/tours') || h.includes('tours') || p.includes('/visas') || h.includes('visas') || h.includes('visa')) {
         setCurrentViewRaw('visa-finder');
       } else if (p.includes('/contact') || h.includes('contact')) {
         setCurrentViewRaw('contact');
@@ -411,7 +407,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   });
 
   // Modal control
-  const [activeModal, setActiveModal] = useState<'visa-detail' | 'attestation' | 'passport' | null>(null);
+  const [activeModal, setActiveModal] = useState<'visa-detail' | 'attestation' | 'air-ticketing' | 'education' | 'passport' | null>(null);
 
   // Sync applications to localStorage
   useEffect(() => {
