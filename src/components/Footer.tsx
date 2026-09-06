@@ -7,30 +7,10 @@ export const Footer: React.FC = () => {
   const { navigateTo, setActiveModal } = useApp();
 
   return (
-    <footer className="bg-[#031526] text-white border-t border-white/10 relative overflow-hidden pb-24 lg:pb-12">
+    <footer className="bg-[#031526] text-white border-t border-white/10 relative overflow-hidden pb-32 lg:pb-12">
       {/* Ambient luminous glow blobs for dark frosted reflections */}
       <div className="ambient-glow-blue top-0 left-1/4 -translate-x-1/2 opacity-30"></div>
       <div className="ambient-glow-sky bottom-10 right-10 opacity-20"></div>
-
-      {/* Top Banner Accent - Official Services */}
-      <div className="bg-gradient-to-r from-[#036CFB]/90 via-[#0284C7]/90 to-[#0ea5e9]/90 backdrop-blur-xl py-3 text-white font-extrabold text-xs border-b border-white/15 relative z-10 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar max-w-full">
-            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-              <Plane className="w-3.5 h-3.5 transform -rotate-45" />
-            </div>
-            <span className="tracking-wide text-[11px] uppercase font-bold text-white whitespace-nowrap">
-              100% ONLINE SERVICES • SERVICE DURATION: 1 YEAR • VISA SERVICES • AIR TICKETING • DOCUMENT ATTESTATION • EDUCATION CONSULTANCY
-            </span>
-          </div>
-          <button
-            onClick={() => navigateTo('/visas')}
-            className="bg-[#062544]/90 hover:bg-[#062544] text-white px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer shrink-0 shadow-md border border-white/20 min-h-[34px] flex items-center active:scale-95 focus-ring"
-          >
-            Apply Online ↗
-          </button>
-        </div>
-      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
@@ -115,7 +95,7 @@ export const Footer: React.FC = () => {
               <li><button onClick={() => setActiveModal('attestation')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Document Attestation</button></li>
               <li><button onClick={() => setActiveModal('education')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Education Consultancy</button></li>
               <li><button onClick={() => navigateTo('/contact')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">Contact Us</button></li>
-              <li><button onClick={() => navigateTo('/faqs')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">FAQ's</button></li>
+              <li><button onClick={() => navigateTo('/faqs')} className="hover:text-[#38BDF8] transition-colors py-1 min-h-[32px] flex items-center">FAQs</button></li>
             </ul>
           </div>
 

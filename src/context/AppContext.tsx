@@ -402,7 +402,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     documents: [
       { id: 'doc-1', title: 'Passport Bio-Page', required: true, status: 'Pending' },
       { id: 'doc-2', title: 'Recent Photograph', required: true, status: 'Pending' },
-      { id: 'doc-3', title: 'Bank Statements (Last 3 Months)', required: true, status: 'Pending' }
+      { id: 'doc-3', title: 'Bank Statements - Past 3 Months', required: true, status: 'Pending' }
     ]
   });
 
@@ -434,7 +434,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       documents: [
         { id: 'doc-1', title: 'Passport Bio-Page', required: true, status: 'Pending' },
         { id: 'doc-2', title: 'Recent Photograph', required: true, status: 'Pending' },
-        { id: 'doc-3', title: 'Bank Statements (Last 3 Months)', required: true, status: 'Pending' }
+        { id: 'doc-3', title: 'Bank Statements - Past 3 Months', required: true, status: 'Pending' }
       ]
     });
   };

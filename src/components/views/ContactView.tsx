@@ -60,12 +60,8 @@ export const ContactView: React.FC = () => {
               </div>
             </div>
           </div>
-
         </div>
       </section>
-
-      {/* SOLID BLUE HORIZONTAL ACCENT DIVIDER BAR */}
-      <div className="w-full h-1 bg-gradient-to-r from-[#036CFB] via-[#38BDF8] to-[#036CFB]"></div>
 
       {/* MAIN CONTENT SECTION */}
       <section className="max-w-7xl mx-auto px-3.5 xs:px-4 sm:px-6 lg:px-8 py-8 sm:py-14 relative z-10">
@@ -77,11 +73,11 @@ export const ContactView: React.FC = () => {
           <div className="lg:col-span-6 space-y-6 sm:space-y-8">
             
             <div className="space-y-2.5 text-center sm:text-left">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#036CFB] block">
-                100% ONLINE VISA & TRAVEL SERVICES
+              <span className="text-xs font-bold uppercase tracking-wider text-[#036CFB] block">
+                Digital Client Support Desk
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#062544]">
-                Strictly Online Support & Consultation
+                Online Support & Consultation
               </h2>
               <p className="text-xs sm:text-sm font-medium text-slate-600 leading-relaxed">
                 <strong>Need Help With Visa Services, Air Ticketing, Document Attestation, or Education Consultancy?</strong> All our services are handled 100% digitally. Reach out directly via phone, WhatsApp, or email — zero in-person visits required.

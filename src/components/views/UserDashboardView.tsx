@@ -21,10 +21,12 @@ import {
   History,
   Receipt,
   Check,
-  Package
+  Package,
+  Loader2
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { ApplicationStatus } from '../../types';
+import { uploadCustomerDocument } from '../../services/supabaseStorage';
 
 export const UserDashboardView: React.FC = () => {
   const {
@@ -44,16 +46,20 @@ export const UserDashboardView: React.FC = () => {
   } = useApp();
 
   const [activeTab, setActiveTab] = useState<
-    'overview' | 'applications' | 'tours' | 'documents' | 'payments' | 'notifications' | 'invoices' | 'settings' | 'profile'
+    'overview' | 'applications' | 'documents' | 'payments' | 'notifications' | 'invoices' | 'settings' | 'profile'
   >('overview');
 
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
   const [selectedDocTitle, setSelectedDocTitle] = useState('Passport Bio-Page');
   const [simulatedFileName, setSimulatedFileName] = useState('');
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
 
   // Payment upload state
   const [payUtr, setPayUtr] = useState('');
   const [payFile, setPayFile] = useState('');
+  const [payFileObj, setPayFileObj] = useState<File | null>(null);
+  const [payFileUploading, setPayFileUploading] = useState(false);
 
   // Account Settings state
   const [twoFactor, setTwoFactor] = useState(false);
@@ -98,21 +104,43 @@ export const UserDashboardView: React.FC = () => {
     setCurrentView('wizard');
   };
 
-  const handleSimulatedUpload = (e: React.FormEvent) => {
+  const handleSimulatedUpload = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!simulatedFileName) return;
-    uploadDocument(app.id, selectedDocTitle, simulatedFileName);
-    setUploadModalOpen(false);
-    setSimulatedFileName('');
+    if (!selectedFile && !simulatedFileName) return;
+    setIsUploading(true);
+    try {
+      let finalName = simulatedFileName;
+      if (selectedFile) {
+        const res = await uploadCustomerDocument(selectedFile, app.id, selectedDocTitle);
+        finalName = res.fileName;
+      }
+      uploadDocument(app.id, selectedDocTitle, finalName);
+      setUploadModalOpen(false);
+      setSelectedFile(null);
+      setSimulatedFileName('');
+    } finally {
+      setIsUploading(false);
+    }
   };
 
-  const handlePaymentSubmit = (e: React.FormEvent) => {
+  const handlePaymentSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!payUtr) return;
-    submitPaymentProof(app.id, payUtr, payFile || 'payment_receipt.pdf');
-    setPayUtr('');
-    setPayFile('');
-    alert('Payment screenshot proof & UTR submitted successfully! Verified by accounts team.');
+    setPayFileUploading(true);
+    try {
+      let finalName = payFile || 'payment_receipt.pdf';
+      if (payFileObj) {
+        const res = await uploadCustomerDocument(payFileObj, app.id, 'Payment Proof');
+        finalName = res.fileName;
+      }
+      submitPaymentProof(app.id, payUtr, finalName);
+      setPayUtr('');
+      setPayFile('');
+      setPayFileObj(null);
+      alert('Payment screenshot proof & UTR submitted successfully! Verified by accounts team.');
+    } finally {
+      setPayFileUploading(false);
+    }
   };
 
   return (
@@ -158,18 +186,6 @@ export const UserDashboardView: React.FC = () => {
             >
               <FileText className="w-4 h-4" />
               <span>Visa Applications</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('tours')}
-              className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all ${
-                activeTab === 'tours'
-                  ? 'bg-[#EBF3FF] text-[#036CFB] shadow-xs'
-                  : 'text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              <Package className="w-4 h-4" />
-              <span>Tour Bookings</span>
             </button>
 
             <button
@@ -270,7 +286,7 @@ export const UserDashboardView: React.FC = () => {
               Welcome, {currentUser?.name || 'Rahul Sharma'}
             </h1>
             <p className="text-xs text-slate-500">
-              User Portal: Manage visa applications, tour package bookings, and uploaded documents.
+              User Portal: Manage visa applications, document uploads, and tracking.
             </p>
           </div>
 
@@ -492,39 +508,6 @@ export const UserDashboardView: React.FC = () => {
           </div>
         )}
 
-        {/* TAB 3: TOURS */}
-        {activeTab === 'tours' && (
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
-            <h2 className="font-display font-bold text-[#0B1E3D] text-lg">My Tour Package Bookings</h2>
-            {tourBookings.length === 0 ? (
-              <p className="text-xs text-slate-500">No active tour package bookings yet.</p>
-            ) : (
-              <div className="space-y-4">
-                {tourBookings.map((bkg) => (
-                  <div key={bkg.id} className="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col md:flex-row justify-between gap-4">
-                    <div className="space-y-1">
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 uppercase">
-                        {bkg.status}
-                      </span>
-                      <h3 className="font-display font-bold text-base text-[#0B1E3D]">{bkg.packageName}</h3>
-                      <p className="text-xs text-slate-600">Travel Date: <strong>{bkg.travelDate}</strong> ({bkg.travelersCount} Travelers)</p>
-                      <p className="text-xs text-[#036CFB] font-bold">Booking Mode: 100% Online Confirmed</p>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <button
-                        onClick={() => alert(`Downloading Booking Voucher PDF for ${bkg.id}...`)}
-                        className="px-4 py-2 bg-[#036CFB] hover:bg-[#0256c7] text-white text-xs font-bold rounded-xl shadow-sm transition flex items-center space-x-1.5"
-                      >
-                        <Download className="w-3.5 h-3.5" />
-                        <span>Download Voucher</span>
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
 
         {/* TAB 4: DOCUMENTS */}
         {activeTab === 'documents' && (
@@ -586,21 +569,41 @@ export const UserDashboardView: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Payment Proof File Name</label>
-                <input
-                  type="text"
-                  placeholder="e.g. gpay_receipt_march.jpg"
-                  value={payFile}
-                  onChange={(e) => setPayFile(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs"
-                />
+                <label className="block text-xs font-bold text-slate-700 mb-1">Payment Proof File (Screenshot or Receipt PDF)</label>
+                <div className="relative border-2 border-dashed border-slate-300 hover:border-[#036CFB] rounded-xl p-4 bg-slate-50 transition text-center cursor-pointer">
+                  <input
+                    type="file"
+                    accept="image/*,application/pdf"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        setPayFileObj(file);
+                        setPayFile(file.name);
+                      }
+                    }}
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                  />
+                  <Upload className="w-5 h-5 text-[#036CFB] mx-auto mb-1.5" />
+                  <p className="text-xs font-bold text-slate-700">
+                    {payFileObj ? payFileObj.name : 'Tap to upload screenshot or PDF'}
+                  </p>
+                  <p className="text-[10px] text-slate-400 mt-0.5">JPG, PNG, PDF up to 10MB</p>
+                </div>
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3 bg-[#036CFB] hover:bg-[#0B1E3D] text-white font-bold text-xs rounded-xl shadow-md"
+                disabled={payFileUploading}
+                className="w-full py-3 bg-[#036CFB] hover:bg-[#0B1E3D] text-white font-bold text-xs rounded-xl shadow-md transition disabled:opacity-50 flex items-center justify-center space-x-2"
               >
-                Submit Payment Screenshot Proof
+                {payFileUploading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Uploading to Secure Storage...</span>
+                  </>
+                ) : (
+                  <span>Submit Payment Screenshot Proof</span>
+                )}
               </button>
             </form>
           </div>
@@ -758,39 +761,62 @@ export const UserDashboardView: React.FC = () => {
                 >
                   <option value="Passport Bio-Page">Passport Bio-Page</option>
                   <option value="Recent Photograph">Recent Photograph</option>
-                  <option value="Bank Statements (Last 3 Months)">Bank Statements (Last 3 Months)</option>
-                  <option value="Income Tax Returns (ITR)">Income Tax Returns (ITR)</option>
-                  <option value="Employment Offer Letter / NOC">Employment Offer Letter / NOC</option>
+                  <option value="Bank Statements - Past 3 Months">Bank Statements - Past 3 Months</option>
+                  <option value="Income Tax Returns">Income Tax Returns</option>
+                  <option value="Employment Offer Letter or NOC">Employment Offer Letter or NOC</option>
                 </select>
               </div>
 
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  File Name / Select File
+                  Select Document File
                 </label>
-                <input
-                  type="text"
-                  placeholder="e.g. passport_scan_v2.pdf"
-                  value={simulatedFileName}
-                  onChange={(e) => setSimulatedFileName(e.target.value)}
-                  required
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-[#036CFB]"
-                />
+                <div className="relative border-2 border-dashed border-slate-300 hover:border-[#036CFB] rounded-xl p-5 bg-slate-50 text-center cursor-pointer transition-colors">
+                  <input
+                    type="file"
+                    accept="image/*,application/pdf"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        setSelectedFile(file);
+                        setSimulatedFileName(file.name);
+                      }
+                    }}
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                  />
+                  <Upload className="w-6 h-6 text-[#036CFB] mx-auto mb-1.5" />
+                  <p className="text-xs font-bold text-slate-700">
+                    {selectedFile ? selectedFile.name : 'Tap to browse or drop file here'}
+                  </p>
+                  <p className="text-[10px] text-slate-400 mt-0.5">PDF, PNG, JPG (Max 15MB)</p>
+                </div>
               </div>
 
               <div className="flex justify-end space-x-3 pt-2">
                 <button
                   type="button"
-                  onClick={() => setUploadModalOpen(false)}
+                  onClick={() => {
+                    setUploadModalOpen(false);
+                    setSelectedFile(null);
+                    setSimulatedFileName('');
+                  }}
                   className="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 text-xs font-bold text-white bg-[#036CFB] hover:bg-[#0B1E3D] rounded-xl shadow-xs"
+                  disabled={isUploading || (!selectedFile && !simulatedFileName)}
+                  className="px-5 py-2 text-xs font-bold text-white bg-[#036CFB] hover:bg-[#0B1E3D] rounded-xl shadow-xs transition disabled:opacity-50 flex items-center space-x-1.5"
                 >
-                  Upload File
+                  {isUploading ? (
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                      <span>Uploading...</span>
+                    </>
+                  ) : (
+                    <span>Upload Document</span>
+                  )}
                 </button>
               </div>
             </form>

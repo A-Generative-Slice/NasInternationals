@@ -156,7 +156,7 @@ export const INITIAL_APPLICATIONS: ApplicationItem[] = [
     documents: [
       { id: 'doc-1', title: 'Passport Bio-Page', required: true, fileName: 'passport_rahul.pdf', uploadDate: '15 Aug 2024', status: 'Verified' },
       { id: 'doc-2', title: 'Recent Photograph', required: true, fileName: 'photo_rahul.jpg', uploadDate: '15 Aug 2024', status: 'Verified' },
-      { id: 'doc-3', title: 'Bank Statements (Last 3 Months)', required: true, fileName: 'bank_statement.pdf', uploadDate: '15 Aug 2024', status: 'Uploaded' }
+      { id: 'doc-3', title: 'Bank Statements - Past 3 Months', required: true, fileName: 'bank_statement.pdf', uploadDate: '15 Aug 2024', status: 'Uploaded' }
     ],
     payment: {
       bookingId: 'NAS-987654321',

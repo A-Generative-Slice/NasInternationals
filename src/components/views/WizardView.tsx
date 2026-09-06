@@ -1,8 +1,16 @@
-import React, { useState } from 'react';
-import { UploadCloud, CheckCircle2, Phone, MessageSquare, ArrowRight, ArrowLeft, FileText, Check, ShieldCheck, Sparkles } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { UploadCloud, CheckCircle2, Phone, MessageSquare, ArrowRight, ArrowLeft, FileText, Check, ShieldCheck, Sparkles, X, Eye, RefreshCw } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useApp } from '../../context/AppContext';
 import { COUNTRIES_LIST, NATIONALITIES_LIST, PURPOSES_LIST } from '../../data/mockData';
+import { uploadCustomerDocument } from '../../services/supabaseStorage';
+
+interface UploadedDocInfo {
+  name: string;
+  size: string;
+  url: string;
+  type: string;
+}
 
 export const WizardView: React.FC = () => {
   const {
@@ -16,22 +24,64 @@ export const WizardView: React.FC = () => {
   } = useApp();
 
   const [dragActive, setDragActive] = useState(false);
-  const [uploadedFiles, setUploadedFiles] = useState<{ [key: string]: string }>({
-    'Passport Bio-Page': 'passport_rahul_bio.pdf',
-    'Recent Photograph': 'photo_35x45mm.jpg',
-    'Bank Statements (Last 3 Months)': 'bank_statement_h1.pdf'
+  const [isUploading, setIsUploading] = useState<string | null>(null);
+
+  const [uploadedDocs, setUploadedDocs] = useState<{ [key: string]: UploadedDocInfo }>({
+    'Passport Bio-Page': {
+      name: 'passport_bio_page.pdf',
+      size: '1.2 MB',
+      url: '',
+      type: 'application/pdf'
+    },
+    'Recent Photograph': {
+      name: 'applicant_photo_35x45.jpg',
+      size: '420 KB',
+      url: '',
+      type: 'image/jpeg'
+    },
+    'Bank Statements': {
+      name: 'bank_statement_recent.pdf',
+      size: '2.8 MB',
+      url: '',
+      type: 'application/pdf'
+    }
   });
 
-  const handleFileUpload = (docTitle: string) => {
-    const fakeNames: { [key: string]: string } = {
-      'Passport Bio-Page': 'scanned_passport_page1.pdf',
-      'Recent Photograph': 'applicant_photo_studio.jpg',
-      'Bank Statements (Last 3 Months)': 'bank_statement_6months.pdf'
-    };
-    setUploadedFiles(prev => ({
-      ...prev,
-      [docTitle]: fakeNames[docTitle] || 'uploaded_doc.pdf'
-    }));
+  const generalFileInputRef = useRef<HTMLInputElement | null>(null);
+  const passportInputRef = useRef<HTMLInputElement | null>(null);
+  const photoInputRef = useRef<HTMLInputElement | null>(null);
+  const bankInputRef = useRef<HTMLInputElement | null>(null);
+
+  const handleFileSelection = async (docTitle: string, file: File) => {
+    setIsUploading(docTitle);
+    try {
+      const result = await uploadCustomerDocument(file, 'visa-documents');
+      const sizeStr = file.size > 1024 * 1024 
+        ? `${(file.size / (1024 * 1024)).toFixed(1)} MB` 
+        : `${Math.round(file.size / 1024)} KB`;
+
+      setUploadedDocs(prev => ({
+        ...prev,
+        [docTitle]: {
+          name: file.name,
+          size: sizeStr,
+          url: result.url,
+          type: file.type
+        }
+      }));
+    } catch (err) {
+      console.warn('Document upload error:', err);
+    } finally {
+      setIsUploading(null);
+    }
+  };
+
+  const handleRemoveDoc = (docTitle: string) => {
+    setUploadedDocs(prev => {
+      const copy = { ...prev };
+      delete copy[docTitle];
+      return copy;
+    });
   };
 
   const handleNext = () => {
@@ -39,7 +89,7 @@ export const WizardView: React.FC = () => {
       setWizardStep(wizardStep + 1);
     } else {
       // Step 4 Submit
-      const newApp = submitWizardApplication();
+      submitWizardApplication();
       confetti({
         particleCount: 80,
         spread: 70,
@@ -56,8 +106,8 @@ export const WizardView: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#F8FAFC] min-h-[calc(100vh-5rem)] py-5 xs:py-6 sm:py-8 px-3 xs:px-4 sm:px-6 lg:px-8 relative overflow-hidden pb-28 lg:pb-16">
-      {/* Ambient background glow blobs for frosted glass reflections */}
+    <div className="bg-[#F8FAFC] min-h-[calc(100vh-5rem)] py-5 xs:py-6 sm:py-8 px-3 xs:px-4 sm:px-6 lg:px-8 relative overflow-hidden pb-40 lg:pb-20">
+      {/* Ambient background glow blobs */}
       <div className="ambient-glow-blue top-12 left-1/4 -translate-x-1/2"></div>
       <div className="ambient-glow-sky top-80 right-10"></div>
       <div className="ambient-glow-blue bottom-32 left-10"></div>
@@ -81,49 +131,49 @@ export const WizardView: React.FC = () => {
             {/* Step 1 */}
             <div className="relative z-10 flex flex-col items-center space-y-1">
               <div
-                className={`w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs transition-all ${
+                className={`w-8 h-8 xs:w-9 xs:h-9 rounded-full flex items-center justify-center font-bold text-xs transition-all ${
                   wizardStep >= 1 ? 'bg-[#036CFB] text-white shadow-md shadow-[#036CFB]/30' : 'bg-slate-100 text-slate-400'
                 }`}
               >
                 1
               </div>
-              <span className="text-xs font-semibold text-slate-800 hidden sm:inline">1. Personal Details</span>
+              <span className="text-xs font-semibold text-slate-800 hidden sm:inline">Personal Details</span>
             </div>
 
             {/* Step 2 */}
             <div className="relative z-10 flex flex-col items-center space-y-1">
               <div
-                className={`w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs transition-all ${
+                className={`w-8 h-8 xs:w-9 xs:h-9 rounded-full flex items-center justify-center font-bold text-xs transition-all ${
                   wizardStep >= 2 ? 'bg-[#036CFB] text-white shadow-md shadow-[#036CFB]/30' : 'bg-slate-100 text-slate-400'
                 }`}
               >
                 2
               </div>
-              <span className="text-xs font-semibold text-slate-800 hidden sm:inline">2. Travel Info</span>
+              <span className="text-xs font-semibold text-slate-800 hidden sm:inline">Travel Info</span>
             </div>
 
             {/* Step 3 */}
             <div className="relative z-10 flex flex-col items-center space-y-1">
               <div
-                className={`w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs transition-all ${
+                className={`w-8 h-8 xs:w-9 xs:h-9 rounded-full flex items-center justify-center font-bold text-xs transition-all ${
                   wizardStep >= 3 ? 'bg-[#036CFB] text-white shadow-md shadow-[#036CFB]/30' : 'bg-slate-100 text-slate-400'
                 }`}
               >
                 3
               </div>
-              <span className="text-xs font-bold text-[#036CFB] hidden sm:inline">3. Document Upload</span>
+              <span className="text-xs font-bold text-[#036CFB] hidden sm:inline">Document Upload</span>
             </div>
 
             {/* Step 4 */}
             <div className="relative z-10 flex flex-col items-center space-y-1">
               <div
-                className={`w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs transition-all ${
+                className={`w-8 h-8 xs:w-9 xs:h-9 rounded-full flex items-center justify-center font-bold text-xs transition-all ${
                   wizardStep === 4 ? 'bg-[#036CFB] text-white shadow-md shadow-[#036CFB]/30' : 'bg-slate-100 text-slate-400'
                 }`}
               >
                 4
               </div>
-              <span className="text-xs font-semibold text-slate-800 hidden sm:inline">4. Review & Submit</span>
+              <span className="text-xs font-semibold text-slate-800 hidden sm:inline">Review & Submit</span>
             </div>
 
           </div>
@@ -140,52 +190,60 @@ export const WizardView: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <h2 className="font-display font-bold text-xl text-[#062544]">
-                    Step 1: Personal Details
+                    Personal Details
                   </h2>
-                  <p className="text-xs text-slate-500">Provide your full legal name and contact details matching your passport.</p>
+                  <p className="text-xs text-slate-500">Provide legal name and contact details matching your passport.</p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">Full Name (as in Passport)</label>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Full Legal Name
+                    </label>
                     <input
                       type="text"
                       value={wizardData.applicantName || ''}
                       onChange={(e) => updateWizardData({ applicantName: e.target.value })}
-                      placeholder="e.g. Rahul Sharma"
+                      placeholder="Rahul Sharma"
                       className="w-full bg-white/90 border border-slate-200 rounded-2xl p-3 sm:p-3.5 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] focus:ring-2 focus:ring-[#036CFB]/20 min-h-[44px] transition"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">Passport Number</label>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Passport Number
+                    </label>
                     <input
                       type="text"
                       value={wizardData.passportNumber || ''}
                       onChange={(e) => updateWizardData({ passportNumber: e.target.value })}
-                      placeholder="e.g. Z8923412"
+                      placeholder="Z8923412"
                       className="w-full bg-white/90 border border-slate-200 rounded-2xl p-3 sm:p-3.5 text-xs font-mono font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] focus:ring-2 focus:ring-[#036CFB]/20 min-h-[44px] transition"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">Email Address</label>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Email Address
+                    </label>
                     <input
                       type="email"
                       value={wizardData.email || ''}
                       onChange={(e) => updateWizardData({ email: e.target.value })}
-                      placeholder="e.g. rahul.sharma@example.com"
+                      placeholder="rahul.sharma@example.com"
                       className="w-full bg-white/90 border border-slate-200 rounded-2xl p-3 sm:p-3.5 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] focus:ring-2 focus:ring-[#036CFB]/20 min-h-[44px] transition"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Phone Number
+                    </label>
                     <input
                       type="tel"
                       value={wizardData.phone || ''}
                       onChange={(e) => updateWizardData({ phone: e.target.value })}
-                      placeholder="e.g. +91 99419 00055"
+                      placeholder="+91 99419 00055"
                       className="w-full bg-white/90 border border-slate-200 rounded-2xl p-3 sm:p-3.5 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#036CFB] focus:ring-2 focus:ring-[#036CFB]/20 min-h-[44px] transition"
                     />
                   </div>
@@ -198,9 +256,9 @@ export const WizardView: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <h2 className="font-display font-bold text-xl text-[#062544]">
-                    Step 2: Travel Info
+                    Travel Details
                   </h2>
-                  <p className="text-xs text-slate-500">Select destination, nationality, and visa purpose.</p>
+                  <p className="text-xs text-slate-500">Select your destination, nationality, and visa category.</p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -251,10 +309,56 @@ export const WizardView: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <h2 className="font-display font-bold text-xl text-[#062544]">
-                    Step 3: Document Upload
+                    Document Upload
                   </h2>
-                  <p className="text-xs text-slate-500">Upload high-resolution scans of your supporting documents.</p>
+                  <p className="text-xs text-slate-500">Upload clear digital copies or photos of your supporting documents.</p>
                 </div>
+
+                {/* Hidden File Inputs */}
+                <input
+                  type="file"
+                  ref={generalFileInputRef}
+                  accept="image/*,application/pdf"
+                  className="hidden"
+                  onChange={(e) => {
+                    if (e.target.files && e.target.files[0]) {
+                      handleFileSelection('Supporting Document', e.target.files[0]);
+                    }
+                  }}
+                />
+                <input
+                  type="file"
+                  ref={passportInputRef}
+                  accept="image/*,application/pdf"
+                  className="hidden"
+                  onChange={(e) => {
+                    if (e.target.files && e.target.files[0]) {
+                      handleFileSelection('Passport Bio-Page', e.target.files[0]);
+                    }
+                  }}
+                />
+                <input
+                  type="file"
+                  ref={photoInputRef}
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => {
+                    if (e.target.files && e.target.files[0]) {
+                      handleFileSelection('Recent Photograph', e.target.files[0]);
+                    }
+                  }}
+                />
+                <input
+                  type="file"
+                  ref={bankInputRef}
+                  accept="image/*,application/pdf"
+                  className="hidden"
+                  onChange={(e) => {
+                    if (e.target.files && e.target.files[0]) {
+                      handleFileSelection('Bank Statements', e.target.files[0]);
+                    }
+                  }}
+                />
 
                 {/* Drag & Drop Main Box */}
                 <div
@@ -263,9 +367,12 @@ export const WizardView: React.FC = () => {
                   onDrop={(e) => {
                     e.preventDefault();
                     setDragActive(false);
-                    handleFileUpload('Passport Bio-Page');
+                    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                      handleFileSelection('Passport Bio-Page', e.dataTransfer.files[0]);
+                    }
                   }}
-                  className={`border-2 border-dashed rounded-3xl p-8 text-center transition-all cursor-pointer ${
+                  onClick={() => generalFileInputRef.current?.click()}
+                  className={`border-2 border-dashed rounded-3xl p-6 sm:p-8 text-center transition-all cursor-pointer ${
                     dragActive ? 'border-[#036CFB] bg-blue-50/70 shadow-lg' : 'border-blue-200/80 hover:border-[#036CFB] bg-white/60 shadow-xs'
                   }`}
                 >
@@ -273,86 +380,163 @@ export const WizardView: React.FC = () => {
                     <UploadCloud className="w-7 h-7" />
                   </div>
                   <p className="font-bold text-slate-800 text-sm">
-                    Drag & drop your documents here
+                    Drag and drop your documents here
                   </p>
                   <p className="text-xs text-slate-500 mt-1">
-                    or <span className="text-[#036CFB] underline font-bold">Browse</span> files from your device
+                    or <span className="text-[#036CFB] underline font-bold">Browse files</span> from your device
                   </p>
                   <p className="text-[10px] text-slate-400 mt-2 font-medium">
-                    Supported formats: PDF, JPG, PNG (Max 10MB per file) • 100% Encrypted
+                    PDF, JPG, PNG accepted • Up to 10MB per file
                   </p>
                 </div>
 
                 {/* Document Slots */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  
                   {/* Slot 1: Passport Bio-Page */}
                   <div className="glass-frost-subtle rounded-2xl p-4 border border-white/80 space-y-3 shadow-xs">
-                    <span className="font-bold text-xs text-slate-800 block">
-                      Passport Bio-Page
-                    </span>
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-xs text-slate-800 block">
+                        Passport Bio-Page
+                      </span>
+                      <span className="text-[9px] font-bold text-rose-500 bg-rose-50 px-1.5 py-0.5 rounded">Required</span>
+                    </div>
+
                     <div className="flex items-center justify-between pt-1">
                       <button
-                        onClick={() => handleFileUpload('Passport Bio-Page')}
-                        className="py-1.5 px-3.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold text-xs rounded-xl transition shadow-xs"
+                        type="button"
+                        onClick={() => passportInputRef.current?.click()}
+                        disabled={isUploading === 'Passport Bio-Page'}
+                        className="py-1.5 px-3.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold text-xs rounded-xl transition shadow-xs flex items-center space-x-1.5 cursor-pointer active:scale-95"
                       >
-                        File Upload
+                        {isUploading === 'Passport Bio-Page' ? (
+                          <RefreshCw className="w-3.5 h-3.5 text-[#036CFB] animate-spin" />
+                        ) : (
+                          <FileText className="w-3.5 h-3.5 text-[#036CFB]" />
+                        )}
+                        <span>{uploadedDocs['Passport Bio-Page'] ? 'Change File' : 'Choose File'}</span>
                       </button>
-                      <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#036CFB] flex items-center justify-center">
-                        <FileText className="w-4 h-4" />
-                      </div>
+
+                      {uploadedDocs['Passport Bio-Page'] && (
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveDoc('Passport Bio-Page')}
+                          className="p-1 rounded-lg text-slate-400 hover:text-rose-500 transition"
+                          title="Remove"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      )}
                     </div>
-                    {uploadedFiles['Passport Bio-Page'] && (
-                      <p className="text-[10px] text-emerald-600 font-semibold truncate">
-                        ✓ {uploadedFiles['Passport Bio-Page']}
-                      </p>
+
+                    {uploadedDocs['Passport Bio-Page'] && (
+                      <div className="p-2 rounded-xl bg-emerald-50/90 border border-emerald-200/80 text-[11px] text-emerald-700 flex items-center justify-between">
+                        <span className="truncate font-semibold max-w-[120px]">
+                          ✓ {uploadedDocs['Passport Bio-Page'].name}
+                        </span>
+                        <span className="text-[10px] text-slate-400 shrink-0 ml-1">
+                          {uploadedDocs['Passport Bio-Page'].size}
+                        </span>
+                      </div>
                     )}
                   </div>
 
                   {/* Slot 2: Recent Photograph */}
                   <div className="glass-frost-subtle rounded-2xl p-4 border border-white/80 space-y-3 shadow-xs">
-                    <span className="font-bold text-xs text-slate-800 block">
-                      Recent Photograph
-                    </span>
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-xs text-slate-800 block">
+                        Recent Photograph
+                      </span>
+                      <span className="text-[9px] font-bold text-rose-500 bg-rose-50 px-1.5 py-0.5 rounded">Required</span>
+                    </div>
+
                     <div className="flex items-center justify-between pt-1">
                       <button
-                        onClick={() => handleFileUpload('Recent Photograph')}
-                        className="py-1.5 px-3.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold text-xs rounded-xl transition shadow-xs"
+                        type="button"
+                        onClick={() => photoInputRef.current?.click()}
+                        disabled={isUploading === 'Recent Photograph'}
+                        className="py-1.5 px-3.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold text-xs rounded-xl transition shadow-xs flex items-center space-x-1.5 cursor-pointer active:scale-95"
                       >
-                        File Upload
+                        {isUploading === 'Recent Photograph' ? (
+                          <RefreshCw className="w-3.5 h-3.5 text-[#036CFB] animate-spin" />
+                        ) : (
+                          <FileText className="w-3.5 h-3.5 text-[#036CFB]" />
+                        )}
+                        <span>{uploadedDocs['Recent Photograph'] ? 'Change Photo' : 'Choose Photo'}</span>
                       </button>
-                      <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#036CFB] flex items-center justify-center">
-                        <FileText className="w-4 h-4" />
-                      </div>
+
+                      {uploadedDocs['Recent Photograph'] && (
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveDoc('Recent Photograph')}
+                          className="p-1 rounded-lg text-slate-400 hover:text-rose-500 transition"
+                          title="Remove"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      )}
                     </div>
-                    {uploadedFiles['Recent Photograph'] && (
-                      <p className="text-[10px] text-emerald-600 font-semibold truncate">
-                        ✓ {uploadedFiles['Recent Photograph']}
-                      </p>
+
+                    {uploadedDocs['Recent Photograph'] && (
+                      <div className="p-2 rounded-xl bg-emerald-50/90 border border-emerald-200/80 text-[11px] text-emerald-700 flex items-center justify-between">
+                        <span className="truncate font-semibold max-w-[120px]">
+                          ✓ {uploadedDocs['Recent Photograph'].name}
+                        </span>
+                        <span className="text-[10px] text-slate-400 shrink-0 ml-1">
+                          {uploadedDocs['Recent Photograph'].size}
+                        </span>
+                      </div>
                     )}
                   </div>
 
                   {/* Slot 3: Bank Statements */}
                   <div className="glass-frost-subtle rounded-2xl p-4 border border-white/80 space-y-3 shadow-xs">
-                    <span className="font-bold text-xs text-slate-800 block">
-                      Bank Statements
-                    </span>
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-xs text-slate-800 block">
+                        Bank Statements
+                      </span>
+                      <span className="text-[9px] font-bold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded">Past 3 Mos</span>
+                    </div>
+
                     <div className="flex items-center justify-between pt-1">
                       <button
-                        onClick={() => handleFileUpload('Bank Statements (Last 3 Months)')}
-                        className="py-1.5 px-3.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold text-xs rounded-xl transition shadow-xs"
+                        type="button"
+                        onClick={() => bankInputRef.current?.click()}
+                        disabled={isUploading === 'Bank Statements'}
+                        className="py-1.5 px-3.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold text-xs rounded-xl transition shadow-xs flex items-center space-x-1.5 cursor-pointer active:scale-95"
                       >
-                        File Upload
+                        {isUploading === 'Bank Statements' ? (
+                          <RefreshCw className="w-3.5 h-3.5 text-[#036CFB] animate-spin" />
+                        ) : (
+                          <FileText className="w-3.5 h-3.5 text-[#036CFB]" />
+                        )}
+                        <span>{uploadedDocs['Bank Statements'] ? 'Change File' : 'Choose File'}</span>
                       </button>
-                      <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#036CFB] flex items-center justify-center">
-                        <FileText className="w-4 h-4" />
-                      </div>
+
+                      {uploadedDocs['Bank Statements'] && (
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveDoc('Bank Statements')}
+                          className="p-1 rounded-lg text-slate-400 hover:text-rose-500 transition"
+                          title="Remove"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      )}
                     </div>
-                    {uploadedFiles['Bank Statements (Last 3 Months)'] && (
-                      <p className="text-[10px] text-emerald-600 font-semibold truncate">
-                        ✓ {uploadedFiles['Bank Statements (Last 3 Months)']}
-                      </p>
+
+                    {uploadedDocs['Bank Statements'] && (
+                      <div className="p-2 rounded-xl bg-emerald-50/90 border border-emerald-200/80 text-[11px] text-emerald-700 flex items-center justify-between">
+                        <span className="truncate font-semibold max-w-[120px]">
+                          ✓ {uploadedDocs['Bank Statements'].name}
+                        </span>
+                        <span className="text-[10px] text-slate-400 shrink-0 ml-1">
+                          {uploadedDocs['Bank Statements'].size}
+                        </span>
+                      </div>
                     )}
                   </div>
+
                 </div>
 
               </div>
@@ -363,7 +547,7 @@ export const WizardView: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <h2 className="font-display font-bold text-xl text-[#062544]">
-                    Step 4: Review & Submit Application
+                    Review Application
                   </h2>
                   <p className="text-xs text-slate-500">Verify all information before confirming submission.</p>
                 </div>
@@ -383,9 +567,9 @@ export const WizardView: React.FC = () => {
                       <span className="font-bold text-slate-800 text-sm">{wizardData.destination}</span>
                     </div>
                     <div>
-                      <span className="text-slate-400 block text-[10px] font-bold uppercase">Application Mode</span>
+                      <span className="text-slate-400 block text-[10px] font-bold uppercase">Service Mode</span>
                       <span className="font-bold text-[#036CFB] flex items-center gap-1 mt-0.5">
-                        <Check className="w-4 h-4 text-[#036CFB]" /> 100% Online Digital
+                        <Check className="w-4 h-4 text-[#036CFB]" /> Digital Application
                       </span>
                     </div>
                   </div>
@@ -394,7 +578,7 @@ export const WizardView: React.FC = () => {
                 <div className="p-4 rounded-2xl bg-blue-50/90 border border-blue-200/80 text-xs text-blue-950 flex items-start space-x-3 backdrop-blur-md">
                   <ShieldCheck className="w-5 h-5 text-[#036CFB] shrink-0 mt-0.5" />
                   <p className="leading-relaxed">
-                    By submitting, you confirm that all attached documents are authentic and match government specifications.
+                    By submitting, you confirm that all attached documents are authentic and match official specifications.
                   </p>
                 </div>
               </div>
@@ -404,6 +588,7 @@ export const WizardView: React.FC = () => {
             <div className="pt-6 border-t border-slate-200/60 flex flex-col-reverse xs:flex-row items-stretch xs:items-center justify-between gap-3">
               {wizardStep > 1 ? (
                 <button
+                  type="button"
                   onClick={handlePrev}
                   className="px-5 py-2.5 bg-white hover:bg-slate-100 active:scale-95 text-slate-700 font-bold text-xs rounded-full border border-slate-200 transition flex items-center justify-center space-x-1.5 shadow-xs min-h-[44px]"
                 >
@@ -412,6 +597,7 @@ export const WizardView: React.FC = () => {
                 </button>
               ) : (
                 <button
+                  type="button"
                   onClick={() => setCurrentView('visa-finder')}
                   className="px-5 py-2.5 bg-white hover:bg-slate-100 active:scale-95 text-slate-700 font-bold text-xs rounded-full border border-slate-200 transition shadow-xs min-h-[44px] flex items-center justify-center"
                 >
@@ -420,6 +606,7 @@ export const WizardView: React.FC = () => {
               )}
 
               <button
+                type="button"
                 onClick={handleNext}
                 className="px-8 py-2.5 bg-gradient-to-r from-[#036CFB] to-[#0284C7] hover:from-[#0256c7] hover:to-[#036CFB] active:scale-98 text-white font-display font-bold text-xs tracking-wide rounded-full shadow-lg shadow-[#036CFB]/30 transition flex items-center justify-center space-x-2 min-h-[44px]"
               >
@@ -444,7 +631,7 @@ export const WizardView: React.FC = () => {
               </div>
 
               <p className="text-xs text-slate-300 leading-relaxed font-medium">
-                Having trouble uploading documents or filling out details? Our support agents are here to assist.
+                Having trouble uploading documents or completing information? Our specialist agents are available to assist.
               </p>
 
               <div className="pt-2 border-t border-white/10">

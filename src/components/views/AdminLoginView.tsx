@@ -49,9 +49,9 @@ export const AdminLoginView: React.FC = () => {
         
         {/* Header Header & Badge */}
         <div className="text-center space-y-3">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-[#036CFB]/15 text-[#38BDF8] border border-[#036CFB]/30 uppercase tracking-widest">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-[11px] font-bold bg-[#036CFB]/15 text-[#38BDF8] border border-[#036CFB]/30 uppercase tracking-wider">
             <ShieldCheck className="w-3.5 h-3.5 text-[#38BDF8]" />
-            <span>PRIVATE ADMIN PORTAL (/admin/login)</span>
+            <span>Administrator Console</span>
           </div>
 
           <div className="w-16 h-16 mx-auto rounded-2xl bg-[#036CFB] text-white flex items-center justify-center font-black text-2xl shadow-xl shadow-[#036CFB]/25">
