@@ -644,6 +644,7 @@ export const PaymentTrackerView: React.FC = () => {
                   isApproved 
                     ? 'bg-emerald-100 text-emerald-700'
                     : app.status === 'Processing' || app.status === 'In Process'
+                    ? 'bg-amber-100 text-amber-700'
                     : 'bg-slate-100 text-slate-500'
                 }`}>
                   {isApproved ? 'Cleared' : app.status === 'Processing' ? 'In Progress' : 'Queued'}
