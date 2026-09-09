@@ -51,7 +51,7 @@ export const ContactView: React.FC = () => {
                   <img src={logoImg} alt="NAS Internationals Logo" className="w-full h-full object-contain" />
                 </div>
                 <h3 className="font-extrabold text-white text-base tracking-tight">Managing Director: N. ABDUL HAKEEM</h3>
-                <p className="text-xs text-[#38BDF8] font-bold">100% ONLINE VISA & TRAVEL SUPPORT</p>
+                <p className="text-xs text-[#38BDF8] font-bold uppercase tracking-wider">Direct Visa & Travel Support</p>
                 <div className="pt-1 flex items-center justify-center space-x-2 text-[11px] font-bold text-slate-300">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                   <span>Instant Response on WhatsApp & Phone</span>
@@ -79,7 +79,7 @@ export const ContactView: React.FC = () => {
                 Online Support & Consultation
               </h2>
               <p className="text-xs sm:text-sm font-medium text-slate-600 leading-relaxed">
-                <strong>Need Help With Visa Services, Air Ticketing, Document Attestation, or Education Consultancy?</strong> All our services are handled 100% digitally. Reach out directly via phone, WhatsApp, or email — zero in-person visits required.
+                <strong>Need Help With Visa Services, Air Ticketing, Document Attestation, or Education Consultancy?</strong> All services are handled electronically. Reach out directly via phone, WhatsApp, or email for prompt assistance.
               </p>
             </div>
 
@@ -135,7 +135,7 @@ export const ContactView: React.FC = () => {
                     </a>
                   </p>
                   <span className="inline-block mt-1 text-[10px] xs:text-[11px] text-sky-700 font-bold bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200">
-                    100% Online Application & Document Upload
+                    Digital Application & Document Upload
                   </span>
                 </div>
               </div>

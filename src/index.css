@@ -142,6 +142,9 @@ body {
   -webkit-tap-highlight-color: transparent;
   min-height: 100dvh;
   -webkit-overflow-scrolling: touch;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 #root {

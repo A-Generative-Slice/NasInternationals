@@ -282,13 +282,13 @@ export const LandingView: React.FC = () => {
         {/* Section Header */}
         <div className="text-center space-y-2 mb-8 sm:mb-12 relative">
           <div className="inline-flex items-center space-x-2 px-3 sm:px-3.5 py-1.5 rounded-full glass-pill text-[#036CFB] text-xs font-bold shadow-xs">
-            <span>OUR 4 APPROVED CORE SERVICES</span>
+            <span>CORE SERVICES</span>
           </div>
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#062544] tracking-tight">
-            Comprehensive Online Visa & Travel Solutions
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#062544] tracking-tight text-balance">
+            Comprehensive Visa & Travel Solutions
           </h2>
-          <p className="text-xs sm:text-sm font-medium text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Digital processing with zero physical visits required. Verified embassy approvals, fast turnarounds, and 24/7 client support.
+          <p className="text-xs sm:text-sm font-medium text-slate-600 max-w-2xl mx-auto leading-relaxed text-pretty">
+            Electronic processing with expedited embassy approvals, fast turnarounds, and dedicated client support.
           </p>
         </div>
 

@@ -62,7 +62,7 @@ export const VisaFinderView: React.FC = () => {
             Interactive Visa Finder & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#036CFB] via-[#0284C7] to-[#38BDF8]">Services</span>
           </h1>
           <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
-            Instant eligibility check, 100% digital processing, and fast-track embassy approvals with zero physical visits.
+            Instant eligibility check, direct document verification, and fast-track embassy approvals.
           </p>
         </div>
 
@@ -182,7 +182,7 @@ export const VisaFinderView: React.FC = () => {
                   <div className="space-y-2 pt-1 sm:pt-2">
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50/90 text-[#036CFB] text-xs font-bold border border-blue-100">
                       <ShieldCheck className="w-3.5 h-3.5 text-[#036CFB]" />
-                      <span>100% Online Application</span>
+                      <span>Digital Document Submission</span>
                     </div>
 
                     <p className="text-xs text-slate-500 flex items-center space-x-1.5 font-medium">

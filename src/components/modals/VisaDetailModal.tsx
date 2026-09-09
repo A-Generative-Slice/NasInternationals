@@ -40,7 +40,7 @@ export const VisaDetailModal: React.FC = () => {
             <span className="text-slate-400 block text-[10px] uppercase font-bold">Application Mode</span>
             <span className="font-display font-extrabold text-[#036CFB] text-xs sm:text-sm flex items-center gap-1.5 mt-1">
               <ShieldCheck className="w-4 h-4 text-[#036CFB] shrink-0" />
-              100% Online Digital
+              Direct Digital Submission
             </span>
           </div>
           <div>

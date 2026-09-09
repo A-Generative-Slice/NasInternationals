@@ -35,7 +35,7 @@ export const AdditionalServiceModals: React.FC = () => {
 
           <div className="space-y-2 text-xs text-slate-700">
             <p className="leading-relaxed font-medium">
-              We manage 100% digital verification and end-to-end apostille services for educational degrees, marriage certificates, birth certificates, and commercial documents.
+              We manage end-to-end document verification and official apostille services for educational degrees, marriage certificates, birth certificates, and commercial documents.
             </p>
             <ul className="space-y-2 pt-1 font-medium">
               <li className="flex items-center space-x-2">
@@ -187,7 +187,7 @@ export const AdditionalServiceModals: React.FC = () => {
 
           <div className="space-y-2 text-xs text-slate-700">
             <p className="leading-relaxed font-medium">
-              Comprehensive academic counseling and 100% digital support for students seeking higher education in top global destinations.
+              Comprehensive academic counseling and dedicated admissions guidance for students seeking higher education in top global destinations.
             </p>
             <ul className="space-y-2 pt-1 font-medium">
               <li className="flex items-center space-x-2">

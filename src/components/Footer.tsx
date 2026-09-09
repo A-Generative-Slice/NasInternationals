@@ -26,13 +26,13 @@ export const Footer: React.FC = () => {
                   NAS INTERNATIONALS
                 </span>
                 <span className="text-[10px] font-bold text-[#38BDF8] uppercase tracking-widest block">
-                  100% ONLINE SERVICES
+                  GLOBAL VISA & TRAVEL SOLUTIONS
                 </span>
               </div>
             </div>
 
             <p className="text-xs text-slate-300 leading-relaxed font-medium max-w-sm">
-              Strictly online portal for Visa Services, Air Ticketing, Document Attestation, and Education Consultancy. Processed 100% digitally from anywhere in the world.
+              Dedicated portal for Visa Services, Air Ticketing, Document Attestation, and Education Consultancy. Expedited electronic processing with dedicated support.
             </p>
 
             {/* Official Contact Info - Exclusively Mobile, Email & Website URL */}
@@ -72,7 +72,7 @@ export const Footer: React.FC = () => {
               <div className="pt-1 flex flex-col gap-1.5">
                 <span className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-bold glass-pill-dark text-[#38BDF8] border border-[#036CFB]/40 shadow-xs">
                   <Globe className="w-3.5 h-3.5 text-[#38BDF8]" />
-                  <span>Strictly Online Service • Zero In-Person Visits Needed</span>
+                  <span>Direct Online Consultation & Worldwide Processing</span>
                 </span>
                 <span className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-bold glass-pill-dark text-emerald-400 border border-emerald-500/30 shadow-xs">
                   <Clock className="w-3.5 h-3.5 text-emerald-400" />
@@ -146,10 +146,10 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-10 mt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 font-medium gap-4">
-          <p>© 2026 NAS INTERNATIONALS. All rights reserved. • Service & Payment Duration: 1 Year</p>
+        <div className="pt-8 mt-10 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 font-medium gap-3">
+          <p>© 2026 NAS INTERNATIONALS. All rights reserved. • Service Validity: 1 Year</p>
           <div className="flex items-center space-x-4 text-[#38BDF8]">
-            <span>100% Digital Operations • Verified Travel & Visa Portal</span>
+            <span>Verified Travel & Consulate Desk</span>
           </div>
         </div>
 

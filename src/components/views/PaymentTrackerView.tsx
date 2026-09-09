@@ -119,9 +119,9 @@ export const PaymentTrackerView: React.FC = () => {
         
         {/* Page Title & Real-Time Tracking Header */}
         <div className="space-y-2 text-center sm:text-left">
-          <div className="inline-flex items-center space-x-2 px-3 sm:px-3.5 py-1.5 rounded-full glass-pill text-[#036CFB] text-xs font-bold shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-[#036CFB] animate-ping"></span>
-            <span>100% Online Real-Time Application Tracking</span>
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-pill text-[#036CFB] text-xs font-bold shadow-xs">
+            <Clock className="w-3.5 h-3.5 text-[#036CFB]" />
+            <span>Real-Time Application Status</span>
           </div>
           <h1 className="font-display text-2xl xs:text-3xl sm:text-4xl font-extrabold text-[#062544] tracking-tight">
             Digital Payment & <span className="blue-gradient-text">Status Tracker</span>
@@ -233,7 +233,7 @@ export const PaymentTrackerView: React.FC = () => {
 
             <div className="p-2.5 sm:p-3 bg-white/70 rounded-2xl border border-slate-200/80 space-y-0.5">
               <span className="text-[10px] sm:text-[11px] text-slate-500 font-semibold block uppercase">Service Mode</span>
-              <span className="font-bold text-[#036CFB] text-xs sm:text-sm">100% Online</span>
+              <span className="font-bold text-[#036CFB] text-xs sm:text-sm">Digital Portal</span>
             </div>
 
             <div className="p-2.5 sm:p-3 bg-white/70 rounded-2xl border border-slate-200/80 space-y-0.5">

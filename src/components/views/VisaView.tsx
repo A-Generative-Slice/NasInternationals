@@ -43,7 +43,7 @@ export const VisaView: React.FC = () => {
       category: 'Express',
       badge: 'Fastest 24H',
       image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80',
-      description: 'Quick 30-day and 60-day e-visas processed 100% online.'
+      description: 'Quick 30-day and 60-day e-visas with express digital turnaround.',
     },
     {
       id: 'japan-evisa',
@@ -99,36 +99,57 @@ export const VisaView: React.FC = () => {
       <div className="ambient-glow-blue bottom-40 left-10"></div>
 
       {/* HERO SECTION */}
-      <section className="relative py-12 sm:py-16 border-b border-white/60">
+      <section className="relative py-10 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
           
           {/* Left Text */}
           <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-pill text-[#036CFB] text-xs font-bold shadow-xs">
-              <span>100% Online Application • Zero In-Person Visits</span>
+              <Globe className="w-3.5 h-3.5 text-[#036CFB]" />
+              <span>Consulate & Embassy Visa Processing</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#062544] tracking-tight leading-[1.15]">
-              Apply for International Visas <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#036CFB] via-[#0284C7] to-[#38BDF8]">100% Online</span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#062544] tracking-tight leading-[1.15] text-balance">
+              Apply for International Visas
             </h1>
-            <p className="text-sm sm:text-base font-bold text-slate-500 max-w-xl mx-auto lg:mx-0">
-              Find Your Next Destination • Instant Document Submission • Zero Office Visits Required
+            <p className="text-sm sm:text-base font-medium text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed text-pretty">
+              Verified tourist, business, and transit visa clearance for over 50 destinations worldwide with direct document submission and status tracking.
             </p>
           </div>
 
-          {/* Right Travel Card Graphic */}
+          {/* Right Travel Highlight Card */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm glass-frost-navy rounded-3xl p-6 text-white border border-white/15 shadow-2xl overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#036CFB]/30 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500"></div>
-              <div className="relative z-10 text-center space-y-3">
-                <div className="w-16 h-16 rounded-2xl bg-white p-1.5 flex items-center justify-center mx-auto shadow-lg shadow-[#036CFB]/30 overflow-hidden">
-                  <img src={logoImg} alt="NAS Internationals Logo" className="w-full h-full object-contain" />
+            <div className="relative w-full max-w-sm glass-frost rounded-3xl p-6 border border-white/80 shadow-xl overflow-hidden group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                  <div className="flex items-center space-x-2.5">
+                    <div className="w-10 h-10 rounded-2xl bg-[#036CFB]/10 flex items-center justify-center text-[#036CFB] shrink-0">
+                      <Plane className="w-5 h-5 transform -rotate-45" />
+                    </div>
+                    <div>
+                      <h3 className="font-extrabold text-sm text-[#062544]">Visa Desk</h3>
+                      <p className="text-[11px] text-slate-500 font-medium">Fast-Track Processing</p>
+                    </div>
+                  </div>
+                  <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                    Active
+                  </span>
                 </div>
-                <h3 className="font-extrabold text-white text-lg tracking-tight">100% Online Visa Process</h3>
-                <p className="text-xs text-slate-300 font-medium leading-relaxed">Digital document submission, fast-track embassy approvals & 24/7 online tracking</p>
-                <div className="pt-2 flex items-center justify-center space-x-2 text-[11px] font-bold text-[#38BDF8]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]"></span>
-                  <span>Trusted by 50,000+ Global Travelers</span>
+
+                <div className="grid grid-cols-2 gap-2.5 text-xs">
+                  <div className="p-3 rounded-2xl bg-white/70 border border-slate-100 space-y-0.5">
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Destinations</span>
+                    <span className="font-extrabold text-[#062544] text-sm">50+ Countries</span>
+                  </div>
+                  <div className="p-3 rounded-2xl bg-white/70 border border-slate-100 space-y-0.5">
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Turnaround</span>
+                    <span className="font-extrabold text-[#036CFB] text-sm">24H – 5 Days</span>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-2xl bg-blue-50/60 border border-blue-100 flex items-center space-x-2.5 text-xs text-[#062544]">
+                  <Check className="w-4 h-4 text-[#036CFB] shrink-0" />
+                  <span className="font-semibold text-[11px]">Embassy verified document compliance guarantee</span>
                 </div>
               </div>
             </div>
@@ -136,9 +157,6 @@ export const VisaView: React.FC = () => {
 
         </div>
       </section>
-
-      {/* SOLID BLUE HORIZONTAL ACCENT DIVIDER BAR */}
-      <div className="w-full h-1 bg-gradient-to-r from-[#036CFB] via-[#38BDF8] to-[#036CFB]"></div>
 
       {/* FILTER & SEARCH BAR ROW */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6 relative z-10">
@@ -245,8 +263,8 @@ export const VisaView: React.FC = () => {
                 <div className="pt-4 border-t border-slate-200/60 flex items-center justify-between gap-3">
                   <div>
                     <span className="text-[10px] uppercase font-bold text-slate-400 block">Application Mode</span>
-                    <span className="text-[11px] font-extrabold text-[#036CFB] bg-blue-50/90 px-2.5 py-1 rounded-md border border-blue-100 inline-block mt-0.5">
-                      100% Online E-Visa
+                    <span className="text-[11px] font-bold text-[#036CFB] bg-blue-50/90 px-2.5 py-0.5 rounded-full border border-blue-100 inline-block mt-0.5">
+                      Electronic Visa
                     </span>
                   </div>
 

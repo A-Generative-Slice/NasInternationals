@@ -20,24 +20,17 @@ export const Header: React.FC = () => {
   return (
     <>
       {/* TOP FLOATING DYNAMIC GLASS ISLAND HEADER */}
-      <header className="sticky top-2 sm:top-4 z-50 px-3 sm:px-6 w-full max-w-7xl mx-auto transition-all">
-        <div className="bg-white/85 backdrop-blur-2xl border border-white/80 shadow-[0_8px_30px_rgba(0,0,0,0.06)] rounded-2xl sm:rounded-full px-3.5 sm:px-6 py-2.5 sm:py-3 transition-all flex items-center justify-between">
+      <header className="sticky top-2.5 sm:top-4 z-50 px-3.5 sm:px-6 w-full max-w-7xl mx-auto transition-all">
+        <div className="bg-white/90 backdrop-blur-2xl border border-white/90 shadow-[0_8px_32px_rgba(0,0,0,0.06)] rounded-full px-3.5 sm:px-5 py-2 sm:py-2.5 transition-all flex items-center justify-between">
           
-          {/* Brand Logo - NAS Internationals */}
-          <div className="flex items-center space-x-2.5 sm:space-x-3 cursor-pointer group" onClick={() => handleNavClick('/')}>
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-white p-1 flex items-center justify-center shadow-md shadow-blue-500/15 border border-slate-100 group-hover:scale-105 transition-all overflow-hidden shrink-0">
-              <img src={logoImg} alt="NAS Internationals Logo" className="w-full h-full object-contain" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display font-black text-base sm:text-xl tracking-tight text-[#062544] flex items-center leading-none">
-                NAS
-                <span className="text-[#036CFB] ml-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100">
-                  Internationals
-                </span>
-              </span>
-              <span className="text-[10px] text-slate-500 font-semibold tracking-wider hidden sm:block mt-0.5">
-                Visa & Travel Services
-              </span>
+          {/* Brand Emblem Logo */}
+          <div 
+            className="flex items-center cursor-pointer group select-none" 
+            onClick={() => handleNavClick('/')}
+            aria-label="NAS Internationals Home"
+          >
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white p-1 flex items-center justify-center shadow-xs border border-slate-200/80 group-hover:scale-105 group-hover:border-[#036CFB]/50 group-hover:shadow-sm transition-all duration-200 overflow-hidden shrink-0">
+              <img src={logoImg} alt="NAS Internationals" className="w-full h-full object-contain" />
             </div>
           </div>
 
@@ -168,14 +161,14 @@ export const Header: React.FC = () => {
           <div className="lg:hidden flex items-center space-x-2">
             <button
               onClick={() => handleNavClick('/apply')}
-              className="px-3.5 py-1.5 min-h-[34px] bg-gradient-to-r from-[#036CFB] to-[#0284C7] text-white font-bold text-xs rounded-full shadow-sm shadow-[#036CFB]/25 active:scale-95 flex items-center"
+              className="px-4 py-1.5 min-h-[36px] bg-[#036CFB] hover:bg-[#0256c7] text-white font-bold text-xs rounded-full shadow-xs active:scale-[0.96] transition-all flex items-center justify-center cursor-pointer"
             >
               Apply
             </button>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-full text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 min-h-[36px] min-w-[36px] flex items-center justify-center cursor-pointer active:scale-95"
+              className="w-9 h-9 rounded-full text-slate-700 bg-slate-100 hover:bg-slate-200/80 border border-slate-200/80 flex items-center justify-center cursor-pointer active:scale-[0.96] transition-all"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -281,7 +274,7 @@ export const Header: React.FC = () => {
       </header>
 
       {/* MOBILE-OPTIMIZED FLOATING DYNAMIC GLASS ISLAND BOTTOM DOCK */}
-      <nav className="fixed bottom-3 left-3 right-3 sm:left-auto sm:right-auto sm:w-[400px] sm:left-1/2 sm:-translate-x-1/2 z-40 lg:hidden bg-white/90 backdrop-blur-2xl border border-white/80 shadow-[0_10px_35px_rgba(0,0,0,0.12)] rounded-2xl sm:rounded-full px-2 py-1 safe-bottom transition-all">
+      <nav className="fixed bottom-3 left-4 right-4 sm:left-auto sm:right-auto sm:w-[380px] sm:left-1/2 sm:-translate-x-1/2 z-40 lg:hidden bg-white/90 backdrop-blur-2xl border border-white/90 shadow-[0_10px_35px_rgba(0,0,0,0.1)] rounded-full px-2.5 py-1.5 safe-bottom transition-all">
         <div className="flex items-center justify-around">
           
           {/* Home */}

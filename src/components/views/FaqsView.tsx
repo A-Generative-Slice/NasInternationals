@@ -9,11 +9,11 @@ export const FaqsView: React.FC = () => {
   const faqs = [
     {
       q: 'How long does e-Visa processing take?',
-      a: 'E-visa processing depends on the country, but most popular tourist e-visas (like Dubai, Thailand, Japan, and Vietnam) are processed within 24 to 72 hours through our 100% online portal.'
+      a: 'E-visa processing depends on the country, but most popular tourist e-visas (like Dubai, Thailand, Japan, and Vietnam) are processed within 24 to 72 hours through our direct digital portal.'
     },
     {
       q: 'Are any in-person visits or physical office appointments required?',
-      a: 'No, absolutely not. NAS Internationals operates as a strictly online service. All applications, document submissions, biometric assistance guidance, and visa issuances are handled 100% digitally. You can complete your entire application from the comfort of your home.'
+      a: 'No, absolutely not. NAS Internationals operates as a strictly online service. All applications, document submissions, biometric assistance guidance, and visa issuances are handled digitally. You can complete your entire application from the comfort of your home.'
     },
     {
       q: 'Can I track my visa application status online?',
@@ -25,7 +25,7 @@ export const FaqsView: React.FC = () => {
     },
     {
       q: 'Can you assist with flight reservations and airline ticketing?',
-      a: 'Yes! We provide complete domestic and international air ticketing across all airlines with instant e-ticket issuance and 24/7 rescheduling assistance, 100% online.'
+      a: 'Yes! We provide complete domestic and international air ticketing across all airlines with instant e-ticket issuance and 24/7 rescheduling assistance.'
     },
     {
       q: 'How does online Document Attestation work?',
