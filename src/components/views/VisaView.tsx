@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Plane, ArrowRight, ShieldCheck, Clock, Check } from 'lucide-react';
+import { Search, Plane, ArrowRight, ShieldCheck, Clock, Check, Globe } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import logoImg from '../../assets/logo.jpg';
 

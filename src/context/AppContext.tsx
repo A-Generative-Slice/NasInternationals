@@ -147,6 +147,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // Custom Router Navigation with Hash routing for static hosts (GitHub Pages)
   const setCurrentView = (view: ViewMode) => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     if (view === 'admin-dashboard' || view === 'admin-login' || view === 'user-dashboard' || view === 'access-denied' || view === 'payment-tracker') {
       window.location.hash = '#/payment';
       setCurrentViewRaw('payment-tracker');

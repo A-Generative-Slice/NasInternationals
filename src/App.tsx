@@ -15,6 +15,11 @@ import { AdditionalServiceModals } from './components/modals/AdditionalServiceMo
 const MainContent: React.FC = () => {
   const { currentView } = useApp();
 
+  // Automatically scroll to top whenever changing sections/views
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [currentView]);
+
   const renderView = () => {
     switch (currentView) {
       case 'home':
