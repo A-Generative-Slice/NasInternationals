@@ -1,111 +1,125 @@
-# NAS INTERNATIONALS — Tours & Travels
+# NAS Internationals — Tours & Travels ✈️🌍
 
-> **100% Online Digital Visa, Passport & Travel Coordination Platform**
+<div align="center">
 
-Welcome to the official web platform for **NAS Internationals Tours & Travels**. This application provides an end-to-end digital travel service portal designed to handle international visa processing, passport consultation, document attestation, and holiday packages with zero physical office visits required.
+[![React 19](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Google GenAI](https://img.shields.io/badge/AI_Assistant-Google_GenAI-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
+[![Supabase](https://img.shields.io/badge/Database-Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
+[![Express](https://img.shields.io/badge/Backend-Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
----
+**100% Online Digital Visa, Passport & Travel Coordination Platform with Real-Time AI Consultation.**
 
-## 🌐 Strictly Online Operations
-
-NAS Internationals operates on a strictly online, remote-first model:
-* **Zero In-Person Visits**: All consultations, document reviews, eligibility checks, and application submissions are handled 100% digitally.
-* **Pan-India & Global Reach**: Applicants from anywhere in India or abroad can submit supporting documents, track status updates, and receive verified e-visas and grant letters online.
-* **Dedicated Help Desk**: Direct real-time support via WhatsApp, phone helpline, and email.
-
----
-
-## 📞 Official Contact Channels
-
-All customer inquiries, document guidance, and status tracking are handled exclusively through:
-
-| Channel | Details |
-| :--- | :--- |
-| **Mobile / WhatsApp** | `+91 99419 00055` |
-| **Email Address** | `info@nasinternationals.com` |
-| **Official Website** | `www.nasinternationals.com` |
+</div>
 
 ---
 
-## 🚀 Key Features
+## 📖 Overview
 
-### 1. Interactive Visa Finder & Eligibility Checker
-* Filter by destination country, applicant nationality, and purpose of travel (Tourist, Business, Student, Employment).
-* Instant turnaround time estimates, mandatory document checklists, and eligibility guidelines.
+**NAS Internationals Tours & Travels** is a full-stack digital travel services platform engineered by **A Generative Slice**. 
 
-### 2. 4-Step Application Wizard
-* **Step 1: Personal Details** — Legal identity matching passport records.
-* **Step 2: Travel Info** — Destination, travel dates, and visa category selection.
-* **Step 3: Document Center** — Drag-and-drop file upload for passport bio-pages, photographs, and financial proofs with client-side validation.
-* **Step 4: Review & Submit** — Application verification with digital confirmation.
+The platform digitizes traditional travel agency workflows—allowing international travelers to apply for tourist and business visas, schedule passport consultations, verify document attestation criteria, and book curated holiday packages completely online with zero physical office visits required.
 
-### 3. Application Tracker & Timeline
-* Real-time multi-stage status tracker: *Submitted ➔ Under Review ➔ High Commission Processing ➔ Visa Approved*.
-* Application switching for users managing multiple travel files.
-* Secure payment confirmation with UPI QR code integration and transaction reference / UTR submission.
-
-### 4. Client Dashboard
-* **My Applications**: View active and past visa files with live status badges.
-* **Document Repository**: Upload supplementary files requested by consular desks.
-* **Tour & Umrah Bookings**: View confirmed itineraries and download booking vouchers.
-* **Electronic Receipts**: Access and download digital tax invoices and service receipts.
-
-### 5. Role-Based Access & Admin Console
-* **Role-Based Protection**: Dual-role architecture (`client` vs `admin`) with automated `HTTP 403 Access Denied` protection barriers for unauthorized routes.
-* **Admin Login Portal** (`/admin/login`): Secure administrator login with math CAPTCHA human verification.
-* **Operational Dashboard** (`/admin/dashboard`): Real-time metrics for active online applications, document verifications, status filters, and applicant dossier inspection.
+Backed by **Google GenAI** and **Supabase**, the system acts as an autonomous digital visa officer that answers country-specific embassy requirements, calculates total processing fees, and tracks application lifecycles in real time.
 
 ---
 
-## 🎨 Design & Brand Identity
+## 🌟 Key Features
 
-* **Color Palette**: Brand Blue (`#036CFB`), Deep Navy (`#062544`, `#0B1E3D`), Sky Accent (`#38BDF8`), and Soft Background Ice Blue (`#EBF3FF`).
-* **Mobile-First Responsive Layout**: Built with Tailwind CSS v4 featuring optimized touch targets, fluid drawer menus, responsive data tables, and high-DPI icons.
+- 🛂 **Automated Visa Fee & Requirement Calculator**: Real-time pricing engine covering over 50 global destinations (Schengen, UAE, UK, US, Singapore, Malaysia, Saudi Arabia, etc.).
+- 🤖 **AI Travel & Visa Consultant**: Embedded conversational AI agent powered by `@google/genai` to analyze applicant circumstances and guide visa documentation.
+- 📂 **Digital Document Vault & Verification**: Secure upload pipeline for passport scans, photographs, and bank statements with pre-submission validation.
+- 🗄️ **Supabase Cloud Sync**: Real-time PostgreSQL database storing customer applications, status timelines (Submitted → Under Embassy Review → Approved), and receipts.
+- 📊 **Administrative Telemetry**: Analytics dashboard built with Recharts visualizing monthly visa volume, revenue metrics, and destination popularity.
+- 📄 **Instant PDF Receipt Generation**: Generates branded payment receipts and tracking confirmation vouchers upon booking.
 
 ---
 
 ## 🛠️ Technology Stack
 
-* **Frontend Framework**: [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
-* **Build Tool**: [Vite 6](https://vitejs.dev/)
-* **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-* **Icons**: [Lucide React](https://lucide.dev/)
-* **Data Visualization**: [Recharts](https://recharts.org/)
-* **Micro-interactions**: [Canvas Confetti](https://www.npmjs.com/package/canvas-confetti)
+| Layer | Technology |
+|---|---|
+| **Frontend** | React 19, TypeScript, Vite 6, Tailwind CSS v4, Motion |
+| **Backend** | Express 4 running TypeScript via `tsx` / bundled with `esbuild` |
+| **Database & Auth** | Supabase (`@supabase/supabase-js`) |
+| **Generative AI** | Google GenAI SDK (`@google/genai`) |
+| **Visualizations** | Recharts & Canvas-Confetti |
+| **Deployment** | GitHub Pages client build / Node.js Express server |
 
 ---
 
-## 💻 Getting Started
+## 📂 Directory Structure
 
-### Prerequisites
-* [Node.js](https://nodejs.org/) (v18.0 or higher recommended)
-* [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-
-### Installation & Run
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/A-Generative-Slice/NasInternationals.git
-   cd NasInternationals
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Build for production:**
-   ```bash
-   npm run build
-   ```
+```
+NasInternationals/
+├── public/                 # Static travel icons and country flags
+├── src/
+│   ├── components/         # VisaCalculator, AIAssistant, Hero, ApplicationTracker
+│   ├── lib/                # Supabase client & GenAI initialization
+│   ├── types/              # TypeScript interfaces for visas, bookings, and users
+│   ├── App.tsx             # Main client application
+│   └── main.tsx            # React root mount
+├── server.ts               # Express backend API server
+├── package.json            # Scripts & dependency definitions
+├── tsconfig.json           # TypeScript configuration
+├── vite.config.ts          # Vite build pipeline
+└── .env.example            # Environment variable specifications
+```
 
 ---
 
-## 📄 License & Ownership
+## ⚙️ Environment Variables
 
-© NAS Internationals Tours & Travels. All rights reserved.
+Create a `.env` file based on `.env.example`:
+
+```env
+# Google Gemini API
+GEMINI_API_KEY=your_gemini_api_key
+
+# Supabase Database
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# Server
+PORT=5000
+```
+
+---
+
+## 🚀 Getting Started
+
+### Local Development
+
+```bash
+# 1. Clone repository
+git clone https://github.com/A-Generative-Slice/NasInternationals.git
+cd NasInternationals
+
+# 2. Install dependencies
+npm install
+
+# 3. Start development server (Client + Server via tsx)
+npm run dev
+```
+
+The application will be accessible at `http://localhost:5173` (Vite) and `http://localhost:5000` (API).
+
+---
+
+## 📜 Available Scripts
+
+| Command | Action |
+|---|---|
+| `npm run dev` | Runs backend API server with TypeScript execution (`tsx server.ts`) |
+| `npm run build:client` | Builds optimized frontend bundle with Vite |
+| `npm run build` | Builds frontend and bundles `server.ts` with `esbuild` into `dist/server.cjs` |
+| `npm run start` | Runs the compiled production server (`node dist/server.cjs`) |
+| `npm run deploy` | Compiles client and deploys to GitHub Pages |
+
+---
+
+## 📄 License & Attribution
+
+Designed and engineered by **A Generative Slice** for **NAS Internationals**.  
+Copyright © 2026 NAS Internationals & A Generative Slice. All rights reserved.
